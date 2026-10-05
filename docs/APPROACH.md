@@ -167,6 +167,16 @@ MediDesk is engineered using a modular, decoupled Single Page Application (SPA) 
   6. Database snapshot and integrity recovery utility (`server/utils/backup.js`).
 - **Resolution:** Tested live IDOR defense probe against the backend confirming HTTP 403 enforcement. Verified production build (`✓ 2583 modules transformed, 0 errors`).
 
+### [2026-10-05 19:50 IST] Entry 8: Core Differentiation, Access Control Matrix & Hackathon Evaluation Flow
+- **Focus:** Established CareGuard's clear differentiation as a privacy-first clinic management platform centered on controlled patient access:
+  1. Prominent Landing Page Positioning: Inscribed primary USP ("CareGuard doesn't just manage patient appointments — it controls who can access patient information, what they can access, and records important access activity") with supporting statement and short motto: "Manage care. Guard information."
+  2. Architecture Sections: Implemented "Why CareGuard?" (4 cards: Secure by Design, Role-Based Access, Patient-Specific Authorization, Transparent Security Monitoring), "Who Can See What?" permission matrix table, and "How CareGuard Is Different" objective competitive comparison table.
+  3. Security Status & Privacy Indicators: Integrated `SecurityStatusBar` across clinical dashboards and added patient privacy indicators.
+  4. Doctor Authorization Flow: Built `AuthorizedRecordAccessModal` providing a 4-step real-time authorization animation and verified physician access badge.
+  5. CareGuard Security Watch: Integrated suspicious access detection banner in Admin Audit Logs with administrator review controls.
+  6. Global Evaluation Guide: Added `HackathonDemoGuide.jsx` providing judges with a 1-click guided 5-step demonstration walkthrough.
+- **Resolution:** Tested 5-step evaluation flow and verified 100% clean production build (`✓ 2587 modules transformed, 0 errors`).
+
 ---
 
 ## 6. Testing, Security Verification & Deployment Record

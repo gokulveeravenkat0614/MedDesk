@@ -217,10 +217,20 @@ export const Landing = () => {
                 </span>
               </h1>
 
-              {/* Supporting Text */}
-              <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                Manage appointments, connect with doctors and protect relevant healthcare information — all in one secure clinic workspace.
-              </p>
+              {/* Primary USP & Supporting Text (Exact Specification) */}
+              <div className="space-y-2">
+                <p className="text-sm sm:text-base text-slate-800 max-w-xl mx-auto lg:mx-0 leading-relaxed font-bold">
+                  CareGuard doesn't just manage patient appointments — it controls who can access patient information, what they can access, and records important access activity.
+                </p>
+                <p className="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                  A privacy-first clinic management platform designed around secure, role-based and patient-specific access.
+                </p>
+                <div className="pt-1">
+                  <span className="text-[11px] font-mono font-black text-primary uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-xl border border-blue-200/60 inline-block">
+                    Manage care. Guard information.
+                  </span>
+                </div>
+              </div>
 
               {/* Primary & Secondary Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
@@ -658,76 +668,249 @@ export const Landing = () => {
 
       </section>
 
-      {/* SECTION: "Protection built into every interaction." (Exact Specification) */}
-      <section id="security" className="py-16 bg-white border-y border-slate-200/80">
+      {/* SECTION 15: "Why CareGuard?" (Exact Specification) */}
+      <section id="why-careguard" className="py-16 bg-white border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <span className="text-[11px] font-black text-primary uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-200/60">
-              Security Architecture
+              Core Architecture
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Protection built into every interaction.
+              Why CareGuard?
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-              Designed with privacy-focused boundaries, role-level isolation, and transparent clinical telemetry.
+              CareGuard is engineered around patient privacy, strict role separation, and verified access control.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            {/* Feature 1 */}
+            {/* Card 1: Secure by Design */}
             <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/70 hover:shadow-lg transition-all space-y-3">
               <div className="w-10 h-10 rounded-2xl bg-blue-50 text-primary flex items-center justify-center">
                 <Lock className="w-5 h-5" />
               </div>
-              <h3 className="text-base font-bold text-slate-900">
-                Role-Based Access
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-1.5">
+                <span>🔐</span>
+                <span>Secure by Design</span>
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Patients, doctors and administrators have different permissions and separate workspaces.
+                Security is integrated directly into authentication, authorization pipelines, API gateways, and patient data retrieval.
               </p>
             </div>
 
-            {/* Feature 2 */}
+            {/* Card 2: Role-Based Access */}
             <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/70 hover:shadow-lg transition-all space-y-3">
               <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                <ShieldCheck className="w-5 h-5" />
+                <Users className="w-5 h-5" />
               </div>
-              <h3 className="text-base font-bold text-slate-900">
-                Authorized Records
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-1.5">
+                <span>👥</span>
+                <span>Role-Based Access</span>
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Doctors only access relevant patient information they are explicitly authorized to view.
+                Patients, doctors, and administrators receive strictly segregated permissions and isolated clinical workspaces.
               </p>
             </div>
 
-            {/* Feature 3 */}
+            {/* Card 3: Patient-Specific Authorization */}
             <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/70 hover:shadow-lg transition-all space-y-3">
               <div className="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
-                <Calendar className="w-5 h-5" />
+                <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="text-base font-bold text-slate-900">
-                Appointment Management
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-1.5">
+                <span>🛡️</span>
+                <span>Patient-Specific Authorization</span>
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Patients and doctors can manage consultations, scheduling, and deconfliction from one platform.
+                Doctors can access only patients and clinical records they are explicitly authorized and scheduled to inspect.
               </p>
             </div>
 
-            {/* Feature 4 */}
+            {/* Card 4: Transparent Security Monitoring */}
             <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/70 hover:shadow-lg transition-all space-y-3">
               <div className="w-10 h-10 rounded-2xl bg-rose-50 text-rose-500 flex items-center justify-center">
                 <Activity className="w-5 h-5" />
               </div>
-              <h3 className="text-base font-bold text-slate-900">
-                Activity Monitoring
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-1.5">
+                <span>🔎</span>
+                <span>Security Monitoring</span>
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Important clinical and access actions are recorded in an immutable security audit history.
+                Important access and administrative activities can be reviewed in real-time through tamper-evident audit trails.
               </p>
             </div>
 
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 5: "Who Can See What?" Visual Permission Matrix (Exact Specification) */}
+      <section id="permissions" className="py-16 bg-[#F8FAFC]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-[11px] font-black text-primary uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-200/60">
+              Access Control Model
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              Who Can See What?
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+              CareGuard implements least-privilege boundaries so that every user receives only the clinical data needed for their workflow.
+            </p>
+          </div>
+
+          {/* Permission Matrix Table */}
+          <div className="glass-panel rounded-3xl border border-slate-200/80 shadow-md overflow-hidden bg-white">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="bg-slate-50 border-b border-slate-200/80 text-slate-600 uppercase text-[10px] font-black tracking-wider">
+                    <th className="py-4 px-6">Information / Action</th>
+                    <th className="py-4 px-6 text-center">Patient Role</th>
+                    <th className="py-4 px-6 text-center">Doctor Role</th>
+                    <th className="py-4 px-6 text-center">Admin Role</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 font-medium text-slate-700">
+                  <tr className="hover:bg-slate-50/60 transition-colors">
+                    <td className="py-3.5 px-6 font-bold text-slate-900">Own Profile</td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">✓</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">✓</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">✓</span></td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60 transition-colors">
+                    <td className="py-3.5 px-6 font-bold text-slate-900">Own Appointments</td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">✓</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">✓</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">✓</span></td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60 transition-colors bg-blue-50/30">
+                    <td className="py-3.5 px-6 font-bold text-slate-900">Assigned Patient Information</td>
+                    <td className="py-3.5 px-6 text-center text-slate-400 font-bold">—</td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">✓</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-block px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold">Controlled</span></td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60 transition-colors">
+                    <td className="py-3.5 px-6 font-bold text-slate-900">Other Patient Information</td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-100 text-rose-700 font-bold text-xs">✗</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-100 text-rose-700 font-bold text-xs">✗</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-block px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold">Controlled</span></td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60 transition-colors">
+                    <td className="py-3.5 px-6 font-bold text-slate-900">Appointment Management</td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-block px-2.5 py-0.5 rounded-full bg-blue-100 text-primary text-[10px] font-bold">Own Only</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-block px-2.5 py-0.5 rounded-full bg-blue-100 text-primary text-[10px] font-bold">Assigned</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">✓</span></td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60 transition-colors">
+                    <td className="py-3.5 px-6 font-bold text-slate-900">User Management</td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-100 text-rose-700 font-bold text-xs">✗</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-100 text-rose-700 font-bold text-xs">✗</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">✓</span></td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60 transition-colors">
+                    <td className="py-3.5 px-6 font-bold text-slate-900">Security & Audit Logs</td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-100 text-rose-700 font-bold text-xs">✗</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-block px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-700 text-[10px] font-bold">Limited</span></td>
+                    <td className="py-3.5 px-6 text-center"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">✓</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="p-4 bg-slate-50/80 border-t border-slate-200 text-center text-slate-500 text-xs">
+              <span className="font-semibold text-slate-700">Least-Privilege Principle Enforced:</span> Users only receive the permissions required for their specific role and clinical workflow.
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 16: "How CareGuard Is Different" (Exact Specification) */}
+      <section id="differentiation" className="py-16 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-[11px] font-black text-primary uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-200/60">
+              Architectural Positioning
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              How CareGuard Is Different
+            </h2>
+            <div className="p-4 rounded-2xl bg-blue-50/90 border border-blue-200/80 text-xs sm:text-sm text-blue-950 font-bold leading-relaxed max-w-2xl mx-auto">
+              "CareGuard differentiates itself by making secure, role-based and patient-specific access control a central part of the clinic workflow."
+            </div>
+          </div>
+
+          {/* Comparison Table */}
+          <div className="glass-panel rounded-3xl border border-slate-200/80 shadow-md overflow-hidden bg-white">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="bg-slate-50 border-b border-slate-200/80 text-slate-600 uppercase text-[10px] font-black tracking-wider">
+                    <th className="py-4 px-6">Functional Area</th>
+                    <th className="py-4 px-6 text-center text-slate-500">Broad Healthcare Platforms</th>
+                    <th className="py-4 px-6 text-center text-primary font-black bg-blue-50/60">CareGuard Security Platform</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-700 font-medium">
+                  <tr className="hover:bg-slate-50/60">
+                    <td className="py-3 px-6 font-bold text-slate-900">Appointment Management</td>
+                    <td className="py-3 px-6 text-center"><span className="text-emerald-600 font-bold">✓ Standard</span></td>
+                    <td className="py-3 px-6 text-center bg-blue-50/30"><span className="text-emerald-600 font-bold">✓ Secure & Deconflicted</span></td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60">
+                    <td className="py-3 px-6 font-bold text-slate-900">Patient Records</td>
+                    <td className="py-3 px-6 text-center"><span className="text-emerald-600 font-bold">✓ Standard</span></td>
+                    <td className="py-3 px-6 text-center bg-blue-50/30"><span className="text-emerald-600 font-bold">✓ Scoped & Authorized</span></td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60">
+                    <td className="py-3 px-6 font-bold text-slate-900">Healthcare Ecosystem</td>
+                    <td className="py-3 px-6 text-center text-slate-500">Often broad marketplace (pharmacy, billing, ads)</td>
+                    <td className="py-3 px-6 text-center bg-blue-50/30 font-bold text-primary">Focused clinic workflow</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60">
+                    <td className="py-3 px-6 font-bold text-slate-900">Role-Based Access</td>
+                    <td className="py-3 px-6 text-center text-slate-500">Varies by deployment</td>
+                    <td className="py-3 px-6 text-center bg-blue-50/30 font-bold text-emerald-700">Core architecture</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60">
+                    <td className="py-3 px-6 font-bold text-slate-900">Patient-Specific Authorization</td>
+                    <td className="py-3 px-6 text-center text-slate-500">Varies by system</td>
+                    <td className="py-3 px-6 text-center bg-blue-50/30 font-bold text-emerald-700">Core architecture</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60">
+                    <td className="py-3 px-6 font-bold text-slate-900">Least-Privilege Model</td>
+                    <td className="py-3 px-6 text-center text-slate-500">Varies</td>
+                    <td className="py-3 px-6 text-center bg-blue-50/30 font-bold text-emerald-700">Core principle</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60">
+                    <td className="py-3 px-6 font-bold text-slate-900">Security Monitoring</td>
+                    <td className="py-3 px-6 text-center text-slate-500">Varies</td>
+                    <td className="py-3 px-6 text-center bg-blue-50/30 font-bold text-primary">Core feature (Security Watch)</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60">
+                    <td className="py-3 px-6 font-bold text-slate-900">Audit Visibility</td>
+                    <td className="py-3 px-6 text-center text-slate-500">Varies / Internal only</td>
+                    <td className="py-3 px-6 text-center bg-blue-50/30 font-bold text-primary">Core feature</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60">
+                    <td className="py-3 px-6 font-bold text-slate-900">Security-Centric UI</td>
+                    <td className="py-3 px-6 text-center text-slate-500">Not always the main focus</td>
+                    <td className="py-3 px-6 text-center bg-blue-50/30 font-bold text-primary">Core experience</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/60">
+                    <td className="py-3 px-6 font-bold text-slate-900">Synthetic Demo Data Sandbox</td>
+                    <td className="py-3 px-6 text-center text-slate-500">Not typical production use</td>
+                    <td className="py-3 px-6 text-center bg-blue-50/30 font-bold text-emerald-700">✓ Strictly Enforced</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
         </div>

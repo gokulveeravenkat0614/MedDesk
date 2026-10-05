@@ -12,6 +12,8 @@ import { StatCard } from '../../components/StatCard';
 import { AppointmentCard } from '../../components/AppointmentCard';
 import { AppointmentSummaryDonut, PatientVitalsOverview } from '../../components/ChartCard';
 import { MedicalRecordCard } from '../../components/MedicalRecordCard';
+import { SecurityStatusBar } from '../../components/SecurityStatusBar';
+import { AuthorizedRecordAccessModal } from '../../components/AuthorizedRecordAccessModal';
 import { Modal } from '../../components/Modal';
 
 export const DoctorDashboard = () => {
@@ -29,6 +31,8 @@ export const DoctorDashboard = () => {
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
   const [showDetailModal, setShowDetailModal] = useState(false);
+  const [selectedAuthorizedRecord, setSelectedAuthorizedRecord] = useState(null);
+  const [showAuthorizedModal, setShowAuthorizedModal] = useState(false);
   
   // Booking Form State
   const [bookingData, setBookingData] = useState({
@@ -121,6 +125,15 @@ export const DoctorDashboard = () => {
           </button>
         </div>
       </div>
+
+      {/* Security Status Bar (Section 3 Specification) */}
+      <SecurityStatusBar
+        recentActivity={[
+          { time: '10:32 AM', event: 'Dr. Arjun Mehta clinical session authenticated', status: 'Verified' },
+          { time: '10:35 AM', event: 'Authorized patient Rahul Kumar record accessed', status: 'Authorized' },
+          { time: '10:40 AM', event: 'Consultation appointment #MD-2026-00124 updated', status: 'Enforced' }
+        ]}
+      />
 
       {/* 3-COLUMN MASTER DASHBOARD GRID (Section 3, 44 & 55) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -275,7 +288,14 @@ export const DoctorDashboard = () => {
 
             <div className="space-y-2.5 mt-3">
               {recentRecords.map((rec) => (
-                <MedicalRecordCard key={rec.id} record={rec} />
+                <MedicalRecordCard
+                  key={rec.id}
+                  record={rec}
+                  onOpenDetail={(record) => {
+                    setSelectedAuthorizedRecord(record);
+                    setShowAuthorizedModal(true);
+                  }}
+                />
               ))}
             </div>
 
@@ -469,6 +489,15 @@ export const DoctorDashboard = () => {
           </form>
         </Modal>
       )}
+
+      {/* Authorized Record Access Modal (Sections 13 & 14) */}
+      <AuthorizedRecordAccessModal
+        isOpen={showAuthorizedModal}
+        onClose={() => setShowAuthorizedModal(false)}
+        record={selectedAuthorizedRecord}
+        doctorName={currentUser?.name || 'Dr. Arjun Mehta'}
+        patientName={selectedAuthorizedRecord?.patientName || 'Rahul Kumar'}
+      />
 
     </div>
   );

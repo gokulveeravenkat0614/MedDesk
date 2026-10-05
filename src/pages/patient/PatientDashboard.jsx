@@ -3,11 +3,13 @@ import { useNavigate, Link } from 'react-router-dom';
 import {
   Calendar, Clock, Heart, Activity, Droplets, ShieldCheck,
   Plus, ChevronRight, Stethoscope, FileText, CheckCircle2,
-  AlertCircle, ArrowUpRight, Thermometer, UserCheck, Sparkles
+  AlertCircle, ArrowUpRight, Thermometer, UserCheck, Sparkles,
+  Lock, Shield
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { AppointmentCard } from '../../components/AppointmentCard';
 import { MedicalRecordCard } from '../../components/MedicalRecordCard';
+import { SecurityStatusBar } from '../../components/SecurityStatusBar';
 
 export const PatientDashboard = () => {
   const { currentUser, appointments, medicalRecords, doctors } = useApp();
@@ -67,6 +69,31 @@ export const PatientDashboard = () => {
           <span>Book Appointment</span>
         </button>
       </div>
+
+      {/* Visible Privacy Indicators Strip (Section 12 Specification) */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="p-3 rounded-2xl bg-blue-50/80 border border-blue-200/70 flex items-center gap-2.5 text-xs text-blue-900 font-semibold shadow-xs">
+          <Lock className="w-4 h-4 text-primary shrink-0" />
+          <span>🔒 Your information is protected.</span>
+        </div>
+        <div className="p-3 rounded-2xl bg-emerald-50/80 border border-emerald-200/70 flex items-center gap-2.5 text-xs text-emerald-900 font-semibold shadow-xs">
+          <Shield className="w-4 h-4 text-emerald-600 shrink-0" />
+          <span>🛡️ Only authorized healthcare professionals can access relevant information.</span>
+        </div>
+        <div className="p-3 rounded-2xl bg-cyan-50/80 border border-cyan-200/70 flex items-center gap-2.5 text-xs text-cyan-900 font-semibold shadow-xs">
+          <CheckCircle2 className="w-4 h-4 text-cyan-600 shrink-0" />
+          <span>✓ Your appointment information is private.</span>
+        </div>
+      </div>
+
+      {/* Security Status Bar (Section 3 Specification) */}
+      <SecurityStatusBar
+        recentActivity={[
+          { time: '10:32 AM', event: 'Cryptographic session authenticated', status: 'Verified' },
+          { time: '10:35 AM', event: 'Authorized patient health record accessed', status: 'Authorized' },
+          { time: '10:40 AM', event: 'Appointment consultation scheduled', status: 'Enforced' }
+        ]}
+      />
 
       {/* Top 4 Statistics Cards: Upcoming Appointments (02), Completed (08), Doctors Consulted (04), Medical Records (06) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

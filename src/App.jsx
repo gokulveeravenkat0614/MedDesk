@@ -6,6 +6,7 @@ import { Navbar } from './components/Navbar';
 import { Sidebar } from './components/Sidebar';
 import { Footer } from './components/Footer';
 import { AIChat } from './components/AIChat';
+import { HackathonDemoGuide } from './components/HackathonDemoGuide';
 
 // Pages
 import { Landing } from './pages/Landing';
@@ -137,6 +138,9 @@ export default function App() {
           {/* Catch-all */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+
+        {/* Global Hackathon Evaluation Guide & IDOR Access Denied Tester */}
+        <HackathonDemoGuide />
       </BrowserRouter>
     </AppProvider>
   );

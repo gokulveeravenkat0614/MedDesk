@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { Modal } from '../../components/Modal';
+import { SecurityWatchAlert } from '../../components/SecurityWatchAlert';
 
 const INITIAL_AUDIT_LOGS = [
   {
@@ -336,6 +337,9 @@ export const AuditLogs = () => {
         </div>
 
       </div>
+
+      {/* CareGuard Security Watch: Suspicious Access Detection (Section 9 Specification) */}
+      <SecurityWatchAlert onInspectAudit={() => setSearchTerm('CROSS_PATIENT_ACCESS_BLOCKED')} />
 
       {/* Main Filter & Table Container */}
       <div className="glass-panel rounded-3xl p-6 border border-white/90 shadow-glass space-y-4">
