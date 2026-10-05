@@ -129,6 +129,12 @@ MediDesk is engineered using a modular, decoupled Single Page Application (SPA) 
 - **Decision:** Built a custom synthetic vector anatomical silhouette with animated scanning pulses and interactive hotspot callouts linking to real-time vital metrics.
 - **Trade-off:** High visual fidelity with lightweight SVG footprint; zero third-party heavy 3D engine overhead.
 
+### ADR-003: Google Stitch AI Integration for Healthcare Design System & Screen Architecture
+- **Status:** Accepted
+- **Context:** To ensure uncompromising visual hierarchy, high-density clinical clarity, and alignment between cybersecurity telemetry and outpatient healthcare workflows, a formal design system and high-fidelity prototypes were required.
+- **Decision:** Integrated Google Stitch AI via MCP to author a dedicated project (`CareGuard - Secure Clinic & Appointment Management`, ID: `9329458851443732436`) with custom design tokens (`#0B63F6` security blue, `#06B6D4` clinical cyan, `#0B1736` deep clinical navy, and `#F4F8FC` cool slate canvas).
+- **Result:** Generated three core screens and branded assets providing definitive styling guidelines for patient portals, doctor consultation desks, and security operations centers.
+
 ---
 
 ## 5. Engineering Journal & Real-Time Decision Log
@@ -177,6 +183,14 @@ MediDesk is engineered using a modular, decoupled Single Page Application (SPA) 
   6. Global Evaluation Guide: Added `HackathonDemoGuide.jsx` providing judges with a 1-click guided 5-step demonstration walkthrough.
 - **Resolution:** Tested 5-step evaluation flow and verified 100% clean production build (`✓ 2587 modules transformed, 0 errors`).
 
+### [2026-10-05 21:30 IST] Entry 9: Google Stitch AI Design System & Screen Generation
+- **Focus:** Created dedicated Google Stitch project `projects/9329458851443732436` ("CareGuard - Secure Clinic & Appointment Management") via MCP and generated high-density cybersecurity clinical screens:
+  1. **CareGuard — Patient Appointment & Care Portal** (Screen ID: `b3294386435645849aac07cf4890477f`): Multi-step clinic booking engine, patient-controlled doctor access authorization toggles with auto-expiry windows, QR check-in tokens, and authorized doctor permission ledger.
+  2. **CareGuard — Doctor Consultation & Decision Desk** (Screen ID: `0a126006280243cb8b90550ea95c0f9b`): Clinical triage queue, cryptographic consent scope banner with live countdown, 12-lead ECG waveform trace, signed lab biomarkers, encrypted prescription pad, and audit-logged break-glass controls.
+  3. **CareGuard — Security Operations & Zero-Trust Audit Center** (Screen ID: `8d5280e35e344d3f958ea093782e6030`): SOC view with 4 real-time security KPI cards, high-density immutable audit stream with RFC-9162 Merkle verification, and 3-tier RBAC policy matrix.
+  4. **CareGuard Brand Mark & Iconography** (Screen ID: `752b8d18aaf94d1a8b09e8b54c32de25`).
+- **Resolution:** Stitch project and design tokens linked into repository architecture documentation. Verified live frontend and backend health.
+
 ---
 
 ## 6. Testing, Security Verification & Deployment Record
@@ -185,3 +199,4 @@ MediDesk is engineered using a modular, decoupled Single Page Application (SPA) 
 - **Build Verification:** Tested with `npm run build` using Vite production bundler.
 - **State Integrity:** LocalStorage sync validated for appointment creation, rescheduling, cancellation, and medical record saving.
 - **Access Audit Verification:** Confirmed that every medical record contains tamper-evident access log history.
+
