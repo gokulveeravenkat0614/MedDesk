@@ -1,0 +1,41 @@
+[
+  {
+    "id": "LOG-014763",
+    "timestamp": "2026-10-05 14:03:34",
+    "category": "RBAC Enforcement",
+    "event": "IDOR_CROSS_PATIENT_ACCESS_BLOCKED",
+    "severity": "danger",
+    "actor": "patient@careguard.demo",
+    "role": "patient",
+    "target": "Patient ID pat-3",
+    "ip": "::1",
+    "status": "Blocked",
+    "details": "Patient 'patient@careguard.demo' attempted unauthorized horizontal privilege escalation to inspect patient record 'pat-3'."
+  },
+  {
+    "id": "LOG-014750",
+    "timestamp": "2026-10-05 14:03:34",
+    "category": "Record Access",
+    "event": "PATIENT_PROFILE_READ",
+    "severity": "info",
+    "actor": "patient@careguard.demo",
+    "role": "patient",
+    "target": "Patient Profile pat-1",
+    "ip": "::1",
+    "status": "Authorized",
+    "details": "Authorized read of patient demographic profile for 'Gokul'."
+  },
+  {
+    "id": "LOG-014704",
+    "timestamp": "2026-10-05 14:03:34",
+    "category": "Authentication",
+    "event": "AUTH_LOGIN_SUCCESS",
+    "severity": "success",
+    "actor": "patient@careguard.demo",
+    "role": "patient",
+    "target": "CareGuard Security Gateway",
+    "ip": "::1",
+    "status": "Authorized",
+    "details": "User authenticated successfully with cryptographic JWT token. Role: patient."
+  }
+]

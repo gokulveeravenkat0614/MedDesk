@@ -157,6 +157,16 @@ MediDesk is engineered using a modular, decoupled Single Page Application (SPA) 
 - **Focus:** Implemented dedicated `DoctorSchedule.jsx` with Monday–Saturday weekly slots (09:00 AM – 05:00 PM), interactive availability toggles, and status filters. Developed `AuditLogs.jsx` featuring the "Security Monitoring Active" zero-trust banner, simulated cross-tenant access probe interceptor, and chronological audit entries. Polished `PatientDashboard.jsx` with personalized greeting ("Good Morning, Gokul 👋"), top metrics (02 Upcoming, 08 Completed, 04 Doctors, 06 Records), and 4 biometric vital cards with decorative SVG sparklines.
 - **Resolution:** Verified zero build errors via Vite, registered routes `/doctor/schedule` and `/admin/audit-logs`, and integrated navigation links in `Sidebar.jsx`.
 
+### [2026-10-05 19:30 IST] Entry 7: Comprehensive Multi-Layer Security Architecture (Backend & Frontend)
+- **Focus:** Implemented a full-stack, production-grade security architecture:
+  1. Express Security Gateway on port 5000 with Helmet (CSP, HSTS), CORS, cookie-parser, and anti-brute force rate limiting.
+  2. Cryptographic authentication pipeline using salted bcrypt(12) password hashing and signed JWT access & refresh tokens.
+  3. Server-side RBAC and IDOR barrier ensuring patients cannot query unowned records (`GET /api/patients/:id` strictly returns 403 Forbidden with security audit logging).
+  4. Immutable security audit logging recording actor identity, network IP, target resource, and severity to `server/data/audit_logs.json`.
+  5. Dedicated Security Center page (`SecurityCenter.jsx`) with live telemetry, active session management, MFA status, password change modal, and an interactive IDOR defense test suite.
+  6. Database snapshot and integrity recovery utility (`server/utils/backup.js`).
+- **Resolution:** Tested live IDOR defense probe against the backend confirming HTTP 403 enforcement. Verified production build (`✓ 2583 modules transformed, 0 errors`).
+
 ---
 
 ## 6. Testing, Security Verification & Deployment Record

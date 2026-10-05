@@ -1,0 +1,47 @@
+[
+  {
+    "id": "MD-2026-00124",
+    "patientId": "pat-1",
+    "patientName": "Gokul",
+    "doctorId": "doc-1",
+    "doctorName": "Dr. Arjun Mehta",
+    "doctorSpecialty": "General Physician",
+    "date": "2026-10-05",
+    "time": "10:30 AM",
+    "type": "General Consultation",
+    "status": "Upcoming",
+    "fee": "$60",
+    "symptoms": "Routine cardiovascular and biometric health checkup",
+    "notes": "Patient requesting telemetry vitals review"
+  },
+  {
+    "id": "MD-2026-00125",
+    "patientId": "pat-2",
+    "patientName": "Rahul Kumar",
+    "doctorId": "doc-1",
+    "doctorName": "Dr. Arjun Mehta",
+    "doctorSpecialty": "General Physician",
+    "date": "2026-10-05",
+    "time": "12:00 PM",
+    "type": "Follow-up Visit",
+    "status": "Upcoming",
+    "fee": "$60",
+    "symptoms": "Mild respiratory allergy follow-up",
+    "notes": "Prescription refill evaluation"
+  },
+  {
+    "id": "MD-2026-00126",
+    "patientId": "pat-4",
+    "patientName": "Aditya Rao",
+    "doctorId": "doc-1",
+    "doctorName": "Dr. Arjun Mehta",
+    "doctorSpecialty": "General Physician",
+    "date": "2026-10-05",
+    "time": "02:30 PM",
+    "type": "Routine Checkup",
+    "status": "Completed",
+    "fee": "$60",
+    "symptoms": "Annual physical examination",
+    "notes": "Normal sinus rhythm, BP stable"
+  }
+]

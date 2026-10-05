@@ -1,0 +1,51 @@
+[
+  {
+    "id": "doc-1",
+    "name": "Dr. Arjun Mehta",
+    "specialty": "General Physician",
+    "experience": "8 years",
+    "qualification": "MBBS, MD (Internal Medicine)",
+    "languages": [
+      "English",
+      "Hindi",
+      "Telugu"
+    ],
+    "availability": "Available Today",
+    "rating": 4.9,
+    "status": "active",
+    "department": "Outpatient Care",
+    "consultationFee": "$60"
+  },
+  {
+    "id": "doc-2",
+    "name": "Dr. Priya Sharma",
+    "specialty": "Cardiologist",
+    "experience": "10 years",
+    "qualification": "MBBS, DM (Cardiology)",
+    "languages": [
+      "English",
+      "Hindi"
+    ],
+    "availability": "Available Tomorrow",
+    "rating": 4.8,
+    "status": "active",
+    "department": "Cardiology",
+    "consultationFee": "$90"
+  },
+  {
+    "id": "doc-3",
+    "name": "Dr. Rahul Verma",
+    "specialty": "Dermatologist",
+    "experience": "6 years",
+    "qualification": "MBBS, MD (Dermatology)",
+    "languages": [
+      "English",
+      "Hindi"
+    ],
+    "availability": "Available Today",
+    "rating": 4.7,
+    "status": "active",
+    "department": "Dermatology",
+    "consultationFee": "$75"
+  }
+]

@@ -27,6 +27,7 @@ import { AdminPatients } from './pages/admin/AdminPatients';
 import { AdminDoctors } from './pages/admin/AdminDoctors';
 import { AdminAppointments } from './pages/admin/AdminAppointments';
 import { AuditLogs } from './pages/admin/AuditLogs';
+import { SecurityCenter } from './pages/SecurityCenter';
 import { Settings } from './pages/Settings';
 
 // Protected Route and Main Layout Wrapper
@@ -126,6 +127,9 @@ export default function App() {
           <Route path="/admin/doctors" element={<MainLayout><AdminDoctors /></MainLayout>} />
           <Route path="/admin/appointments" element={<MainLayout><AdminAppointments /></MainLayout>} />
           <Route path="/admin/audit-logs" element={<MainLayout><AuditLogs /></MainLayout>} />
+
+          {/* Security Center Route */}
+          <Route path="/security-center" element={<MainLayout><SecurityCenter /></MainLayout>} />
 
           {/* Settings Route */}
           <Route path="/settings" element={<MainLayout><Settings /></MainLayout>} />

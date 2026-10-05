@@ -1,0 +1,55 @@
+[
+  {
+    "id": "rec-2041",
+    "patientId": "pat-1",
+    "patientName": "Gokul",
+    "doctorId": "doc-1",
+    "doctorName": "Dr. Arjun Mehta",
+    "doctorSpecialty": "General Physician",
+    "recordType": "Lab Report",
+    "subType": "Comprehensive Blood Chemistry",
+    "date": "Oct 05, 2026",
+    "title": "Routine Health Metabolic Panel",
+    "summary": "Fasting glucose 92 mg/dL, Total Cholesterol 175 mg/dL, Kidney Function optimal.",
+    "diagnosis": "Healthy Normal Assessment",
+    "accessStatus": "Authorized Access",
+    "authorizedDoctors": [
+      "doc-1",
+      "doc-2"
+    ],
+    "accessLogs": [
+      {
+        "doctorName": "Dr. Arjun Mehta",
+        "action": "Authorized clinical review",
+        "timestamp": "2026-10-05 10:32 AM",
+        "ip": "192.168.1.42 (Clinic VLAN)"
+      }
+    ]
+  },
+  {
+    "id": "rec-2042",
+    "patientId": "pat-2",
+    "patientName": "Rahul Kumar",
+    "doctorId": "doc-1",
+    "doctorName": "Dr. Arjun Mehta",
+    "doctorSpecialty": "General Physician",
+    "recordType": "Prescription",
+    "subType": "Outpatient Prescription",
+    "date": "Oct 04, 2026",
+    "title": "Seasonal Allergy Relief",
+    "summary": "Cetirizine 10mg once daily for 10 days.",
+    "diagnosis": "Allergic Rhinitis",
+    "accessStatus": "Authorized Access",
+    "authorizedDoctors": [
+      "doc-1"
+    ],
+    "accessLogs": [
+      {
+        "doctorName": "Dr. Arjun Mehta",
+        "action": "Prescription formulated",
+        "timestamp": "2026-10-04 03:15 PM",
+        "ip": "192.168.1.42 (Clinic VLAN)"
+      }
+    ]
+  }
+]

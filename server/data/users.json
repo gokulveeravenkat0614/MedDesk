@@ -1,0 +1,45 @@
+[
+  {
+    "id": "usr-pat-1",
+    "email": "patient@careguard.demo",
+    "passwordHash": "$2b$12$pzPcaB0c7myXVsOrpXJs5enzb0Wqhjz7VusKy9f4ZIerNqu2l0bai",
+    "name": "Gokul",
+    "role": "patient",
+    "patientId": "pat-1",
+    "mfaEnabled": true,
+    "mfaSecret": "CGMFA2026",
+    "failedAttempts": 0,
+    "lockUntil": null,
+    "createdAt": "2026-10-05T08:00:00Z",
+    "lastLogin": "2026-10-05T14:03:34.691Z"
+  },
+  {
+    "id": "usr-doc-1",
+    "email": "doctor@careguard.demo",
+    "passwordHash": "$2b$12$pzPcaB0c7myXVsOrpXJs5enzb0Wqhjz7VusKy9f4ZIerNqu2l0bai",
+    "name": "Dr. Arjun Mehta",
+    "role": "doctor",
+    "doctorId": "doc-1",
+    "specialty": "General Physician",
+    "mfaEnabled": true,
+    "mfaSecret": "CGMFA2026",
+    "failedAttempts": 0,
+    "lockUntil": null,
+    "createdAt": "2026-10-05T08:00:00Z",
+    "lastLogin": "2026-10-05T11:40:00Z"
+  },
+  {
+    "id": "usr-adm-1",
+    "email": "admin@careguard.demo",
+    "passwordHash": "$2b$12$pzPcaB0c7myXVsOrpXJs5enzb0Wqhjz7VusKy9f4ZIerNqu2l0bai",
+    "name": "SecOps Administrator",
+    "role": "admin",
+    "adminId": "adm-1",
+    "mfaEnabled": true,
+    "mfaSecret": "CGMFA2026",
+    "failedAttempts": 0,
+    "lockUntil": null,
+    "createdAt": "2026-10-05T08:00:00Z",
+    "lastLogin": "2026-10-05T11:45:00Z"
+  }
+]

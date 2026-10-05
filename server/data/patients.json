@@ -1,0 +1,85 @@
+[
+  {
+    "id": "pat-1",
+    "name": "Gokul",
+    "email": "patient@careguard.demo",
+    "phone": "+91 98765 43210",
+    "dob": "1998-04-12",
+    "gender": "Male",
+    "bloodGroup": "O+",
+    "emergencyContact": "Demo Emergency Contact (+91 98765 00000)",
+    "address": "VBIT Academic Campus, Hyderabad",
+    "allergies": [
+      "Penicillin",
+      "Peanuts"
+    ],
+    "chronicConditions": [
+      "None"
+    ],
+    "assignedDoctors": [
+      "doc-1",
+      "doc-2"
+    ]
+  },
+  {
+    "id": "pat-2",
+    "name": "Rahul Kumar",
+    "email": "rahul.kumar@synthetic.demo",
+    "phone": "+91 98765 43211",
+    "dob": "1996-08-15",
+    "gender": "Male",
+    "bloodGroup": "B+",
+    "emergencyContact": "Demo Guardian (+91 98765 11111)",
+    "address": "Madhapur Healthcare District, Hyderabad",
+    "allergies": [
+      "Dust mites"
+    ],
+    "chronicConditions": [
+      "Mild Asthma"
+    ],
+    "assignedDoctors": [
+      "doc-1"
+    ]
+  },
+  {
+    "id": "pat-3",
+    "name": "Priya Sharma",
+    "email": "priya.sharma@synthetic.demo",
+    "phone": "+91 98765 43212",
+    "dob": "1994-11-22",
+    "gender": "Female",
+    "bloodGroup": "A+",
+    "emergencyContact": "Demo Spouse (+91 98765 22222)",
+    "address": "Gachibowli Cyber Enclave, Hyderabad",
+    "allergies": [
+      "Sulfa drugs"
+    ],
+    "chronicConditions": [
+      "None"
+    ],
+    "assignedDoctors": [
+      "doc-2"
+    ]
+  },
+  {
+    "id": "pat-4",
+    "name": "Aditya Rao",
+    "email": "aditya.rao@synthetic.demo",
+    "phone": "+91 98765 43213",
+    "dob": "1988-01-30",
+    "gender": "Male",
+    "bloodGroup": "AB+",
+    "emergencyContact": "Demo Brother (+91 98765 33333)",
+    "address": "Banjara Hills, Hyderabad",
+    "allergies": [
+      "None"
+    ],
+    "chronicConditions": [
+      "Hypertension"
+    ],
+    "assignedDoctors": [
+      "doc-1",
+      "doc-3"
+    ]
+  }
+]
