@@ -2,7 +2,7 @@ export const INITIAL_DOCTORS = [
   {
     id: "doc-1",
     name: "Dr. Arjun Mehta",
-    email: "doctor@medidesk.demo",
+    email: "doctor@careguard.demo",
     role: "doctor",
     specialty: "General Physician",
     department: "Internal Medicine",
@@ -22,7 +22,7 @@ export const INITIAL_DOCTORS = [
   {
     id: "doc-2",
     name: "Dr. Priya Sharma",
-    email: "priya.sharma@medidesk.demo",
+    email: "priya.sharma@careguard.demo",
     role: "doctor",
     specialty: "Cardiologist",
     department: "Cardiology",
@@ -42,7 +42,7 @@ export const INITIAL_DOCTORS = [
   {
     id: "doc-3",
     name: "Dr. Rahul Verma",
-    email: "rahul.verma@medidesk.demo",
+    email: "rahul.verma@careguard.demo",
     role: "doctor",
     specialty: "Dermatologist",
     department: "Dermatology",
@@ -62,7 +62,7 @@ export const INITIAL_DOCTORS = [
   {
     id: "doc-4",
     name: "Dr. Ananya Rao",
-    email: "ananya.rao@medidesk.demo",
+    email: "ananya.rao@careguard.demo",
     role: "doctor",
     specialty: "Neurologist",
     department: "Neurosciences",

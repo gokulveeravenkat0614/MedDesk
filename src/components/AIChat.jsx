@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
   MessageSquare, Sparkles, X, Send, Bot, User,
-  HelpCircle, ShieldAlert, ArrowRight
+  HelpCircle, ShieldAlert, ArrowRight, ShieldCheck
 } from 'lucide-react';
+import { CareGuardLogo } from './CareGuardLogo';
 
 const PREDEFINED_QA = [
   {
     trigger: "How do I book an appointment?",
-    answer: "To book an appointment: Navigate to 'Find Doctors' or click 'Book an Appointment' from the dashboard. Select your preferred physician, choose an available date and time slot, select your consultation type, and confirm!"
+    answer: "To book an appointment: Navigate to 'Find Doctors' or click 'Book Appointment' from your dashboard. Select your physician, choose an available date and time slot, choose your consultation type, and confirm!"
   },
   {
     trigger: "How can I cancel my appointment?",
@@ -19,11 +20,11 @@ const PREDEFINED_QA = [
   },
   {
     trigger: "What does blood pressure 120/80 mean?",
-    answer: "120/80 mmHg represents standard adult blood pressure. '120' is systolic pressure (arterial pressure when the heart beats) and '80' is diastolic pressure (pressure when resting between beats). Values within this range are generally considered clinically optimal."
+    answer: "120/80 mmHg represents standard adult resting blood pressure. '120' is systolic pressure (arterial pressure when the heart beats) and '80' is diastolic pressure (pressure between beats). Values within this range are considered clinically normal."
   },
   {
     trigger: "Is my patient data private?",
-    answer: "MediDesk operates strictly with synthetic simulated test data for hackathon demonstrations. Zero real protected health information (PHI) is collected or stored."
+    answer: "CareGuard operates strictly with synthetic simulated test data for hackathon demonstrations. Zero real protected health information (PHI) is collected or stored."
   }
 ];
 
@@ -32,7 +33,7 @@ export const AIChat = () => {
   const [messages, setMessages] = useState([
     {
       sender: 'bot',
-      text: "Hello! I am MediDesk AI, your clinic navigation assistant. How can I help you today?",
+      text: "Hello! I am CareGuard AI, your clinic navigation assistant. How can I help you today?",
       time: 'Just now'
     }
   ]);
@@ -60,7 +61,7 @@ export const AIChat = () => {
 
     // Predefined AI response matching logic
     setTimeout(() => {
-      let botResponse = "I can help guide you through MediDesk! You can ask about booking or cancelling appointments, finding doctors, or viewing synthetic medical records.";
+      let botResponse = "I can help guide you through CareGuard! You can ask about booking or cancelling appointments, finding doctors, or viewing synthetic medical records.";
       
       const qLower = query.toLowerCase();
       if (qLower.includes('book') || qLower.includes('schedule')) {
@@ -74,7 +75,7 @@ export const AIChat = () => {
       } else if (qLower.includes('privacy') || qLower.includes('hipaa') || qLower.includes('security')) {
         botResponse = PREDEFINED_QA[4].answer;
       } else if (qLower.includes('diagnos') || qLower.includes('cure') || qLower.includes('pain') || qLower.includes('illness')) {
-        botResponse = "MediDesk AI is strictly an administrative and informational assistant and cannot provide medical diagnosis or treatment advice. Please consult an authorized clinic physician for medical concerns.";
+        botResponse = "CareGuard AI is strictly an administrative and informational assistant and cannot provide medical diagnosis or treatment advice. Please consult an authorized clinic physician for medical concerns.";
       }
 
       setMessages(prev => [
@@ -85,20 +86,20 @@ export const AIChat = () => {
           time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         }
       ]);
-    }, 400);
+    }, 350);
   };
 
   return (
     <>
-      {/* Floating CTA Button (Section 32 specification) */}
+      {/* Floating CTA Button (CareGuard AI) */}
       <div className="fixed bottom-6 right-6 z-40">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-blue-600 hover:to-sky-500 text-white font-bold text-xs shadow-xl shadow-blue-500/30 hover:scale-105 active:scale-95 transition-all duration-200 border border-white/30"
-          aria-label="Ask MediDesk AI"
+          className="flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-primary via-blue-600 to-secondary hover:from-blue-600 hover:to-sky-500 text-white font-bold text-xs shadow-xl shadow-blue-500/30 hover:scale-105 active:scale-95 transition-all duration-200 border border-white/30"
+          aria-label="CareGuard AI"
         >
           <Sparkles className="w-4 h-4 animate-spin-slow" />
-          <span>Ask MediDesk AI</span>
+          <span>CareGuard AI</span>
         </button>
       </div>
 
@@ -109,14 +110,12 @@ export const AIChat = () => {
           {/* Header */}
           <div className="p-4 bg-gradient-to-r from-primary to-blue-600 text-white flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center">
-                <Bot className="w-4 h-4 text-white" />
-              </div>
+              <CareGuardLogo size="sm" />
               <div>
-                <h4 className="text-xs font-bold leading-none">MediDesk Assistant</h4>
+                <h4 className="text-xs font-bold leading-none">CareGuard AI Assistant</h4>
                 <span className="text-[10px] text-blue-100 flex items-center gap-1 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  Online • Smart Guidance
+                  Your CareGuard Assistant
                 </span>
               </div>
             </div>
@@ -129,11 +128,11 @@ export const AIChat = () => {
             </button>
           </div>
 
-          {/* Medical Disclaimer Banner (Strict Section 32 rule) */}
+          {/* Medical Disclaimer Banner */}
           <div className="px-3 py-2 bg-amber-50 border-b border-amber-200/60 flex items-center gap-2 text-[10px] text-amber-800 font-medium">
             <ShieldAlert className="w-3.5 h-3.5 text-amber-600 shrink-0" />
             <span>
-              MediDesk AI provides general navigation guidance. It is not a clinical diagnosis tool.
+              CareGuard AI provides general navigation guidance. It is not a clinical diagnosis tool.
             </span>
           </div>
 
@@ -145,65 +144,74 @@ export const AIChat = () => {
                 className={`flex gap-2.5 ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 {m.sender === 'bot' && (
-                  <div className="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-xl bg-blue-100 text-primary flex items-center justify-center shrink-0 mt-0.5">
                     <Bot className="w-3.5 h-3.5" />
                   </div>
                 )}
+
                 <div
-                  className={`p-3 rounded-2xl max-w-[80%] leading-relaxed ${
+                  className={`max-w-[80%] p-3 rounded-2xl ${
                     m.sender === 'user'
-                      ? 'bg-primary text-white rounded-br-none shadow-xs'
-                      : 'bg-white text-slate-700 border border-slate-200/80 rounded-bl-none shadow-xs'
+                      ? 'bg-primary text-white rounded-tr-none shadow-sm shadow-blue-500/20'
+                      : 'bg-white text-slate-800 rounded-tl-none border border-slate-100 shadow-xs'
                   }`}
                 >
-                  <p>{m.text}</p>
-                  <span className={`text-[9px] mt-1 block text-right ${
-                    m.sender === 'user' ? 'text-blue-100' : 'text-slate-400'
-                  }`}>
+                  <p className="leading-relaxed">{m.text}</p>
+                  <span
+                    className={`text-[9px] mt-1 block ${
+                      m.sender === 'user' ? 'text-blue-100' : 'text-slate-400'
+                    }`}
+                  >
                     {m.time}
                   </span>
                 </div>
+
+                {m.sender === 'user' && (
+                  <div className="w-7 h-7 rounded-xl bg-slate-200 text-slate-700 flex items-center justify-center shrink-0 mt-0.5">
+                    <User className="w-3.5 h-3.5" />
+                  </div>
+                )}
               </div>
             ))}
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Suggested Quick Question Chips */}
-          <div className="p-2 border-t border-slate-100 bg-white">
-            <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-1 mb-1">
-              Suggested Questions
-            </div>
-            <div className="flex gap-1.5 overflow-x-auto pb-1 no-scrollbar">
-              {PREDEFINED_QA.slice(0, 3).map((item, i) => (
-                <button
-                  key={i}
-                  onClick={() => handleSend(item.trigger)}
-                  className="px-2.5 py-1 rounded-xl bg-slate-100 hover:bg-blue-50 hover:text-primary text-[11px] font-medium text-slate-600 whitespace-nowrap transition-colors shrink-0"
-                >
-                  {item.trigger}
-                </button>
-              ))}
-            </div>
+          {/* Quick Prompt Suggestions */}
+          <div className="p-2 bg-white border-t border-slate-100 flex gap-1.5 overflow-x-auto">
+            {PREDEFINED_QA.map((qa, i) => (
+              <button
+                key={i}
+                onClick={() => handleSend(qa.trigger)}
+                className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-blue-50 hover:text-primary text-[10px] font-medium text-slate-600 whitespace-nowrap transition-colors"
+              >
+                {qa.trigger}
+              </button>
+            ))}
           </div>
 
-          {/* Input Box */}
-          <div className="p-3 border-t border-slate-100 bg-white flex items-center gap-2">
+          {/* Message Input Bar */}
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSend();
+            }}
+            className="p-3 bg-white border-t border-slate-100 flex items-center gap-2"
+          >
             <input
               type="text"
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="Ask a question..."
-              className="flex-1 px-3 py-2 text-xs rounded-xl bg-slate-100 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-slate-800"
+              placeholder="Ask CareGuard AI about appointments..."
+              className="flex-1 px-3 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
             />
             <button
-              onClick={() => handleSend()}
-              disabled={!inputVal.trim()}
-              className="p-2 rounded-xl bg-primary hover:bg-primary-hover disabled:opacity-50 text-white transition-colors"
+              type="submit"
+              className="p-2 rounded-xl bg-primary hover:bg-primary-hover text-white transition-colors"
+              aria-label="Send message"
             >
-              <Send className="w-3.5 h-3.5" />
+              <Send className="w-4 h-4" />
             </button>
-          </div>
+          </form>
 
         </div>
       )}

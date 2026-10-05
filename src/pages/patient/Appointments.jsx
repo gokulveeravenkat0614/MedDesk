@@ -452,7 +452,7 @@ export const PatientAppointments = () => {
                 Booking Confirmed!
               </h3>
               <p className="text-xs text-slate-500 mt-1">
-                Your consultation has been booked and scheduled in MediDesk.
+                Your consultation has been booked and scheduled in CareGuard.
               </p>
             </div>
 

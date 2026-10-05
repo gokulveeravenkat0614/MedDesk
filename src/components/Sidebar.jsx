@@ -70,7 +70,7 @@ export const Sidebar = ({ isMobileOpen, onCloseMobile }) => {
           {/* Mobile Header with close button */}
           <div className="flex items-center justify-between p-4 lg:hidden border-b border-slate-100">
             <span className="font-extrabold text-lg text-slate-800">
-              Medi<span className="text-primary">Desk</span>
+              Care<span className="text-primary">Guard</span>
             </span>
             <button
               onClick={onCloseMobile}

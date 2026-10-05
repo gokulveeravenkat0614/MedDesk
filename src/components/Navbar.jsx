@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { NotificationDropdown } from './NotificationDropdown';
+import { CareGuardLogo } from './CareGuardLogo';
 
 export const Navbar = ({ onToggleMobileSidebar }) => {
   const { currentUser, logout, switchRole, patients, doctors, appointments, medicalRecords } = useApp();
@@ -86,17 +87,7 @@ export const Navbar = ({ onToggleMobileSidebar }) => {
             </button>
 
             <Link to={getDashboardLink()} className="flex items-center gap-2.5 group">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-primary to-secondary flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform duration-200">
-                <Activity className="w-5 h-5 text-white stroke-[2.5]" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-xl tracking-tight text-slate-900 leading-none">
-                  Medi<span className="text-primary font-black">Desk</span>
-                </span>
-                <span className="text-[10px] text-slate-500 font-medium tracking-wide uppercase mt-0.5">
-                  Secure Clinic Management
-                </span>
-              </div>
+              <CareGuardLogo size="md" showText={true} />
             </Link>
           </div>
 

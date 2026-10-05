@@ -5,13 +5,13 @@ import { INITIAL_MEDICAL_RECORDS } from '../data/medicalRecords';
 import { INITIAL_NOTIFICATIONS } from '../data/notifications';
 
 const STORAGE_KEYS = {
-  PATIENTS: 'medidesk_patients',
-  DOCTORS: 'medidesk_doctors',
-  APPOINTMENTS: 'medidesk_appointments',
-  RECORDS: 'medidesk_records',
-  NOTIFICATIONS: 'medidesk_notifications',
-  CURRENT_USER: 'medidesk_current_user',
-  VERSION: 'medidesk_store_version_1.0'
+  PATIENTS: 'careguard_patients',
+  DOCTORS: 'careguard_doctors',
+  APPOINTMENTS: 'careguard_appointments',
+  RECORDS: 'careguard_records',
+  NOTIFICATIONS: 'careguard_notifications',
+  CURRENT_USER: 'careguard_current_user',
+  VERSION: 'careguard_store_version_2.0'
 };
 
 // Seed or retrieve from localStorage
@@ -107,7 +107,7 @@ export const getCurrentUser = () => {
     const defaultUser = {
       id: "doc-1",
       name: "Dr. Arjun Mehta",
-      email: "doctor@medidesk.demo",
+      email: "doctor@careguard.demo",
       role: "doctor",
       specialty: "General Physician",
       avatar: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=300&auto=format&fit=crop&q=80"

@@ -11,10 +11,10 @@ export const DemoBanner = () => {
         <div className="flex items-center gap-2">
           <span className="flex items-center gap-1.5 bg-blue-500/20 text-blue-300 font-semibold px-2 py-0.5 rounded-full border border-blue-400/30 tracking-wide uppercase text-[10px]">
             <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
-            SYNTHETIC DEMO DATA
+            CareGuard Synthetic Demo Data
           </span>
           <span className="hidden sm:inline text-slate-300">
-            For demonstration & evaluation purposes only • Zero real patient health information
+            All patient, doctor and medical information shown in this application is fictional and used only for demonstration purposes.
           </span>
         </div>
 

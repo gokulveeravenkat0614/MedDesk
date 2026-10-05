@@ -1,7 +1,7 @@
 # Project Approach & Architecture — Build Secure 24
 
 **Team ID:** 23A  
-**Project Name:** MediDesk — Secure Clinic & Appointment Management (CareGuard Architecture)  
+**Project Name:** CareGuard — Secure Clinic & Appointment Management  
 **Team Size:** 2 Members (Gokul Veera Venkat & Vaishnavi)  
 **Primary Track / Domain:** Secure Healthcare Information Systems & Outpatient Clinic Orchestration  
 
@@ -12,7 +12,7 @@
 ### 1.1 Problem Statement & Real-World Motivation
 Modern outpatient clinics frequently suffer from fragmented appointment systems, lack of clear role segregation between clinical and administrative staff, and accidental exposure of sensitive patient health records. Conversely, clinical providers need real-time, at-a-glance biometric visualization to rapidly triage consultations. 
 
-**MediDesk** delivers an enterprise-grade, secure clinic and appointment management platform. It addresses this challenge by providing:
+**CareGuard** delivers an enterprise-grade, secure clinic and appointment management platform. It addresses this challenge by providing:
 - Role-based separation for **Patients**, **Doctors**, and **Clinic Administrators**.
 - Strict synthetic data isolation to prevent real Protected Health Information (PHI) exposure.
 - Interactive multi-system human anatomical diagnostics for clinical triage.
@@ -144,6 +144,10 @@ MediDesk is engineered using a modular, decoupled Single Page Application (SPA) 
 ### [2026-10-05 13:05 IST] Entry 3: Standalone Doctor Profile View & Route Extension
 - **Focus:** Implemented standalone `DoctorProfile.jsx` page and registered routes `/patient/doctors/:id` and `/patient/doctor/:id` to fulfill Section 20 specifications alongside the directory modal.
 - **Resolution:** Verified production build with 0 warnings, ensuring full parity between modal preview and deep-linkable doctor profile page.
+
+### [2026-10-05 14:55 IST] Entry 4: Unified Rebranding Migration to CareGuard
+- **Focus:** Migrated complete application identity from MediDesk to CareGuard. Engineered custom medical cross + shield logo (`CareGuardLogo.jsx`), updated browser titles, headers, footers, AI assistant branding (`CareGuard AI`), login demo access cards, and synthetic data notices.
+- **Resolution:** Eliminated all obsolete brand strings across components, data models, and storage schemas; verified zero bundle errors via Vite.
 
 ---
 

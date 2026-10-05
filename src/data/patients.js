@@ -2,7 +2,7 @@ export const INITIAL_PATIENTS = [
   {
     id: "pat-1",
     name: "Rahul Kumar",
-    email: "patient@medidesk.demo",
+    email: "patient@careguard.demo",
     role: "patient",
     age: 28,
     gender: "Male",
@@ -72,7 +72,7 @@ export const INITIAL_PATIENTS = [
   {
     id: "pat-3",
     name: "Aditya Rao",
-    email: "aditya.rao@medidesk.demo",
+    email: "aditya.rao@careguard.demo",
     role: "patient",
     age: 45,
     gender: "Male",
@@ -107,7 +107,7 @@ export const INITIAL_PATIENTS = [
   {
     id: "pat-4",
     name: "Sneha Reddy",
-    email: "sneha.reddy@medidesk.demo",
+    email: "sneha.reddy@careguard.demo",
     role: "patient",
     age: 24,
     gender: "Female",
@@ -142,7 +142,7 @@ export const INITIAL_PATIENTS = [
   {
     id: "pat-5",
     name: "Kiran Patel",
-    email: "kiran.patel@medidesk.demo",
+    email: "kiran.patel@careguard.demo",
     role: "patient",
     age: 38,
     gender: "Male",

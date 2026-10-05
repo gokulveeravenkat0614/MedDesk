@@ -154,7 +154,7 @@ export const Settings = () => {
                 <div className="text-xs">
                   <h4 className="font-bold text-slate-800">Simulated HIPAA / GDPR Architecture</h4>
                   <p className="text-slate-600 mt-1 leading-relaxed">
-                    MediDesk isolates patient record visibility exclusively to authorized attending physicians and designated system auditors. All interactions append to immutable audit trails.
+                    CareGuard isolates patient record visibility exclusively to authorized attending physicians and designated system auditors. All interactions append to immutable audit trails.
                   </p>
                 </div>
               </div>

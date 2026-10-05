@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
-  Activity, ShieldCheck, Lock, Mail, Eye, EyeOff,
-  UserCheck, Stethoscope, ShieldAlert, ArrowRight, CheckCircle2
+  ShieldCheck, Lock, Mail, Eye, EyeOff,
+  UserCheck, Stethoscope, ShieldAlert, ArrowRight, CheckCircle2,
+  Activity, FileText
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { loginWithCredentials, loginWithRole } from '../utils/auth';
+import { CareGuardLogo } from '../components/CareGuardLogo';
 
 export const Login = () => {
   const [role, setRole] = useState('doctor');
-  const [email, setEmail] = useState('doctor@medidesk.demo');
+  const [email, setEmail] = useState('doctor@careguard.demo');
   const [password, setPassword] = useState('demo123');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -19,11 +21,11 @@ export const Login = () => {
   const handleRoleChange = (newRole) => {
     setRole(newRole);
     if (newRole === 'patient') {
-      setEmail('patient@medidesk.demo');
+      setEmail('patient@careguard.demo');
     } else if (newRole === 'doctor') {
-      setEmail('doctor@medidesk.demo');
+      setEmail('doctor@careguard.demo');
     } else if (newRole === 'admin') {
-      setEmail('admin@medidesk.demo');
+      setEmail('admin@careguard.demo');
     }
   };
 
@@ -43,7 +45,7 @@ export const Login = () => {
       } else {
         navigate('/doctor/dashboard');
       }
-    }, 400);
+    }, 350);
   };
 
   const handleFastDemoLogin = (selectedRole) => {
@@ -68,45 +70,52 @@ export const Login = () => {
           <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none" />
           
           <div>
-            <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shadow-md">
-                <Activity className="w-6 h-6 text-white stroke-[2.5]" />
-              </div>
-              <div>
-                <h1 className="text-xl font-extrabold tracking-tight">MediDesk</h1>
-                <p className="text-[10px] text-blue-200 font-medium tracking-wide uppercase">
-                  CareGuard Architecture
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-10 space-y-4">
-              <h2 className="text-2xl font-black leading-snug tracking-tight">
-                Secure Clinic & Clinical Appointment Management
-              </h2>
-              <p className="text-xs text-blue-100 leading-relaxed">
-                A unified medical workspace with simulated privacy controls, live biometrics visualization, and role-based workflows for healthcare providers and patients.
-              </p>
+            <div className="flex items-center gap-3">
+              <CareGuardLogo size="lg" showText={true} textLight={true} />
             </div>
 
             <div className="mt-8 space-y-3">
-              <div className="flex items-center gap-2.5 text-xs text-blue-100">
-                <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0" />
-                <span>Zero real PHI — 100% Synthetic Demo Data</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-xs text-blue-100">
-                <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0" />
-                <span>Simulated Role-Based Access Controls</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-xs text-blue-100">
-                <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0" />
-                <span>Interactive Anatomical Diagnostics</span>
+              <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold bg-white/15 text-blue-100 border border-white/20 uppercase tracking-wider">
+                CareGuard Demo
+              </span>
+              <h2 className="text-2xl font-black leading-snug tracking-tight">
+                Your Care. Your Appointments. Protected.
+              </h2>
+              <p className="text-xs text-blue-100 leading-relaxed">
+                A modern healthcare clinic workspace with simulated privacy controls, live biometrics visualization, and role-based workflows for clinical providers and patients.
+              </p>
+            </div>
+
+            {/* Security Section: Protected by CareGuard */}
+            <div className="mt-8 p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md space-y-2.5">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-emerald-300" />
+                <span>Protected by CareGuard</span>
+              </h3>
+              <div className="space-y-1.5 text-xs text-blue-100 font-medium">
+                <div className="flex items-center gap-2">
+                  <span>🔐</span>
+                  <span>Role-Based Access (Patient, Doctor, Admin)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span>🛡</span>
+                  <span>Authorized Patient Records</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span>📋</span>
+                  <span>Activity Monitoring & Audit Logging</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span>🔒</span>
+                  <span>Secure Sessions & Synthetic Data Isolation</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-10 pt-4 border-t border-white/20 text-[11px] text-blue-200">
-            <span>Build Secure 24 Hackathon Edition • Abhedya Forum</span>
+          <div className="mt-8 pt-4 border-t border-white/20 text-[11px] text-blue-200 flex items-center justify-between">
+            <span>Build Secure 24 Edition</span>
+            <span>Abhedya Forum</span>
           </div>
         </div>
 
@@ -116,19 +125,19 @@ export const Login = () => {
             <div className="flex items-center justify-between pb-4">
               <div>
                 <h3 className="text-xl font-black text-slate-900 tracking-tight">
-                  Welcome to MediDesk
+                  Welcome to CareGuard
                 </h3>
                 <p className="text-xs text-slate-500 mt-0.5">
-                  Sign in to access your authorized medical portal
+                  Your Care. Your Appointments. Protected.
                 </p>
               </div>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-primary border border-blue-200/60 uppercase">
-                Demo Access
+              <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-primary border border-blue-200/60 uppercase">
+                CareGuard Demo
               </span>
             </div>
 
-            {/* Role Selector Tabs (Section 7 specification) */}
-            <div className="mt-4 p-1 rounded-2xl bg-slate-100/90 grid grid-cols-3 gap-1">
+            {/* Role Selector Tabs */}
+            <div className="mt-3 p-1 rounded-2xl bg-slate-100/90 grid grid-cols-3 gap-1">
               <button
                 type="button"
                 onClick={() => handleRoleChange('patient')}
@@ -180,7 +189,7 @@ export const Login = () => {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="name@medidesk.demo"
+                    placeholder="name@careguard.demo"
                     className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
                   />
                 </div>
@@ -193,7 +202,7 @@ export const Login = () => {
                   </label>
                   <button
                     type="button"
-                    onClick={() => showToast('Demo Mode: Any password accepted', 'info')}
+                    onClick={() => showToast('Demo Mode: Any password accepted for MVP demo', 'info')}
                     className="text-[11px] text-primary hover:underline"
                   >
                     Forgot password?
@@ -220,17 +229,8 @@ export const Login = () => {
                 </div>
               </div>
 
-              {/* Demo Credentials Box */}
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-[11px] text-slate-600 space-y-1">
-                <span className="font-bold text-slate-700 block">Demo Access Hint:</span>
-                <div className="flex justify-between text-slate-500 font-mono text-[10px]">
-                  <span>Email: {email}</span>
-                  <span>Pass: any</span>
-                </div>
-              </div>
-
               {/* Submit Buttons */}
-              <div className="space-y-2 pt-2">
+              <div className="space-y-2 pt-1">
                 <button
                   type="submit"
                   disabled={isLoading}
@@ -245,15 +245,39 @@ export const Login = () => {
                     </>
                   )}
                 </button>
+              </div>
 
-                {/* Instant Fast Demo Login */}
-                <button
-                  type="button"
-                  onClick={() => handleFastDemoLogin(role)}
-                  className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-primary text-xs font-bold transition-all text-center"
-                >
-                  Continue as Demo {role.charAt(0).toUpperCase() + role.slice(1)}
-                </button>
+              {/* CareGuard Demo Access (Explicit Section requirement) */}
+              <div className="pt-2">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">
+                    CareGuard Demo Access
+                  </span>
+                  <span className="text-[10px] text-slate-400">One-click fast login</span>
+                </div>
+                <div className="grid grid-cols-3 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => handleFastDemoLogin('patient')}
+                    className="py-2 px-2 rounded-xl bg-slate-100 hover:bg-blue-50 hover:text-primary text-slate-700 text-[11px] font-bold transition-all text-center border border-slate-200/60"
+                  >
+                    Continue as Patient
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleFastDemoLogin('doctor')}
+                    className="py-2 px-2 rounded-xl bg-slate-100 hover:bg-blue-50 hover:text-primary text-slate-700 text-[11px] font-bold transition-all text-center border border-slate-200/60"
+                  >
+                    Continue as Doctor
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleFastDemoLogin('admin')}
+                    className="py-2 px-2 rounded-xl bg-slate-100 hover:bg-blue-50 hover:text-primary text-slate-700 text-[11px] font-bold transition-all text-center border border-slate-200/60"
+                  >
+                    Continue as Admin
+                  </button>
+                </div>
               </div>
             </form>
           </div>

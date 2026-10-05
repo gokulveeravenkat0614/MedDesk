@@ -14,7 +14,7 @@ export const PatientProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     name: patientData.name || 'Rahul Kumar',
-    email: patientData.email || 'patient@medidesk.demo',
+    email: patientData.email || 'patient@careguard.demo',
     phone: patientData.phone || '+91 98765 43210',
     age: patientData.age || 28,
     gender: patientData.gender || 'Male',

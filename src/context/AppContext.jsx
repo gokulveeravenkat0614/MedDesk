@@ -65,7 +65,7 @@ export const AppProvider = ({ children }) => {
       type: data.type || 'General Consultation',
       status: 'Upcoming',
       symptoms: data.symptoms || 'General clinical review',
-      notes: data.notes || 'Created via MediDesk booking wizard',
+      notes: data.notes || 'Created via CareGuard booking wizard',
       priority: data.priority || 'Normal',
       fee: data.fee || '$60',
       authorizedForDoctor: true,

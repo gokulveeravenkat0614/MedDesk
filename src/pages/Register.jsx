@@ -5,11 +5,12 @@ import {
   Lock, ArrowRight, CheckCircle2, HeartPulse
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import { CareGuardLogo } from '../components/CareGuardLogo';
 
 export const Register = () => {
   const [formData, setFormData] = useState({
     fullName: 'Rahul Kumar',
-    email: 'rahul.kumar@medidesk.demo',
+    email: 'rahul.kumar@careguard.demo',
     phone: '+91 98765 43210',
     dob: '1998-05-14',
     gender: 'Male',
@@ -48,7 +49,7 @@ export const Register = () => {
 
       loginUser(newPatientUser);
       setIsLoading(false);
-      showToast('Account created successfully! Welcome to MediDesk.');
+      showToast('Account created successfully! Welcome to CareGuard.');
       navigate('/patient/dashboard');
     }, 400);
   };
@@ -60,8 +61,8 @@ export const Register = () => {
         
         {/* Header */}
         <div className="text-center max-w-md mx-auto mb-8">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white shadow-md mx-auto mb-3">
-            <Activity className="w-6 h-6 stroke-[2.5]" />
+          <div className="flex justify-center mb-3">
+            <CareGuardLogo size="lg" />
           </div>
           <h2 className="text-2xl font-black text-slate-900 tracking-tight">
             Create Patient Account
