@@ -13,6 +13,7 @@ import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { DoctorDashboard } from './pages/doctor/DoctorDashboard';
 import { DoctorAppointments } from './pages/doctor/DoctorAppointments';
+import { DoctorSchedule } from './pages/doctor/DoctorSchedule';
 import { Patients } from './pages/doctor/Patients';
 import { DoctorRecords } from './pages/doctor/DoctorRecords';
 import { PatientDashboard } from './pages/patient/PatientDashboard';
@@ -25,6 +26,7 @@ import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { AdminPatients } from './pages/admin/AdminPatients';
 import { AdminDoctors } from './pages/admin/AdminDoctors';
 import { AdminAppointments } from './pages/admin/AdminAppointments';
+import { AuditLogs } from './pages/admin/AuditLogs';
 import { Settings } from './pages/Settings';
 
 // Protected Route and Main Layout Wrapper
@@ -105,6 +107,7 @@ export default function App() {
           {/* Doctor Routes */}
           <Route path="/doctor/dashboard" element={<MainLayout><DoctorDashboard /></MainLayout>} />
           <Route path="/doctor/appointments" element={<MainLayout><DoctorAppointments /></MainLayout>} />
+          <Route path="/doctor/schedule" element={<MainLayout><DoctorSchedule /></MainLayout>} />
           <Route path="/doctor/patients" element={<MainLayout><Patients /></MainLayout>} />
           <Route path="/doctor/records" element={<MainLayout><DoctorRecords /></MainLayout>} />
 
@@ -122,6 +125,7 @@ export default function App() {
           <Route path="/admin/patients" element={<MainLayout><AdminPatients /></MainLayout>} />
           <Route path="/admin/doctors" element={<MainLayout><AdminDoctors /></MainLayout>} />
           <Route path="/admin/appointments" element={<MainLayout><AdminAppointments /></MainLayout>} />
+          <Route path="/admin/audit-logs" element={<MainLayout><AuditLogs /></MainLayout>} />
 
           {/* Settings Route */}
           <Route path="/settings" element={<MainLayout><Settings /></MainLayout>} />

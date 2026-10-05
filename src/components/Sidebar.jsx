@@ -29,6 +29,7 @@ export const Sidebar = ({ isMobileOpen, onCloseMobile }) => {
         { name: 'Patients Directory', path: '/admin/patients', icon: Users },
         { name: 'Doctors Directory', path: '/admin/doctors', icon: Stethoscope },
         { name: 'All Appointments', path: '/admin/appointments', icon: Calendar },
+        { name: 'Audit Logs', path: '/admin/audit-logs', icon: ShieldAlert },
         { name: 'Settings & Security', path: '/settings', icon: Settings },
       ];
     }
@@ -37,6 +38,7 @@ export const Sidebar = ({ isMobileOpen, onCloseMobile }) => {
     return [
       { name: 'Overview', path: '/doctor/dashboard', icon: LayoutDashboard },
       { name: 'Appointments', path: '/doctor/appointments', icon: Calendar },
+      { name: 'My Schedule', path: '/doctor/schedule', icon: Clock },
       { name: 'Patients', path: '/doctor/patients', icon: Users },
       { name: 'Records', path: '/doctor/records', icon: FileText },
       { name: 'Settings', path: '/settings', icon: Settings },
