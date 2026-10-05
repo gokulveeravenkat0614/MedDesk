@@ -17,16 +17,16 @@ export const CareGuardLogo = ({
 
   return (
     <div className={`flex items-center gap-2.5 ${className}`}>
-      {/* Healthcare + Protection Shield-Cross Emblem */}
+      {/* Healthcare + Cybersecurity Shield-Cross Emblem */}
       <div
-        className={`${currentSize.box} rounded-2xl bg-gradient-to-tr from-[#1677FF] via-[#1D82FF] to-[#38BDF8] flex items-center justify-center shadow-md shadow-blue-500/25 p-1 relative overflow-hidden shrink-0 group-hover:scale-105 transition-transform duration-200`}
+        className={`${currentSize.box} rounded-2xl bg-gradient-to-tr from-[#0B63F6] via-[#0284C7] to-[#06B6D4] flex items-center justify-center shadow-sm shadow-[#0B63F6]/20 p-1 relative overflow-hidden shrink-0 group-hover:scale-105 transition-transform duration-200`}
       >
-        {/* Ambient sheen */}
+        {/* Subtle ambient sheen */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent pointer-events-none" />
 
         <svg
           viewBox="0 0 32 32"
-          className="w-full h-full drop-shadow-sm"
+          className="w-full h-full drop-shadow-xs"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -50,8 +50,8 @@ export const CareGuardLogo = ({
             strokeLinejoin="round"
           />
 
-          {/* Core Security Node Dot */}
-          <circle cx="16" cy="16" r="1.6" fill="#38BDF8" />
+          {/* Core Security Cyan Node Dot */}
+          <circle cx="16" cy="16" r="1.6" fill="#22D3EE" />
         </svg>
       </div>
 
@@ -59,13 +59,13 @@ export const CareGuardLogo = ({
         <div className="flex flex-col">
           <span
             className={`font-black tracking-tight leading-none ${currentSize.text} ${
-              textLight ? 'text-white' : 'text-slate-900'
+              textLight ? 'text-white' : 'text-[#0B1736]'
             }`}
           >
-            Care<span className="text-[#1677FF]">Guard</span>
+            Care<span className="text-[#0B63F6]">Guard</span>
           </span>
           <span
-            className={`font-medium tracking-wide uppercase mt-0.5 ${currentSize.sub} ${
+            className={`font-semibold tracking-wide uppercase mt-1 ${currentSize.sub} ${
               textLight ? 'text-blue-100' : 'text-slate-500'
             }`}
           >

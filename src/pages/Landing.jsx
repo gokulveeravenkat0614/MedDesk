@@ -121,7 +121,7 @@ export const Landing = () => {
             <span className="text-slate-400 hidden sm:inline text-[11px] font-medium">Demo Access:</span>
             <button
               onClick={() => handleFastDemoLogin('doctor')}
-              className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-[#1677FF] text-white shadow-xs hover:bg-blue-600 transition-colors flex items-center gap-1"
+              className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-[#0B63F6] text-white shadow-xs hover:bg-blue-600 transition-colors flex items-center gap-1"
             >
               <Stethoscope className="w-3 h-3" />
               Doctor
@@ -201,17 +201,18 @@ export const Landing = () => {
             <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
               
               {/* Small Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-[#1677FF] text-[11px] font-black uppercase tracking-widest shadow-xs">
-                <ShieldCheck className="w-4 h-4 text-[#1677FF]" />
-                <span>SECURE HEALTHCARE PLATFORM</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-[#0B63F6] text-[11px] font-black uppercase tracking-widest shadow-xs">
+                <ShieldCheck className="w-4 h-4 text-[#0B63F6]" />
+                <span>CYBERSECURITY HEALTHCARE PLATFORM</span>
               </div>
 
               {/* Large Heading */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#102A43] tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B1736] tracking-tight leading-[1.08]">
                 Your Care.<br />
-                <span className="text-[#1677FF] relative inline-block">
-                  Guarded.
-                  <svg className="absolute -bottom-2 left-0 w-full h-3 text-sky-400/50" viewBox="0 0 100 12" preserveAspectRatio="none" fill="currentColor">
+                Your Appointments.<br />
+                <span className="text-[#0B63F6] relative inline-block">
+                  Protected.
+                  <svg className="absolute -bottom-2 left-0 w-full h-3 text-cyan-400/50" viewBox="0 0 100 12" preserveAspectRatio="none" fill="currentColor">
                     <path d="M0,8 Q50,0 100,8 L100,12 Q50,4 0,12 Z" />
                   </svg>
                 </span>
@@ -219,15 +220,22 @@ export const Landing = () => {
 
               {/* Primary USP & Supporting Text (Exact Specification) */}
               <div className="space-y-2">
+                <div className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold tracking-wide border border-slate-200">
+                  Secure Clinic & Appointment Management
+                </div>
                 <p className="text-sm sm:text-base text-slate-800 max-w-xl mx-auto lg:mx-0 leading-relaxed font-bold">
                   CareGuard doesn't just manage patient appointments — it controls who can access patient information, what they can access, and records important access activity.
                 </p>
                 <p className="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                   A privacy-first clinic management platform designed around secure, role-based and patient-specific access.
                 </p>
-                <div className="pt-1">
-                  <span className="text-[11px] font-mono font-black text-primary uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-xl border border-blue-200/60 inline-block">
+                <div className="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                  <span className="text-[11px] font-mono font-bold text-[#0B63F6] uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-xl border border-blue-200/60 inline-block">
                     Manage care. Guard information.
+                  </span>
+                  <span className="text-[11px] font-mono font-bold text-emerald-700 uppercase tracking-wider bg-emerald-50 px-3 py-1 rounded-xl border border-emerald-200/60 inline-flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 security-dot-active" />
+                    Security Active
                   </span>
                 </div>
               </div>
@@ -238,7 +246,7 @@ export const Landing = () => {
                   onClick={() => {
                     document.getElementById('roles')?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-[#1677FF] hover:bg-blue-600 text-white font-bold text-sm shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-200 flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-[#0B63F6] hover:bg-blue-600 text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all duration-200 flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <span>Enter CareGuard →</span>
                 </button>
@@ -283,8 +291,8 @@ export const Landing = () => {
                 {/* Central Digital Security Shield with Medical Cross & Decorative ECG Waveform */}
                 <div className="relative z-10 flex flex-col items-center">
                   
-                  <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-3xl bg-gradient-to-tr from-[#1677FF] via-[#1D82FF] to-[#38BDF8] p-1.5 shadow-2xl shadow-blue-500/35 flex items-center justify-center group animate-pulse duration-1000">
-                    <div className="w-full h-full rounded-[20px] bg-gradient-to-b from-blue-600/90 to-blue-800/95 flex flex-col items-center justify-center relative overflow-hidden p-4">
+                  <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-3xl bg-gradient-to-tr from-[#0B63F6] via-[#0284C7] to-[#06B6D4] p-1.5 shadow-2xl shadow-blue-500/35 flex items-center justify-center group animate-pulse duration-1000">
+                    <div className="w-full h-full rounded-[20px] bg-gradient-to-b from-blue-600/90 to-[#0B1736] flex flex-col items-center justify-center relative overflow-hidden p-4">
                       
                       {/* Shield background silhouette */}
                       <svg
@@ -299,7 +307,7 @@ export const Landing = () => {
                       <div className="relative w-16 h-16 flex items-center justify-center">
                         <div className="absolute w-14 h-4 bg-white rounded-full shadow-lg shadow-white/40" />
                         <div className="absolute w-4 h-14 bg-white rounded-full shadow-lg shadow-white/40" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#38BDF8] z-10 animate-ping" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#22D3EE] z-10 animate-ping" />
                       </div>
 
                       {/* Subtle Decorative Heartbeat Waveform (Non-Clinical Indicator) */}

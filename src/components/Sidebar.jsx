@@ -67,7 +67,7 @@ export const Sidebar = ({ isMobileOpen, onCloseMobile }) => {
 
       {/* Sidebar Container */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 w-64 glass-panel border-r border-white/80 bg-white/80 backdrop-blur-2xl transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 ${
+        className={`fixed top-0 bottom-0 left-0 z-50 w-64 bg-white border-r border-slate-200/80 shadow-xs transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 ${
           isMobileOpen ? 'translate-x-0' : '-translate-x-full'
         } flex flex-col justify-between`}
       >
@@ -75,7 +75,7 @@ export const Sidebar = ({ isMobileOpen, onCloseMobile }) => {
           {/* Mobile Header with close button */}
           <div className="flex items-center justify-between p-4 lg:hidden border-b border-slate-100">
             <span className="font-extrabold text-lg text-slate-800">
-              Care<span className="text-primary">Guard</span>
+              Care<span className="text-[#0B63F6]">Guard</span>
             </span>
             <button
               onClick={onCloseMobile}
@@ -86,21 +86,21 @@ export const Sidebar = ({ isMobileOpen, onCloseMobile }) => {
           </div>
 
           {/* User Role Card inside sidebar */}
-          <div className="p-4 m-3 rounded-2xl bg-gradient-to-br from-blue-50/80 to-indigo-50/60 border border-blue-100/80 shadow-xs">
+          <div className="p-3.5 m-3 rounded-2xl bg-slate-50 border border-slate-200/70 shadow-xs">
             <div className="flex items-center gap-3">
               <img
                 src={currentUser?.avatar || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100"}
                 alt={currentUser?.name || "User"}
-                className="w-10 h-10 rounded-xl object-cover ring-2 ring-primary/20 shadow-xs"
+                className="w-10 h-10 rounded-xl object-cover ring-2 ring-[#0B63F6]/20 shadow-xs"
               />
               <div className="min-w-0 flex-1">
-                <p className="text-xs font-bold text-slate-800 truncate">
+                <p className="text-xs font-bold text-slate-900 truncate">
                   {currentUser?.name || 'Guest User'}
                 </p>
-                <div className="flex items-center gap-1 mt-0.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span className="text-[10px] font-semibold text-primary uppercase tracking-wider">
-                    {currentUser?.role || 'Guest'}
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 security-dot-active"></span>
+                  <span className="text-[10px] font-bold text-[#0B63F6] uppercase tracking-wider">
+                    {currentUser?.role === 'patient' ? 'Authorized Patient' : currentUser?.role === 'doctor' ? 'Verified Physician' : 'Security Admin'}
                   </span>
                 </div>
               </div>
@@ -110,7 +110,7 @@ export const Sidebar = ({ isMobileOpen, onCloseMobile }) => {
           {/* Navigation Links */}
           <nav className="px-3 py-2 space-y-1">
             <div className="px-3 pb-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-              Navigation
+              Clinical Navigation
             </div>
             {navLinks.map((item) => {
               const Icon = item.icon;
@@ -120,17 +120,17 @@ export const Sidebar = ({ isMobileOpen, onCloseMobile }) => {
                   to={item.path}
                   onClick={onCloseMobile}
                   className={({ isActive }) =>
-                    `flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
+                    `flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all duration-150 ${
                       isActive
-                        ? 'bg-primary text-white shadow-md shadow-blue-500/25'
-                        : 'text-slate-600 hover:bg-white/80 hover:text-primary'
+                        ? 'bg-[#0B63F6] text-white shadow-sm shadow-[#0B63F6]/20'
+                        : 'text-slate-600 hover:bg-slate-50 hover:text-[#0B63F6]'
                     }`
                   }
                 >
                   {({ isActive }) => (
                     <>
                       <div className="flex items-center gap-3">
-                        <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-primary'}`} />
+                        <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-[#0B63F6]'}`} />
                         <span>{item.name}</span>
                       </div>
                       {isActive && <ChevronRight className="w-3.5 h-3.5 text-white/80" />}
@@ -143,20 +143,20 @@ export const Sidebar = ({ isMobileOpen, onCloseMobile }) => {
         </div>
 
         {/* Bottom Security & Role Switch Widget */}
-        <div className="p-3 border-t border-slate-100/80 bg-white/40">
-          <div className="p-2.5 rounded-xl bg-slate-50/80 border border-slate-200/60 mb-2">
-            <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-700 mb-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-primary" />
-              <span>RBAC Session</span>
+        <div className="p-3 border-t border-slate-100 bg-slate-50/50">
+          <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 mb-2 shadow-2xs">
+            <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-800 mb-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#0B63F6]" />
+              <span>Role-Based Access Control</span>
             </div>
-            <p className="text-[10px] text-slate-500 leading-tight">
-              Access token secured with simulated HIPAA/GDPR segregation.
+            <p className="text-[10px] text-slate-500 leading-normal">
+              Clinical workspace strictly isolated to current verified role.
             </p>
           </div>
 
           <button
             onClick={handleLogout}
-            className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-semibold text-rose-600 hover:bg-rose-50/80 transition-colors"
+            className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-bold text-rose-600 hover:bg-rose-50 transition-colors"
           >
             <LogOut className="w-3.5 h-3.5" />
             <span>Sign Out</span>

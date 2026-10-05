@@ -42,7 +42,7 @@ export const SecurityWatchAlert = ({ onInspectAudit }) => {
             </h4>
 
             <p className="text-xs text-slate-600 mt-0.5 max-w-xl leading-relaxed">
-              <strong>Possible Reason:</strong> Doctor account or external client attempted rapid cross-department queries on unassigned patient records (pat-3, pat-4). Blocked by RBAC gateway.
+              <strong>Access Control Event:</strong> Physician account attempted rapid cross-department queries on unassigned patient records (pat-3, pat-4). Blocked by Role-Based Access Control gateway.
             </p>
           </div>
         </div>
