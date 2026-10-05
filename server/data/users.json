@@ -2,8 +2,8 @@
   {
     "id": "usr-pat-1",
     "email": "patient@careguard.demo",
-    "passwordHash": "$2b$12$pzPcaB0c7myXVsOrpXJs5enzb0Wqhjz7VusKy9f4ZIerNqu2l0bai",
-    "name": "Gokul",
+    "passwordHash": "$2b$12$lj3AyrvKtMZqhGeyrKPcKuwTVZ4p1aClZl5uRCYUL5O5D9Kf/Wpey",
+    "name": "Rahul Kumar",
     "role": "patient",
     "patientId": "pat-1",
     "mfaEnabled": true,
@@ -11,12 +11,12 @@
     "failedAttempts": 0,
     "lockUntil": null,
     "createdAt": "2026-10-05T08:00:00Z",
-    "lastLogin": "2026-10-05T14:03:34.691Z"
+    "lastLogin": "2026-10-05T15:25:13.575Z"
   },
   {
     "id": "usr-doc-1",
     "email": "doctor@careguard.demo",
-    "passwordHash": "$2b$12$pzPcaB0c7myXVsOrpXJs5enzb0Wqhjz7VusKy9f4ZIerNqu2l0bai",
+    "passwordHash": "$2b$12$lj3AyrvKtMZqhGeyrKPcKuwTVZ4p1aClZl5uRCYUL5O5D9Kf/Wpey",
     "name": "Dr. Arjun Mehta",
     "role": "doctor",
     "doctorId": "doc-1",
@@ -26,12 +26,12 @@
     "failedAttempts": 0,
     "lockUntil": null,
     "createdAt": "2026-10-05T08:00:00Z",
-    "lastLogin": "2026-10-05T11:40:00Z"
+    "lastLogin": "2026-10-05T15:24:22.936Z"
   },
   {
     "id": "usr-adm-1",
     "email": "admin@careguard.demo",
-    "passwordHash": "$2b$12$pzPcaB0c7myXVsOrpXJs5enzb0Wqhjz7VusKy9f4ZIerNqu2l0bai",
+    "passwordHash": "$2b$12$lj3AyrvKtMZqhGeyrKPcKuwTVZ4p1aClZl5uRCYUL5O5D9Kf/Wpey",
     "name": "SecOps Administrator",
     "role": "admin",
     "adminId": "adm-1",
@@ -40,6 +40,6 @@
     "failedAttempts": 0,
     "lockUntil": null,
     "createdAt": "2026-10-05T08:00:00Z",
-    "lastLogin": "2026-10-05T11:45:00Z"
+    "lastLogin": "2026-10-05T15:25:13.822Z"
   }
 ]

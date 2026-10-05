@@ -1,5 +1,57 @@
 [
   {
+    "id": "LOG-913825",
+    "timestamp": "2026-10-05 15:25:13",
+    "category": "Authentication",
+    "event": "AUTH_LOGIN_SUCCESS",
+    "severity": "success",
+    "actor": "admin@careguard.demo",
+    "role": "admin",
+    "target": "CareGuard Security Gateway",
+    "ip": "::1",
+    "status": "Authorized",
+    "details": "User authenticated successfully with cryptographic JWT token. Role: admin."
+  },
+  {
+    "id": "LOG-913578",
+    "timestamp": "2026-10-05 15:25:13",
+    "category": "Authentication",
+    "event": "AUTH_LOGIN_SUCCESS",
+    "severity": "success",
+    "actor": "patient@careguard.demo",
+    "role": "patient",
+    "target": "CareGuard Security Gateway",
+    "ip": "::1",
+    "status": "Authorized",
+    "details": "User authenticated successfully with cryptographic JWT token. Role: patient."
+  },
+  {
+    "id": "LOG-862941",
+    "timestamp": "2026-10-05 15:24:22",
+    "category": "Authentication",
+    "event": "AUTH_LOGIN_SUCCESS",
+    "severity": "success",
+    "actor": "doctor@careguard.demo",
+    "role": "doctor",
+    "target": "CareGuard Security Gateway",
+    "ip": "::1",
+    "status": "Authorized",
+    "details": "User authenticated successfully with cryptographic JWT token. Role: doctor."
+  },
+  {
+    "id": "LOG-706959",
+    "timestamp": "2026-10-05 15:21:46",
+    "category": "Authentication",
+    "event": "AUTH_LOGIN_FAILED",
+    "severity": "warning",
+    "actor": "doctor@careguard.demo",
+    "role": "doctor",
+    "target": "Login Endpoint",
+    "ip": "::1",
+    "status": "Failed",
+    "details": "Invalid credentials provided during authentication."
+  },
+  {
     "id": "LOG-014763",
     "timestamp": "2026-10-05 14:03:34",
     "category": "RBAC Enforcement",
