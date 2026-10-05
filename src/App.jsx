@@ -8,6 +8,7 @@ import { Footer } from './components/Footer';
 import { AIChat } from './components/AIChat';
 
 // Pages
+import { Landing } from './pages/Landing';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { DoctorDashboard } from './pages/doctor/DoctorDashboard';
@@ -97,8 +98,8 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* Root and Dashboard Redirect */}
-          <Route path="/" element={<DashboardRedirect />} />
+          {/* Landing / Gateway Entrance Route */}
+          <Route path="/" element={<Landing />} />
           <Route path="/dashboard" element={<DashboardRedirect />} />
 
           {/* Doctor Routes */}
