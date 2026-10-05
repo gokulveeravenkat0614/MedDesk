@@ -6,6 +6,6 @@ version: "1.0"
 submission:
   team_id: "23A"
   repository: "https://github.com/gokulveeravenkat0614/MedDesk.git"
-  commit_sha: "7d855b578dedfe9e8c52af466e926dbd0d2be792"
+  commit_sha: "91350ef3f08e8189d064acda7a71c2eee6c6d43f"
   deployment_url: "http://localhost:3000/"
-  submitted_at: "2026-10-05T15:03:00+05:30"
+  submitted_at: "2026-10-05T15:15:00+05:30"

@@ -4070,3 +4070,192 @@ Actions Taken:
 * Updated footer columns and synthetic demo disclaimers
 * Executed npm run build to verify zero compile or bundle errors
 * Staged, committed, and logged all changes per AGENTS.md §5.2
+
+================================================================================
+[2026-10-05T15:15:00+05:30] Implement CareGuard Security + Health Gateway Entrance Landing Page
+================================================================================
+User Prompt (verbatim):
+# CAREGUARD — SECURE CLINIC & APPOINTMENT MANAGEMENT
+
+Build a complete, polished healthcare web application called **CareGuard**.
+
+## 1. PROBLEM STATEMENT
+
+Build a clinic management platform that allows:
+
+- Patients to manage appointments
+- Doctors to manage appointments
+- Authorized doctors to access relevant patient information
+- Clinics/admins to manage doctors, patients and appointments
+- The platform to use ONLY synthetic/dummy patient data
+
+The final product should feel like a real modern health-tech SaaS platform.
+
+Do NOT create a generic hospital website.
+
+Do NOT create a basic CRUD dashboard.
+
+Create a premium healthcare experience focused on:
+
+**CARE + APPOINTMENTS + AUTHORIZATION + SECURITY**
+
+---
+
+# 2. BRAND
+
+Application name:
+
+# CareGuard
+
+Primary tagline:
+
+**Your Care. Your Appointments. Protected.**
+
+Secondary tagline:
+
+**Secure Clinic & Appointment Management**
+
+Supporting line:
+
+**Connect with doctors, manage appointments and access relevant healthcare information — securely in one place.**
+
+Use CareGuard everywhere.
+
+Do not use the old name MediDesk anywhere.
+
+---
+
+# 3. VERY IMPORTANT — ENTRANCE UI/UX MUST BE DIFFERENT
+
+The uploaded reference image should inspire the overall healthcare visual language, spacing, typography and premium card design.
+
+However, DO NOT directly copy the entrance/homepage from the reference.
+
+Create a completely different and original entrance experience specifically for CareGuard.
+
+The entrance page should communicate the problem statement within 3–5 seconds.
+
+## ENTRANCE CONCEPT
+
+Create a large interactive **CareGuard Security + Health Gateway**.
+
+The central visual should combine:
+
+- Healthcare shield
+- Heartbeat/pulse line
+- Medical cross
+- Soft circular rings
+- Small appointment calendar indicator
+- Secure access indicator
+
+The main visual should feel like a:
+
+**Digital Healthcare Security Gateway**
+
+Instead of a human anatomy dashboard as the first screen.
+
+The anatomy dashboard can appear AFTER login.
+
+---
+
+# 4. UNIQUE LANDING PAGE HERO
+
+Create a large hero section.
+
+LEFT SIDE:
+
+Small eyebrow:
+
+**SECURE HEALTHCARE PLATFORM**
+
+Large heading:
+
+**Your Care.**
+**Guarded.**
+
+Highlight "Guarded." in medical blue.
+
+Subtitle:
+
+**Manage appointments, connect with doctors and keep relevant patient information protected — all from one simple platform.**
+
+Buttons:
+
+**Book an Appointment**
+
+**Explore CareGuard**
+
+Under the buttons display:
+
+- Secure Access
+- Appointment Management
+- Authorized Records
+
+---
+
+# 5. HERO RIGHT SIDE — CAREGUARD GATEWAY
+
+Create a large premium visual panel.
+
+Background:
+
+Very light blue/white gradient.
+
+Center:
+
+A large glowing shield containing:
+
+- Medical cross
+- Small heartbeat waveform
+- Circular security ring
+
+Around the shield show floating mini cards.
+
+CARD 1:
+
+```text
+Secure Access
+✓ Protected
+```
+
+Agent Response:
+I have engineered an original, custom entrance experience specifically for CareGuard in `src/pages/Landing.jsx` that communicates the platform's core identity—Care, Appointments, Authorization, and Security—within seconds, without replicating the post-login anatomical dashboard:
+
+1. Digital Healthcare Security Gateway:
+- Central Visual Emblem: Designed a large glowing shield badge with an integrated medical cross, pulsing circular security rings, and an active animated ECG heartbeat waveform.
+- Floating Interactive Cards:
+  - Card 1: `Secure Access` • `✓ Protected` (with emerald shield badge).
+  - Card 2: `Upcoming Appointment` • `Dr. Arjun Mehta • 10:30 AM` • `✓ Confirmed`.
+  - Card 3: `Vitality Telemetry` • `Pulse: 72 bpm • BP: 120/80` • `✓ Optimal`.
+  - Card 4: `Authorized Records` • `Encrypted RBAC Scope` • `✓ Verified`.
+
+2. High-Impact Hero Layout:
+- Eyebrow: `SECURE HEALTHCARE PLATFORM`.
+- Large Title: `Your Care.` with `Guarded.` emphasized in medical blue (`#1677FF`) and a custom curved underline.
+- Subtitle: "Manage appointments, connect with doctors and keep relevant patient information protected — all from one simple platform."
+- Primary Action CTAs: `Book an Appointment` and `Explore CareGuard`, accompanied by feature trust badges (`Secure Access`, `Appointment Management`, `Authorized Records`).
+
+3. Four Platform Pillars & Persona Launchpad:
+- Highlighted the 4 architectural pillars: Clinical Care, Smart Appointments, Strict Authorization, and Security & Audit.
+- Provided 1-click persona testing cards for Doctor (Flagship with full anatomy viewer), Patient, and Administrator workspaces.
+- Seamlessly retained the human anatomy diagnostics dashboard for authenticated doctor sessions at `/doctor/dashboard`.
+
+Agent Response Summary:
+Created a dedicated entrance landing page (`Landing.jsx`) at root `/` implementing the CareGuard Security + Health Gateway with glowing shield, circular radar rings, ECG pulse wave, and floating telemetry cards. Wired the router to display the gateway as the public first impression while reserving deep anatomical diagnostics for authenticated clinical workflows. Verified production build and pushed changes to remote repository.
+
+Commit SHA:
+91350ef3f08e8189d064acda7a71c2eee6c6d43f
+
+Files Modified / Created:
+* src/pages/Landing.jsx (Created)
+* src/App.jsx (Modified)
+* docs/APPROACH.md (Modified)
+* metadata/submission.yaml (Modified)
+* docs/logs.txt (Modified)
+
+Actions Taken:
+* Developed custom Landing page featuring the CareGuard Security + Health Gateway
+* Wired Route `/` to Landing while keeping `/dashboard` for authenticated role redirection
+* Verified 100% clean production build via Vite bundler (0 errors)
+* Updated docs/APPROACH.md with Engineering Journal Entry 5
+* Recorded commit SHA in metadata/submission.yaml and logged turn in docs/logs.txt
