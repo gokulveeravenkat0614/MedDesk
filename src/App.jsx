@@ -17,6 +17,7 @@ import { DoctorRecords } from './pages/doctor/DoctorRecords';
 import { PatientDashboard } from './pages/patient/PatientDashboard';
 import { PatientProfile } from './pages/patient/PatientProfile';
 import { Doctors } from './pages/patient/Doctors';
+import { DoctorProfile } from './pages/patient/DoctorProfile';
 import { PatientAppointments } from './pages/patient/Appointments';
 import { PatientRecords } from './pages/patient/MedicalRecords';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
@@ -110,6 +111,8 @@ export default function App() {
           <Route path="/patient/dashboard" element={<MainLayout><PatientDashboard /></MainLayout>} />
           <Route path="/patient/profile" element={<MainLayout><PatientProfile /></MainLayout>} />
           <Route path="/patient/doctors" element={<MainLayout><Doctors /></MainLayout>} />
+          <Route path="/patient/doctors/:id" element={<MainLayout><DoctorProfile /></MainLayout>} />
+          <Route path="/patient/doctor/:id" element={<MainLayout><DoctorProfile /></MainLayout>} />
           <Route path="/patient/appointments" element={<MainLayout><PatientAppointments /></MainLayout>} />
           <Route path="/patient/records" element={<MainLayout><PatientRecords /></MainLayout>} />
 

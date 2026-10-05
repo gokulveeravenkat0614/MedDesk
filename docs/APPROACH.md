@@ -141,6 +141,10 @@ MediDesk is engineered using a modular, decoupled Single Page Application (SPA) 
 - **Focus:** Built all components, pages, routing, anatomical diagnostics, booking wizard, and admin controls.
 - **Resolution:** Verified all 16 routes, role switching, Recharts integration, and synthetic data audit trails.
 
+### [2026-10-05 13:05 IST] Entry 3: Standalone Doctor Profile View & Route Extension
+- **Focus:** Implemented standalone `DoctorProfile.jsx` page and registered routes `/patient/doctors/:id` and `/patient/doctor/:id` to fulfill Section 20 specifications alongside the directory modal.
+- **Resolution:** Verified production build with 0 warnings, ensuring full parity between modal preview and deep-linkable doctor profile page.
+
 ---
 
 ## 6. Testing, Security Verification & Deployment Record

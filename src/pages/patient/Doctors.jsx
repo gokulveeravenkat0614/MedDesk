@@ -198,6 +198,16 @@ export const Doctors = () => {
                 type="button"
                 onClick={() => {
                   setShowDetailModal(false);
+                  navigate(`/patient/doctors/${selectedDoctor.id}`);
+                }}
+                className="px-3.5 py-2 rounded-xl text-primary bg-blue-50 hover:bg-blue-100 font-bold text-xs transition-colors"
+              >
+                Full Page Profile
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setShowDetailModal(false);
                   handleBook(selectedDoctor);
                 }}
                 className="px-5 py-2 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold shadow-md shadow-blue-500/25 transition-all flex items-center gap-1.5"
