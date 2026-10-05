@@ -4,16 +4,12 @@
 # - If your team has 4 members: provide all 4 members.
 
 team:
-  team_id: ""
+  team_id: "23A"
   name: ""
-  repository: "" # URL of the newly created GitHub repository for this project
+  repository: "https://github.com/gokulveeravenkat0614/MedDesk.git"
 
 members:
-  - name: ""
-    email: ""
-  - name: ""
-    email: ""
-  - name: ""
-    email: ""
+  - name: "Gokul Veera Venkat"
+    email: "gokulveeravenkat@gmail.com"
   - name: ""
     email: ""
