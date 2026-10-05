@@ -5,11 +5,11 @@
 
 team:
   team_id: "23A"
-  name: ""
+  name: "SecureForge"
   repository: "https://github.com/gokulveeravenkat0614/MedDesk.git"
 
 members:
   - name: "Gokul Veera Venkat"
     email: "gokulveeravenkat@gmail.com"
-  - name: ""
-    email: ""
+  - name: "Vaishnavi"
+    email: "vaishnaviyeluguri2008@gmail.com"
