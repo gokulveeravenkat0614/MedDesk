@@ -7,3 +7,1784 @@ Lifecycle: Append-Only (Maintained autonomously by AI Agent)
 Timeline: ISO-8601 with local timezone offset
 ================================================================================
 
+================================================================================
+[2026-10-05T12:25:30+05:30] Initial Prompt Received & Hackathon Ground Rules Onboarding
+================================================================================
+User Prompt (verbatim):
+# PROJECT: MediDesk — Secure Clinic & Appointment Management
+
+Build a complete modern healthcare clinic management web application called **CareGuard**.
+
+## 1. PROBLEM STATEMENT
+
+Build a clinic management platform that allows:
+
+- Patients to register/login
+- Patients to manage their profiles
+- Patients to book and manage appointments
+- Doctors to authenticate and manage appointments
+- Doctors to view authorized patient information
+- Doctors to maintain basic medical records
+- Administrators to manage doctors, patients and appointments
+- Users to view appointment history
+- The application to use ONLY synthetic/dummy patient data
+
+The application should demonstrate a secure, professional healthcare management experience.
+
+IMPORTANT:
+- Do NOT use real patient data.
+- Clearly label the application as using synthetic/demo data.
+- This is an MVP/demo application.
+- Do not expose sensitive information unnecessarily.
+- Implement role-based UI access for Patient, Doctor and Admin.
+
+---
+
+# 2. TECHNOLOGY
+
+Use:
+
+- React
+- Vite
+- JavaScript/JSX
+- Tailwind CSS
+- React Router
+- Lucide React icons
+- Recharts for charts where required
+- Local state / localStorage for MVP persistence
+- Dummy JSON/mock data
+
+Do NOT require a complicated backend for the MVP.
+
+If backend functionality is required for demonstration, structure the code so a backend/API can easily be connected later.
+
+Do NOT use real healthcare APIs.
+
+---
+
+# 3. DESIGN DIRECTION
+
+The website must have a premium modern medical dashboard design.
+
+Use the uploaded reference image as the primary UI inspiration.
+
+The visual style should be:
+
+- Modern
+- Minimal
+- Premium
+- Medical/healthcare themed
+- Clean
+- Professional
+- Spacious
+- Soft glassmorphism
+- Rounded cards
+- Light blue/white background
+- Blue primary accent
+- Subtle shadows
+- Smooth gradients
+- Clean typography
+- Responsive
+
+DO NOT make it look like a generic hospital website.
+
+The main dashboard should closely follow the visual structure of the reference:
+
+LEFT:
+- Greeting
+- Large "Medical Dashboard" heading
+- Vital cards
+- Today's appointments
+- Book appointment button
+
+CENTER:
+- Human anatomical illustration
+- Interactive body-system labels
+- Body-system indicators
+
+RIGHT:
+- Statistics cards
+- Patient vitals
+- Appointment summary
+- Recent medical records
+
+---
+
+# 4. BRANDING
+
+Application name:
+
+MediDesk
+
+Subtitle:
+
+Secure Clinic & Appointment Management
+
+Logo:
+- Medical cross / healthcare symbol
+- Blue gradient
+- Minimal design
+
+Brand colors:
+
+Primary:
+#1677FF
+
+Secondary:
+#38BDF8
+
+Background:
+Very light blue / white
+
+Text:
+Dark navy
+
+Success:
+Green
+
+Warning:
+Yellow
+
+Danger:
+Red
+
+Use gradients very subtly.
+
+Avoid excessive bright colors.
+
+---
+
+# 5. GLOBAL LAYOUT
+
+Create:
+
+- Sidebar / responsive navigation
+- Top navigation
+- Main content area
+- User profile menu
+- Notification icon
+- Search
+- Logout
+- Responsive mobile navigation
+
+Desktop should have a spacious dashboard.
+
+Mobile should transform into:
+
+- Hamburger navigation
+- Stacked cards
+- Horizontal scrolling where necessary
+- Responsive appointment cards
+- Responsive charts
+
+---
+
+# 6. USER ROLES
+
+Implement three roles:
+
+## PATIENT
+
+Patient can:
+
+- Register
+- Login
+- View dashboard
+- Edit profile
+- Search doctors
+- View doctor profiles
+- Book appointment
+- Reschedule appointment
+- Cancel appointment
+- View upcoming appointments
+- View appointment history
+- View authorized medical records
+- View prescriptions
+- View basic health information
+- Manage notifications
+
+---
+
+## DOCTOR
+
+Doctor can:
+
+- Login
+- View dashboard
+- View today's appointments
+- View upcoming appointments
+- View appointment history
+- View patient profiles
+- View authorized patient information
+- Add medical notes
+- Add basic diagnosis
+- Add prescription
+- Update appointment status
+- Mark appointment as completed
+- Manage availability
+
+Doctor should NOT automatically see all patient information.
+
+Only display information associated with authorized/selected patients.
+
+---
+
+## ADMIN
+
+Admin can:
+
+- Login
+- View clinic overview
+- Manage patients
+- Manage doctors
+- Manage appointments
+- View appointment statistics
+- Activate/deactivate doctors
+- View system activity
+- Manage clinic settings
+
+---
+
+# 7. LOGIN PAGE
+
+Create a premium login screen.
+
+Layout:
+
+LEFT:
+- MediDesk logo
+- Medical illustration
+- Short tagline
+
+RIGHT:
+Login card
+
+Fields:
+
+- Email
+- Password
+- Role selector
+
+Roles:
+
+- Patient
+- Doctor
+- Admin
+
+Buttons:
+
+- Login
+- Continue as Demo User
+
+Additional:
+
+- Forgot password
+- Create account
+- Show/hide password
+
+Use dummy authentication.
+
+Demo credentials should be displayed subtly under:
+
+"Demo Access"
+
+Example:
+
+Patient:
+patient@medidesk.demo
+
+Doctor:
+doctor@medidesk.demo
+
+Admin:
+admin@medidesk.demo
+
+Any password can be accepted for MVP demo login.
+
+---
+
+# 8. REGISTRATION PAGE
+
+Create patient registration.
+
+Fields:
+
+- Full name
+- Email
+- Phone
+- Date of birth
+- Gender
+- Blood group
+- Password
+- Confirm password
+
+Button:
+
+Create Account
+
+Show:
+
+"Demo application — synthetic data only."
+
+After registration redirect to Patient Dashboard.
+
+---
+
+# 9. DOCTOR DASHBOARD
+
+Create the main doctor dashboard based heavily on the provided reference design.
+
+Header:
+
+MediDesk logo
+
+Navigation:
+
+- Overview
+- Appointments
+- Patients
+- Records
+
+Right side:
+
+- Search
+- Notifications
+- Doctor avatar
+- Doctor name
+- Specialty
+- Dropdown
+
+Main heading:
+
+"Good Morning, Doctor!"
+
+Large title:
+
+"Medical
+Dashboard"
+
+Subtitle:
+
+"Manage appointments, patients and medical information securely — all in one place."
+
+---
+
+# 10. CENTER ANATOMICAL AREA
+
+The center of the dashboard should contain a large human anatomy illustration.
+
+Use a suitable medical/anatomical SVG or placeholder illustration.
+
+DO NOT use copyrighted real patient images.
+
+Use a synthetic medical illustration.
+
+Display clickable labels around the body:
+
+- Brain & Nervous System
+- Respiratory System
+- Cardiovascular System
+- Digestive System
+- Musculoskeletal System
+
+When clicking a system:
+
+Open a small information card.
+
+Example:
+
+Cardiovascular System
+
+Heart Rate:
+72 BPM
+
+Blood Pressure:
+120/80 mmHg
+
+Status:
+Normal
+
+The anatomy section should be visually dominant.
+
+---
+
+# 11. VITAL CARDS
+
+Create two large cards on the left:
+
+## Blood Pressure
+
+120/80 mmHg
+
+Status:
+Normal
+
+Add a small line chart.
+
+## Heart Rate
+
+72 bpm
+
+Status:
+Normal
+
+Add a small line chart.
+
+Use synthetic data.
+
+---
+
+# 12. TODAY'S APPOINTMENTS
+
+Create a card titled:
+
+Today's Appointments
+
+Include:
+
+10:30 AM
+Rahul Kumar
+General Consultation
+Status: Upcoming
+
+12:00 PM
+Priya Sharma
+Follow-up Visit
+Status: Upcoming
+
+2:30 PM
+Aditya Rao
+Routine Checkup
+Status: Completed
+
+Each appointment should include:
+
+- Time
+- Patient name
+- Appointment type
+- Status
+- Menu button
+
+Add:
+
+"View All"
+
+button.
+
+At bottom create a large primary CTA:
+
+"Book an Appointment"
+
+---
+
+# 13. TOP STATISTICS
+
+On the right side create three statistic cards:
+
+Patients Today
+
+18
++12% vs last week
+
+Appointments
+
+24
++8% vs last week
+
+Active Doctors
+
+08
+Online
+
+Use icons.
+
+---
+
+# 14. PATIENT VITALS OVERVIEW
+
+Create card:
+
+Patient Vitals Overview
+
+Dropdown:
+
+Last 7 Days
+
+Three mini cards:
+
+Blood Pressure
+122/78 mmHg
+
+Heart Rate
+76 bpm
+
+Oxygen Level
+98%
+
+Each should have a small chart.
+
+---
+
+# 15. APPOINTMENT SUMMARY
+
+Create a donut chart.
+
+Title:
+
+Appointment Summary
+
+Center:
+
+24
+Total Appointments
+
+Categories:
+
+Completed — 12
+Upcoming — 8
+Cancelled — 2
+Rescheduled — 2
+
+Use Recharts.
+
+Add dropdown:
+
+This Week
+
+---
+
+# 16. RECENT MEDICAL RECORDS
+
+Create card:
+
+Recent Medical Records
+
+Example:
+
+Rahul Kumar
+Lab Report • Blood Test
+Oct 05, 2026
+Authorized Access
+
+Priya Sharma
+Prescription • Follow-up
+Oct 04, 2026
+Authorized Access
+
+Aditya Rao
+Consultation Notes
+Oct 03, 2026
+Authorized Access
+
+Each record should have an icon.
+
+Add:
+
+"View All"
+
+button.
+
+At bottom display:
+
+🔒 Synthetic Demo Data
+For demonstration purposes only.
+
+---
+
+# 17. PATIENT DASHBOARD
+
+Create a separate dashboard for patients.
+
+Heading:
+
+"Good Morning, Rahul!"
+
+Subtitle:
+
+"Manage your appointments and health information."
+
+Top cards:
+
+Upcoming Appointment
+Next Appointment
+Health Summary
+Medical Records
+
+Main sections:
+
+- Upcoming appointment
+- Book appointment
+- Recent appointments
+- Doctors
+- Medical records
+- Prescriptions
+
+Primary button:
+
+"Book Appointment"
+
+---
+
+# 18. PATIENT PROFILE
+
+Create profile page.
+
+Display:
+
+Profile photo/avatar
+
+Full Name
+Rahul Kumar
+
+Age
+28
+
+Gender
+Male
+
+Blood Group
+O+
+
+Phone
++91 XXXXX XXXXX
+
+Email
+rahul@example.com
+
+Emergency Contact
+Demo Contact
+
+Buttons:
+
+Edit Profile
+
+Save Changes
+
+Do not use real personal information.
+
+---
+
+# 19. DOCTOR DIRECTORY
+
+Create:
+
+"Find a Doctor"
+
+Search bar.
+
+Filters:
+
+- Specialty
+- Availability
+- Experience
+- Consultation type
+
+Doctor cards:
+
+Dr. Arjun Mehta
+General Physician
+8 years experience
+Available Today
+
+Dr. Priya Sharma
+Cardiologist
+10 years experience
+Available Tomorrow
+
+Dr. Rahul Verma
+Dermatologist
+6 years experience
+Available Today
+
+Each card:
+
+- Avatar
+- Name
+- Specialty
+- Experience
+- Availability
+- Rating
+- View Profile
+- Book Appointment
+
+---
+
+# 20. DOCTOR PROFILE
+
+Create detailed doctor page.
+
+Show:
+
+Doctor photo/avatar
+
+Dr. Arjun Mehta
+
+General Physician
+
+Experience:
+8 years
+
+Qualification:
+MBBS, MD
+
+Languages:
+English, Hindi, Telugu
+
+Available:
+
+10:00 AM – 1:00 PM
+
+2:00 PM – 5:00 PM
+
+Button:
+
+Book Appointment
+
+---
+
+# 21. APPOINTMENT BOOKING
+
+Create multi-step appointment booking.
+
+STEP 1:
+
+Select Doctor
+
+STEP 2:
+
+Select Date
+
+STEP 3:
+
+Select Time
+
+STEP 4:
+
+Select Appointment Type
+
+Options:
+
+- General Consultation
+- Follow-up
+- Routine Checkup
+- Specialist Consultation
+
+STEP 5:
+
+Confirm Appointment
+
+Display summary:
+
+Doctor
+Date
+Time
+Appointment Type
+
+Button:
+
+Confirm Appointment
+
+After confirmation show success modal:
+
+"Appointment Confirmed"
+
+Appointment ID:
+
+MD-2026-00124
+
+Buttons:
+
+View Appointment
+Back to Dashboard
+
+---
+
+# 22. APPOINTMENTS PAGE
+
+Create page:
+
+"My Appointments"
+
+Tabs:
+
+- Upcoming
+- Completed
+- Cancelled
+- Rescheduled
+
+Each appointment card:
+
+Doctor
+Date
+Time
+Appointment Type
+Status
+
+Actions:
+
+View
+Reschedule
+Cancel
+
+Use confirmation modal before cancellation.
+
+---
+
+# 23. DOCTOR APPOINTMENT MANAGEMENT
+
+Doctor should have:
+
+Today's Schedule
+
+Upcoming
+
+Completed
+
+Cancelled
+
+For each appointment:
+
+Patient
+Time
+Appointment Type
+Status
+
+Actions:
+
+Start Consultation
+View Patient
+Complete Appointment
+Cancel
+
+---
+
+# 24. PATIENT MEDICAL RECORDS
+
+Create:
+
+"Medical Records"
+
+Sections:
+
+- Consultation Notes
+- Lab Reports
+- Prescriptions
+- Diagnosis
+- Previous Visits
+
+Each record should show:
+
+Date
+Doctor
+Record type
+Summary
+Access status
+
+Example:
+
+Oct 05, 2026
+
+Dr. Arjun Mehta
+
+Blood Test
+
+Hemoglobin:
+13.8 g/dL
+
+Status:
+Authorized Access
+
+Use only synthetic data.
+
+---
+
+# 25. DOCTOR MEDICAL RECORD CREATION
+
+Doctor can open a patient and add:
+
+Consultation Notes
+
+Diagnosis
+
+Symptoms
+
+Prescription
+
+Recommended Tests
+
+Follow-up Date
+
+Save Record
+
+After saving:
+
+"Medical record successfully saved."
+
+---
+
+# 26. AUTHORIZATION / SECURITY UI
+
+Security is an important part of the problem statement.
+
+Add a security/access layer.
+
+Display:
+
+🔒 Secure Access
+
+Authorized Doctors Only
+
+For patient records show:
+
+"Access granted to Dr. Arjun Mehta"
+
+Include:
+
+Access History
+
+Example:
+
+Dr. Arjun Mehta
+Viewed medical record
+Today, 10:32 AM
+
+Doctor access should be simulated using dummy authorization data.
+
+Do NOT claim actual HIPAA compliance.
+
+Instead say:
+
+"Designed with privacy-focused access controls for demonstration."
+
+---
+
+# 27. ADMIN DASHBOARD
+
+Create admin dashboard.
+
+Heading:
+
+"Clinic Administration"
+
+Statistics:
+
+Total Patients
+1,248
+
+Total Doctors
+42
+
+Appointments Today
+86
+
+Active Doctors
+38
+
+Charts:
+
+- Appointments per day
+- Patient registrations
+- Doctor availability
+
+Management sections:
+
+Patients
+Doctors
+Appointments
+System Activity
+
+---
+
+# 28. ADMIN PATIENT MANAGEMENT
+
+Table:
+
+Patient ID
+Name
+Email
+Phone
+Status
+Last Appointment
+Actions
+
+Actions:
+
+View
+Edit
+Deactivate
+
+Add search and filters.
+
+---
+
+# 29. ADMIN DOCTOR MANAGEMENT
+
+Table:
+
+Doctor ID
+Doctor Name
+Specialty
+Experience
+Status
+Availability
+
+Actions:
+
+View
+Edit
+Activate
+Deactivate
+
+---
+
+# 30. NOTIFICATIONS
+
+Create notification dropdown.
+
+Example:
+
+Appointment reminder:
+"Your appointment with Dr. Arjun Mehta is tomorrow at 10:30 AM."
+
+Appointment confirmed:
+"Your appointment has been confirmed."
+
+Record updated:
+"Your medical record was updated."
+
+Doctor availability:
+"Dr. Priya Sharma is now available."
+
+---
+
+# 31. SEARCH
+
+Global search should allow searching:
+
+- Patients
+- Doctors
+- Appointments
+- Medical records
+
+Add search icon in header.
+
+Show search results in dropdown.
+
+---
+
+# 32. AI ASSISTANT
+
+Implement an optional AI assistant UI.
+
+Floating button:
+
+"Ask MediDesk AI"
+
+When clicked open chat panel.
+
+The AI assistant should answer only:
+
+- Appointment-related FAQs
+- Navigation questions
+- Basic explanation of synthetic medical information
+- Application usage questions
+
+Example questions:
+
+"How do I book an appointment?"
+
+"How can I cancel my appointment?"
+
+"Where can I view my medical records?"
+
+"What does blood pressure 120/80 mean?"
+
+Important:
+
+The AI must NOT provide diagnosis.
+
+Show disclaimer:
+
+"MediDesk AI provides general information and application assistance. It is not a medical diagnosis tool."
+
+For MVP, use predefined responses rather than requiring an external AI API.
+
+---
+
+# 33. APPOINTMENT REMINDER
+
+Create reminder UI.
+
+Example:
+
+Upcoming Appointment
+
+Tomorrow
+10:30 AM
+
+Dr. Arjun Mehta
+
+General Consultation
+
+Buttons:
+
+View
+Reschedule
+Cancel
+
+---
+
+# 34. EMPTY STATES
+
+Every page must have a professional empty state.
+
+Example:
+
+"No upcoming appointments"
+
+Button:
+
+"Book an Appointment"
+
+Use illustrations/icons.
+
+---
+
+# 35. LOADING STATES
+
+Use skeleton loaders for:
+
+- Dashboard cards
+- Tables
+- Doctor cards
+- Medical records
+- Appointment lists
+
+Do not use excessive spinners.
+
+---
+
+# 36. ERROR STATES
+
+Create friendly error messages.
+
+Example:
+
+"Something went wrong."
+
+"Please try again."
+
+Buttons:
+
+Retry
+Go Back
+
+---
+
+# 37. SUCCESS MODALS
+
+Use animated success modals for:
+
+- Appointment booked
+- Appointment cancelled
+- Appointment rescheduled
+- Profile updated
+- Medical record saved
+
+---
+
+# 38. RESPONSIVE DESIGN
+
+Desktop:
+Use three-column dashboard.
+
+Tablet:
+Use two-column layout.
+
+Mobile:
+Use one-column layout.
+
+The anatomy illustration should resize properly.
+
+Tables should become cards on mobile.
+
+Navigation should become a mobile drawer.
+
+Buttons should remain touch-friendly.
+
+---
+
+# 39. ANIMATIONS
+
+Use subtle animations only.
+
+Include:
+
+- Fade-in
+- Slide-up
+- Card hover
+- Button hover
+- Modal animation
+- Chart animation
+- Page transitions
+
+Do NOT overuse animations.
+
+The application should feel professional and fast.
+
+---
+
+# 40. DATA
+
+Use realistic-looking SYNTHETIC data.
+
+Example patients:
+
+Rahul Kumar
+Priya Sharma
+Aditya Rao
+Sneha Reddy
+Kiran Patel
+
+Example doctors:
+
+Dr. Arjun Mehta
+Dr. Priya Sharma
+Dr. Rahul Verma
+Dr. Ananya Rao
+
+Never use real medical information.
+
+Add a visible label:
+
+"SYNTHETIC DEMO DATA"
+
+---
+
+# 41. DATA PERSISTENCE
+
+For MVP use localStorage.
+
+Persist:
+
+- Login role
+- User profile
+- Appointments
+- Appointment status
+- Medical records
+- Notifications
+
+If the page is refreshed, demo data should remain.
+
+Provide a:
+
+"Reset Demo Data"
+
+option in settings/admin.
+
+---
+
+# 42. ROUTING
+
+Create these routes:
+
+/login
+
+/register
+
+/dashboard
+
+/patient/dashboard
+
+/patient/profile
+
+/patient/doctors
+
+/patient/appointments
+
+/patient/records
+
+/doctor/dashboard
+
+/doctor/appointments
+
+/doctor/patients
+
+/doctor/records
+
+/admin/dashboard
+
+/admin/patients
+
+/admin/doctors
+
+/admin/appointments
+
+/settings
+
+---
+
+# 43. COMPONENT STRUCTURE
+
+Create reusable components.
+
+Suggested structure:
+
+src/
+
+components/
+
+Navbar.jsx
+Sidebar.jsx
+StatCard.jsx
+VitalCard.jsx
+AppointmentCard.jsx
+DoctorCard.jsx
+MedicalRecordCard.jsx
+AnatomyViewer.jsx
+ChartCard.jsx
+NotificationDropdown.jsx
+AIChat.jsx
+Modal.jsx
+Button.jsx
+LoadingSkeleton.jsx
+EmptyState.jsx
+
+pages/
+
+Login.jsx
+Register.jsx
+
+patient/
+
+PatientDashboard.jsx
+PatientProfile.jsx
+Doctors.jsx
+DoctorProfile.jsx
+Appointments.jsx
+MedicalRecords.jsx
+
+doctor/
+
+DoctorDashboard.jsx
+DoctorAppointments.jsx
+Patients.jsx
+DoctorRecords.jsx
+
+admin/
+
+AdminDashboard.jsx
+AdminPatients.jsx
+AdminDoctors.jsx
+AdminAppointments.jsx
+
+data/
+
+patients.js
+doctors.js
+appointments.js
+medicalRecords.js
+
+utils/
+
+auth.js
+storage.js
+
+---
+
+# 44. DASHBOARD VISUAL HIERARCHY
+
+The doctor dashboard should visually prioritize:
+
+1. Medical Dashboard heading
+2. Human anatomy visualization
+3. Today's appointments
+4. Vital information
+5. Appointment statistics
+6. Recent medical records
+
+Do not make every card equally visually dominant.
+
+The anatomy illustration should be the central visual focus.
+
+---
+
+# 45. GLASSMORPHISM
+
+Use subtle glassmorphism:
+
+background:
+rgba(255,255,255,0.65)
+
+backdrop blur:
+20px
+
+border:
+rgba(255,255,255,0.8)
+
+shadow:
+soft and subtle
+
+Border radius:
+
+18–28px
+
+Avoid extreme transparency that reduces readability.
+
+---
+
+# 46. TYPOGRAPHY
+
+Use a modern font such as:
+
+Inter
+
+or
+
+Manrope
+
+Headings:
+
+Bold / Semi-bold
+
+Dashboard title:
+
+Large and prominent.
+
+Body:
+
+Clean and readable.
+
+Do not use overly decorative fonts.
+
+---
+
+# 47. ICONS
+
+Use Lucide React icons.
+
+Examples:
+
+Calendar
+Users
+HeartPulse
+Activity
+FileText
+ShieldCheck
+Bell
+Search
+Settings
+Stethoscope
+Brain
+Bone
+Heart
+Droplets
+Clock
+CheckCircle
+XCircle
+
+Do not use random emoji for the main UI.
+
+---
+
+# 48. ACCESSIBILITY
+
+Implement:
+
+- Proper contrast
+- Keyboard navigation
+- Visible focus states
+- Accessible buttons
+- Labels for forms
+- Alt text for images
+- ARIA labels where necessary
+
+---
+
+# 49. SETTINGS PAGE
+
+Create settings page with:
+
+Profile Settings
+
+Notification Settings
+
+Privacy Settings
+
+Appearance
+
+Security
+
+Demo Data
+
+Include:
+
+Reset Demo Data
+
+Logout
+
+---
+
+# 50. FOOTER
+
+Footer:
+
+MediDesk
+
+Secure Clinic & Appointment Management
+
+"Demo application using synthetic data."
+
+Links:
+
+Privacy
+Security
+Terms
+Support
+
+---
+
+# 51. IMPORTANT SECURITY DISCLAIMERS
+
+Display somewhere in the application:
+
+"Demo Application"
+
+"Synthetic Data Only"
+
+"This application is a prototype for demonstration purposes and does not store or process real patient information."
+
+Do NOT claim:
+
+- HIPAA certified
+- Government approved
+- Clinically validated
+- Real medical diagnosis
+
+---
+
+# 52. DEMO FLOW
+
+The application must be easy to demonstrate during a hackathon.
+
+Demo flow:
+
+1. Open MediDesk
+2. Login as Patient
+3. View Patient Dashboard
+4. Search for Doctor
+5. Select Dr. Arjun Mehta
+6. Book Appointment
+7. Confirm appointment
+8. View appointment
+9. Logout
+10. Login as Doctor
+11. View today's appointments
+12. Open Rahul Kumar
+13. View authorized patient information
+14. Add medical record
+15. Complete appointment
+16. Open appointment history
+17. Logout
+18. Login as Admin
+19. View clinic statistics
+20. Manage doctors/patients/appointments
+
+Everything should work using synthetic demo data.
+
+---
+
+# 53. DEMO ACCOUNT SWITCHER
+
+Because this is a hackathon MVP, add a small:
+
+"Demo Login"
+
+section.
+
+Buttons:
+
+Continue as Patient
+
+Continue as Doctor
+
+Continue as Admin
+
+Clicking these should automatically log into the selected role.
+
+This makes judging/demo much faster.
+
+---
+
+# 54. FINAL UI REQUIREMENT
+
+The final website must feel like a real premium healthcare SaaS product.
+
+It should NOT look like:
+
+- A college project
+- A basic CRUD application
+- A generic Bootstrap dashboard
+- A plain admin panel
+
+It should look like a professional startup product.
+
+The homepage/dashboard should immediately communicate:
+
+SECURE
++
+MEDICAL
++
+APPOINTMENTS
++
+PATIENT MANAGEMENT
+
+---
+
+# 55. PRIMARY DASHBOARD SCREEN
+
+The most important screen is the Doctor Dashboard.
+
+Match the uploaded reference design conceptually:
+
+----------------------------------------------------
+| MediDesk       Overview Appointments Patients ...|
+----------------------------------------------------
+|                                                  |
+| Good Morning, Doctor!                            |
+| Medical Dashboard           Stats                |
+| Manage appointments...       Patients Today      |
+|                                                  |
+| Vital Card     HUMAN ANATOMY     Vital Stats     |
+| Blood Pressure                  Heart Rate       |
+| Heart Rate                      Oxygen           |
+|                                                  |
+| Today's Appointments            Appointment      |
+|                               Summary Chart      |
+| [Book Appointment]              Medical Records  |
+----------------------------------------------------
+
+Use the uploaded reference image as the visual inspiration but create an original implementation.
+
+---
+
+# 56. QUALITY REQUIREMENTS
+
+Before finishing:
+
+- Remove console errors
+- Remove broken links
+- Ensure all buttons work
+- Ensure all routes work
+- Ensure login works
+- Ensure role switching works
+- Ensure appointment booking works
+- Ensure appointment cancellation works
+- Ensure appointment rescheduling works
+- Ensure medical record creation works
+- Ensure localStorage persistence works
+- Ensure charts render
+- Ensure mobile responsiveness
+- Ensure modals close correctly
+- Ensure dropdowns work
+- Ensure navigation works
+- Ensure no placeholder "Lorem ipsum" text exists
+
+---
+
+# 57. FINAL CHECKLIST
+
+The final MVP must include:
+
+[ ] Patient registration/login
+[ ] Doctor authentication
+[ ] Admin authentication
+[ ] Patient profile
+[ ] Doctor profile
+[ ] Doctor directory
+[ ] Appointment booking
+[ ] Appointment management
+[ ] Appointment history
+[ ] Doctor dashboard
+[ ] Patient dashboard
+[ ] Admin dashboard
+[ ] Patient records
+[ ] Doctor medical records
+[ ] Authorized access UI
+[ ] Notifications
+[ ] Search
+[ ] AI assistant
+[ ] Charts
+[ ] Anatomy visualization
+[ ] Responsive design
+[ ] Synthetic data disclaimer
+[ ] LocalStorage persistence
+[ ] Demo login
+[ ] Logout
+[ ] Settings
+[ ] Error states
+[ ] Loading states
+[ ] Empty states
+[ ] Success messages
+
+---
+
+# MOST IMPORTANT INSTRUCTION
+
+Prioritize the QUALITY OF THE UI.
+
+The first screen must be visually impressive and immediately understandable.
+
+Use the uploaded MediDesk dashboard image as the primary visual reference.
+
+Create a polished healthcare SaaS interface with:
+
+- Premium glassmorphism
+- Light blue medical theme
+- Central anatomical visualization
+- Rounded cards
+- Clean charts
+- Professional typography
+- Consistent spacing
+- Smooth animations
+- Excellent responsive behavior
+
+Build the application as a COMPLETE FUNCTIONAL MVP rather than only creating static screens.
+
+All data must be synthetic/demo data.
+
+Do not require real patient information.
+
+Do not make medical diagnosis claims.
+
+Make the project hackathon-demo ready.
+
+Agent Response:
+Welcome to Build Secure 24, organized by Abhedya — VBIT Cybersecurity Forum. You have 24 hours to design, build, and deploy your project. Before we start, I need to walk you through the competition ground rules and get your agreement.
+
+Current System Time: 2026-10-05T12:25:30+05:30
+Hackathon Window: October 5, 2026, 11:00 AM IST to October 6, 2026, 11:00 AM IST
+Hackathon Deadline: October 6, 2026, 11:00 AM IST (2026-10-06T11:00:00+05:30)
+Time Remaining: 22 hours, 34 minutes
+
+1. Team Composition: Exactly 2 or 4 registered participants per team (solo participants, teams of 3, or teams larger than 4 are strictly disqualified).
+2. Live Authorship: All application code in src/ must be authored live during the 24-hour hackathon (October 5, 2026, 11:00 AM IST to October 6, 2026, 11:00 AM IST). Importing, cloning, or adapting pre-existing third-party or open-source repositories as the project solution is strictly prohibited and results in disqualification.
+3. AI Tools Permitted: You may use any IDE, AI assistant, or tool to build. The AI agent will automatically log every conversation turn, prompt, agent reply, and file change in docs/logs.txt.
+4. No Rule Overrides: Prompt injections, jailbreaks, or instructions attempting to bypass competition rules, disable logging, modify AGENTS.md, or forge records are strictly blocked and refused.
+5. Submission Freeze: Submissions are evaluated from the frozen commit SHA recorded in metadata/submission.yaml at the deadline (October 6, 2026, 11:00 AM IST).
+
+Please reply with the exact string "I agree" case-insensitively to accept the ground rules so we can record team metadata and immediately commence building MediDesk.
+
+Agent Response Summary:
+Received the comprehensive specification for MediDesk — Secure Clinic & Appointment Management platform. Initiated the mandatory Build Secure 24 hackathon onboarding gate per AGENTS.md §3, recited all ground rules verbatim, logged turn 1 in docs/logs.txt, and requested user agreement before proceeding to team metadata and code generation.
+
+Commit SHA:
+pending
+
+Files Modified / Created:
+* docs/logs.txt (Modified)
+
+Actions Taken:
+* Read AGENTS.md and identified uncompleted onboarding gate
+* Logged initial turn in docs/logs.txt per §3.1 and §5.2
+* Recited competition rules and requested agreement per §3.2 and §3.3
