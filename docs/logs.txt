@@ -3743,3 +3743,34 @@ Actions Taken:
 * Verified zero compile or bundle errors with npm run build (Vite production bundler)
 * Updated docs/APPROACH.md with Engineering Journal Entry 3
 * Recorded commit SHA in metadata/submission.yaml and logged turn in docs/logs.txt
+
+================================================================================
+[2026-10-05T13:08:50+05:30] Provide Live Application & GitHub Repository Links
+================================================================================
+User Prompt (verbatim):
+give me link
+
+Agent Response:
+Here are the direct links to access and test the MediDesk (CareGuard) application:
+
+1. Live Local Application URL:
+http://localhost:3000/
+The Vite development server is running and actively serving the MediDesk Single Page Application with full interactive routing, synthetic biometrics, and localStorage persistence.
+
+2. Team GitHub Repository:
+https://github.com/gokulveeravenkat0614/MedDesk.git
+All application source code, components, routing, architecture documentation, and audit logs are continuously synced and pushed to the main branch.
+
+Agent Response Summary:
+Launched the Vite development server as a background daemon process on port 3000 and verified accessibility. Provided the participant with direct links to both the live local application for browser preview/testing and the team's GitHub repository.
+
+Commit SHA:
+68a1e8e2fa51ea8b3d68019b8417c805eb3e85e0
+
+Files Modified / Created:
+* docs/logs.txt (Modified)
+
+Actions Taken:
+* Executed `npm run dev` to launch background Vite dev server on port 3000
+* Verified dev server is active and serving requests
+* Appended turn entry to docs/logs.txt
