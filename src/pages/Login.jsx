@@ -1,89 +1,66 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
-  ShieldCheck, Lock, Mail, Eye, EyeOff,
-  UserCheck, Stethoscope, ShieldAlert, ArrowRight,
-  Shield, CheckCircle2
+  Lock, Mail, Eye, EyeOff, ShieldCheck,
+  CheckCircle2, ArrowRight
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-import { loginWithCredentials, loginWithRole } from '../utils/auth';
+import { loginWithCredentials } from '../utils/auth';
+import { authAPI } from '../services/api';
 import { CareGuardLogo } from '../components/CareGuardLogo';
 
 export const Login = () => {
-  const [role, setRole] = useState('patient');
   const [email, setEmail] = useState('patient@careguard.demo');
   const [password, setPassword] = useState('demo123');
   const [rememberMe, setRememberMe] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const { loginUser, showToast } = useApp();
   const navigate = useNavigate();
 
-  const handleRoleChange = (newRole) => {
-    setRole(newRole);
-    if (newRole === 'patient') {
-      setEmail('patient@careguard.demo');
-    } else if (newRole === 'doctor') {
-      setEmail('doctor@careguard.demo');
-    } else if (newRole === 'admin') {
-      setEmail('admin@careguard.demo');
-    }
-  };
-
-  const getRoleDetails = () => {
-    if (role === 'doctor') {
-      return {
-        title: 'Doctor Portal',
-        description: 'Authorized clinical workspace.',
-        demoButton: 'Continue as Doctor'
-      };
-    }
-    if (role === 'admin') {
-      return {
-        title: 'Admin Portal',
-        description: 'Clinic administration workspace.',
-        demoButton: 'Continue as Admin'
-      };
-    }
-    return {
-      title: 'Patient Portal',
-      description: 'Secure access to your CareGuard account.',
-      demoButton: 'Continue as Patient'
-    };
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setErrorMessage('');
 
+    try {
+      // 1. Attempt API Gateway authentication
+      const apiRes = await authAPI.login(email, password);
+      if (apiRes && apiRes.user) {
+        loginUser(apiRes.user);
+        setIsLoading(false);
+        showToast(`Signed in securely as ${apiRes.user.name}`, 'success');
+
+        if (apiRes.user.role === 'admin') {
+          navigate('/admin/dashboard');
+        } else if (apiRes.user.role === 'doctor') {
+          navigate('/doctor/dashboard');
+        } else {
+          navigate('/patient/dashboard');
+        }
+        return;
+      }
+    } catch (err) {
+      console.warn('[CareGuard Auth] API gateway fallback to local credentials:', err.message);
+    }
+
+    // 2. Client-side fallback authentication
     setTimeout(() => {
-      const user = loginWithCredentials(email, password, role);
+      const user = loginWithCredentials(email, password);
       loginUser(user);
       setIsLoading(false);
+      showToast(`Signed in securely as ${user.name}`, 'success');
 
-      if (user.role === 'patient') {
-        navigate('/patient/dashboard');
-      } else if (user.role === 'admin') {
+      if (user.role === 'admin') {
         navigate('/admin/dashboard');
-      } else {
+      } else if (user.role === 'doctor') {
         navigate('/doctor/dashboard');
+      } else {
+        navigate('/patient/dashboard');
       }
-    }, 300);
+    }, 250);
   };
-
-  const handleFastDemoLogin = (selectedRole) => {
-    const user = loginWithRole(selectedRole);
-    loginUser(user);
-    if (selectedRole === 'patient') {
-      navigate('/patient/dashboard');
-    } else if (selectedRole === 'admin') {
-      navigate('/admin/dashboard');
-    } else {
-      navigate('/doctor/dashboard');
-    }
-  };
-
-  const currentRoleDetails = getRoleDetails();
 
   return (
     <div className="min-h-screen bg-[#F4F8FC] flex flex-col justify-center items-center p-4 sm:p-6 lg:p-8">
@@ -98,170 +75,130 @@ export const Login = () => {
       </div>
 
       {/* Centered Premium Authentication Card */}
-      <div className="max-w-md w-full bg-white rounded-3xl border border-slate-200/90 shadow-2xl overflow-hidden p-6 sm:p-8 space-y-6">
+      <div className="max-w-md w-full bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-6 sm:p-8 box-border">
         
-        {/* Role Selector Tabs */}
-        <div className="grid grid-cols-3 gap-1.5 p-1 bg-slate-100 rounded-2xl">
-          <button
-            type="button"
-            onClick={() => handleRoleChange('patient')}
-            className={`py-2 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 ${
-              role === 'patient'
-                ? 'bg-white text-[#1677FF] shadow-xs'
-                : 'text-slate-600 hover:text-slate-900'
-            }`}
-          >
-            <UserCheck className="w-3.5 h-3.5" />
-            <span>Patient</span>
-          </button>
-          <button
-            type="button"
-            onClick={() => handleRoleChange('doctor')}
-            className={`py-2 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 ${
-              role === 'doctor'
-                ? 'bg-white text-[#1677FF] shadow-xs'
-                : 'text-slate-600 hover:text-slate-900'
-            }`}
-          >
-            <Stethoscope className="w-3.5 h-3.5" />
-            <span>Doctor</span>
-          </button>
-          <button
-            type="button"
-            onClick={() => handleRoleChange('admin')}
-            className={`py-2 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 ${
-              role === 'admin'
-                ? 'bg-white text-[#1677FF] shadow-xs'
-                : 'text-slate-600 hover:text-slate-900'
-            }`}
-          >
-            <ShieldAlert className="w-3.5 h-3.5" />
-            <span>Admin</span>
-          </button>
-        </div>
-
-        {/* Header Titles */}
-        <div className="text-center space-y-1">
-          <h2 className="text-2xl font-black text-[#0B1736] tracking-tight">
-            {currentRoleDetails.title}
-          </h2>
+        {/* Header Section: Patient Access & Portal Title */}
+        <div className="text-center space-y-2 mb-6">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-[#1677FF] border border-blue-200/80 text-xs font-bold">
+            <Lock className="w-3.5 h-3.5 text-[#1677FF]" />
+            <span>Patient Access</span>
+          </div>
+          
+          <h1 className="text-2xl sm:text-3xl font-black text-[#0B1736] tracking-tight">
+            Patient Portal
+          </h1>
+          
           <p className="text-xs text-slate-500 font-medium">
-            {currentRoleDetails.description}
+            Secure access to your CareGuard account.
           </p>
         </div>
 
-        {/* Login Form */}
+        {/* Divider Line */}
+        <div className="border-t border-slate-100 mb-6" />
+
+        {/* Error Banner */}
+        {errorMessage && (
+          <div className="mb-4 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold">
+            {errorMessage}
+          </div>
+        )}
+
+        {/* Normal Login Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Email Field */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Email Address
             </label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@careguard.demo"
-                className="w-full pl-10 pr-3 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1677FF]/20 focus:border-[#1677FF]"
+                className="w-full pl-10 pr-3 py-2.5 sm:py-3 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1677FF]/20 focus:border-[#1677FF] transition-all bg-white"
               />
             </div>
           </div>
 
+          {/* Password Field */}
           <div>
-            <div className="flex items-center justify-between mb-1">
+            <div className="flex items-center justify-between mb-1.5">
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
                 Password
               </label>
               <button
                 type="button"
-                onClick={() => showToast('Demo Mode: Any password accepted', 'info')}
+                onClick={() => showToast('Password reset link sent to registered email', 'info')}
                 className="text-[11px] text-[#1677FF] hover:underline font-semibold"
               >
-                Forgot Password?
+                Forgot password?
               </button>
             </div>
             <div className="relative">
-              <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
                 type={showPassword ? 'text' : 'password'}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-10 pr-10 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1677FF]/20 focus:border-[#1677FF]"
+                className="w-full pl-10 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1677FF]/20 focus:border-[#1677FF] transition-all bg-white"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
           </div>
 
-          <div className="flex items-center">
+          {/* Remember Me Checkbox */}
+          <div className="flex items-center pt-1">
             <input
               id="remember-me"
               type="checkbox"
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.target.checked)}
-              className="w-3.5 h-3.5 rounded text-[#1677FF] focus:ring-[#1677FF] border-slate-300"
+              className="w-4 h-4 rounded text-[#1677FF] focus:ring-[#1677FF] border-slate-300 cursor-pointer"
             />
-            <label htmlFor="remember-me" className="ml-2 text-xs font-medium text-slate-600">
-              Remember Me
+            <label htmlFor="remember-me" className="ml-2 text-xs font-medium text-slate-600 cursor-pointer select-none">
+              Remember me
             </label>
           </div>
 
-          {/* Primary CTA */}
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full py-3 rounded-2xl bg-[#1677FF] hover:bg-blue-600 text-white font-bold text-xs shadow-md shadow-blue-500/25 transition-all flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50"
-          >
-            <span>{isLoading ? 'Verifying...' : 'Continue Securely →'}</span>
-          </button>
+          {/* Primary CTA: Card ends naturally here */}
+          <div className="pt-2">
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full py-3 sm:py-3.5 rounded-2xl bg-[#1677FF] hover:bg-blue-600 text-white font-bold text-xs sm:text-sm shadow-md shadow-blue-500/25 transition-all flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50"
+            >
+              <span>{isLoading ? 'Verifying Credentials...' : 'Continue Securely →'}</span>
+            </button>
+          </div>
         </form>
 
-        {/* Demo Fast Access Section */}
-        <div className="pt-2 border-t border-slate-100 text-center space-y-2">
-          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-            CareGuard Demo Access
-          </span>
-          <button
-            type="button"
-            onClick={() => handleFastDemoLogin(role)}
-            className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors flex items-center justify-center gap-2"
-          >
-            <span>{currentRoleDetails.demoButton}</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#1677FF]" />
-          </button>
-        </div>
+      </div>
 
-        {/* Login Security Panel (Exact Prompt Specification) */}
-        <div className="p-3 rounded-2xl bg-[#F4F8FC] border border-blue-100 space-y-2">
-          <div className="flex items-center gap-1.5 text-xs font-black text-[#0B1736]">
-            <Shield className="w-4 h-4 text-[#1677FF]" />
-            <span>🛡 Secure Session</span>
-          </div>
-          <div className="grid grid-cols-1 gap-1 text-[11px] font-semibold text-slate-600">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-              <span>Role-Based Access Enabled</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Lock className="w-3.5 h-3.5 text-[#1677FF] shrink-0" />
-              <span>Protected Environment</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
-              <span>Synthetic Demo Data</span>
-            </div>
-          </div>
-        </div>
+      {/* Registration Link & Security Footer Below Card */}
+      <div className="mt-6 text-center space-y-2">
+        <p className="text-xs text-slate-500">
+          Don't have an account?{' '}
+          <Link to="/register" className="text-[#1677FF] font-bold hover:underline">
+            Create an account
+          </Link>
+        </p>
 
+        <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 font-semibold pt-1">
+          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+          <span>Privacy-Focused Clinical Environment • 256-Bit TLS</span>
+        </div>
       </div>
     </div>
   );

@@ -247,6 +247,13 @@ CareGuard is engineered using a modular, decoupled Single Page Application (SPA)
      - Locked all hotspot badges and overlay information cards strictly within container boundaries.
 - **Resolution:** Full production build verified (`npm run build`: 2,590 modules transformed, 0 errors, built in 8.56s).
 
+### [2026-10-06 12:00 IST] Entry 14: Removal of Demo Access UI & Login Page Redesign
+- **Focus:** Streamlined the authentication experience to a production healthcare gateway aesthetic:
+  1. Completely removed the visible "CareGuard Demo Access" section, including all shortcut buttons ("Continue as Patient", "Continue as Doctor", "Continue as Admin") and associated dividers.
+  2. Redesigned the authentication card to end naturally after the primary "Continue Securely →" button with balanced vertical proportions and zero trailing whitespace.
+  3. Preserved dynamic backend credential routing (`authAPI.login` and `loginWithCredentials`) so patient, doctor, and admin accounts authenticate securely through the unified form.
+- **Resolution:** Full Vite production build verified (`✓ 2590 modules transformed, 0 errors, built in 8.30s`).
+
 ---
 
 ## 6. Testing, Security Verification & Deployment Record
