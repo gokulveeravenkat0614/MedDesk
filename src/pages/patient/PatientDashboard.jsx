@@ -52,12 +52,12 @@ export const PatientDashboard = () => {
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-1 leading-tight flex items-center gap-2">
-            <span>Good Morning, <span className="text-primary font-black">{currentUser?.name?.split(' ')[0] || 'Gokul'}</span></span>
+            <span>Good Morning, <span className="text-[#1677FF] font-black">{currentUser?.name?.split(' ')[0] || 'Gokul'}</span></span>
             <span className="animate-bounce">👋</span>
           </h1>
 
           <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl">
-            Here’s your health and appointment overview.
+            Manage your appointments and healthcare information securely.
           </p>
         </div>
 
@@ -319,46 +319,60 @@ export const PatientDashboard = () => {
             {nextAppointment ? (
               <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-sky-50/70 border border-blue-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3.5">
-                  <div className="w-12 h-12 rounded-2xl bg-primary text-white flex flex-col items-center justify-center font-bold shadow-sm">
-                    <span className="text-xs leading-none">OCT</span>
-                    <span className="text-base leading-tight">05</span>
+                  <div className="w-12 h-12 rounded-2xl bg-[#1677FF] text-white flex flex-col items-center justify-center font-bold shadow-sm">
+                    <span className="text-[10px] leading-none uppercase">OCT</span>
+                    <span className="text-base leading-tight font-black">06</span>
                   </div>
                   <div>
                     <h4 className="text-sm font-black text-slate-900">
-                      {nextAppointment.doctorName || 'Dr. Arjun Mehta'}
+                      Dr. Arjun Mehta
                     </h4>
-                    <p className="text-xs text-slate-500 font-medium">
-                      {nextAppointment.type || 'General Consultation'} • {nextAppointment.time || '10:30 AM'}
+                    <p className="text-xs text-slate-600 font-medium">
+                      General Physician • 10:30 AM • 06 Oct 2026
                     </p>
-                    <span className="inline-block mt-1 text-[10px] font-bold text-primary bg-white px-2 py-0.5 rounded-full border border-blue-200">
-                      Consultation Suite 302
-                    </span>
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="inline-block text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                        Status: Confirmed
+                      </span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <button
                     onClick={() => navigate('/patient/appointments')}
-                    className="px-3 py-2 rounded-xl bg-white hover:bg-blue-50 text-slate-700 text-xs font-bold border border-slate-200 shadow-xs transition-colors"
+                    className="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold border border-slate-200 shadow-xs transition-colors"
                   >
                     Manage
                   </button>
                   <button
                     onClick={() => navigate('/patient/appointments?book=true')}
-                    className="px-3 py-2 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold shadow-xs transition-colors"
+                    className="px-3 py-1.5 rounded-xl bg-[#1677FF] hover:bg-blue-600 text-white text-xs font-bold shadow-xs transition-colors"
                   >
                     Reschedule
+                  </button>
+                  <button
+                    onClick={() => {
+                      if (window.confirm('Are you sure you want to cancel this appointment?')) {
+                        // cancellation callback
+                        navigate('/patient/appointments');
+                      }
+                    }}
+                    className="px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-bold border border-rose-200 transition-colors"
+                  >
+                    Cancel
                   </button>
                 </div>
               </div>
             ) : (
               <div className="text-center py-8">
-                <p className="text-xs text-slate-500">You currently have no scheduled appointments.</p>
+                <p className="text-xs text-slate-500">No upcoming appointments</p>
+                <p className="text-[11px] text-slate-400 mt-0.5">Book an appointment to get started.</p>
                 <button
                   onClick={() => navigate('/patient/appointments?book=true')}
-                  className="mt-3 px-4 py-2 rounded-xl bg-primary text-white text-xs font-bold shadow-sm"
+                  className="mt-3 px-4 py-2 rounded-xl bg-[#1677FF] text-white text-xs font-bold shadow-sm"
                 >
-                  Book Your First Appointment
+                  Book an Appointment
                 </button>
               </div>
             )}
@@ -368,44 +382,82 @@ export const PatientDashboard = () => {
           <div className="glass-panel rounded-3xl p-6 border border-white/90 shadow-glass">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
               <div className="flex items-center gap-2">
-                <Stethoscope className="w-4 h-4 text-primary" />
+                <Stethoscope className="w-4 h-4 text-[#1677FF]" />
                 <h3 className="text-sm font-bold text-slate-800">
                   Featured Clinic Specialists
                 </h3>
               </div>
-              <Link to="/patient/doctors" className="text-xs font-bold text-primary hover:underline">
+              <Link to="/patient/doctors" className="text-xs font-bold text-[#1677FF] hover:underline">
                 Find All Doctors
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {doctors.slice(0, 2).map((doc) => (
-                <div
-                  key={doc.id}
-                  className="p-3.5 rounded-2xl bg-white/70 border border-slate-100 shadow-xs flex items-center justify-between gap-3"
-                >
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={doc.avatar}
-                      alt={doc.name}
-                      className="w-11 h-11 rounded-xl object-cover ring-2 ring-primary/20"
-                    />
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-800">{doc.name}</h4>
-                      <p className="text-[11px] text-primary font-medium">{doc.specialty}</p>
-                      <p className="text-[10px] text-slate-400">{doc.availability}</p>
-                    </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {/* Doctor 1: Dr. Arjun Mehta */}
+              <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex flex-col justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=120"
+                    alt="Dr. Arjun Mehta"
+                    className="w-12 h-12 rounded-xl object-cover ring-2 ring-[#1677FF]/20"
+                  />
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-900">Dr. Arjun Mehta</h4>
+                    <p className="text-[11px] text-[#1677FF] font-semibold">General Physician</p>
+                    <span className="inline-block mt-0.5 text-[10px] text-emerald-700 font-bold bg-emerald-50 px-2 py-0.2 rounded-full border border-emerald-200">
+                      Available Today
+                    </span>
                   </div>
+                </div>
 
+                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100">
                   <button
-                    onClick={() => navigate(`/patient/appointments?doctorId=${doc.id}&book=true`)}
-                    className="p-2 rounded-xl bg-blue-50 hover:bg-primary hover:text-white text-primary transition-all"
-                    title="Book Doctor"
+                    onClick={() => navigate('/patient/doctor/doc-1')}
+                    className="py-1.5 px-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200 transition-colors text-center"
                   >
-                    <ArrowUpRight className="w-4 h-4" />
+                    View Profile
+                  </button>
+                  <button
+                    onClick={() => navigate('/patient/appointments?doctorId=doc-1&book=true')}
+                    className="py-1.5 px-2 rounded-xl bg-[#1677FF] hover:bg-blue-600 text-white text-xs font-bold shadow-xs transition-colors text-center"
+                  >
+                    Book Appointment
                   </button>
                 </div>
-              ))}
+              </div>
+
+              {/* Doctor 2: Dr. Priya Sharma */}
+              <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex flex-col justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1594824813591-13c5332f1837?w=120"
+                    alt="Dr. Priya Sharma"
+                    className="w-12 h-12 rounded-xl object-cover ring-2 ring-[#1677FF]/20"
+                  />
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-900">Dr. Priya Sharma</h4>
+                    <p className="text-[11px] text-[#1677FF] font-semibold">Cardiologist</p>
+                    <span className="inline-block mt-0.5 text-[10px] text-blue-700 font-bold bg-blue-50 px-2 py-0.2 rounded-full border border-blue-200">
+                      Available Tomorrow
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100">
+                  <button
+                    onClick={() => navigate('/patient/doctor/doc-2')}
+                    className="py-1.5 px-2 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200 transition-colors text-center"
+                  >
+                    View Profile
+                  </button>
+                  <button
+                    onClick={() => navigate('/patient/appointments?doctorId=doc-2&book=true')}
+                    className="py-1.5 px-2 rounded-xl bg-[#1677FF] hover:bg-blue-600 text-white text-xs font-bold shadow-xs transition-colors text-center"
+                  >
+                    Book Appointment
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 

@@ -201,41 +201,34 @@ export const Landing = () => {
             <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
               
               {/* Small Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-[#0B63F6] text-[11px] font-black uppercase tracking-widest shadow-xs">
-                <ShieldCheck className="w-4 h-4 text-[#0B63F6]" />
-                <span>CYBERSECURITY HEALTHCARE PLATFORM</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-[#1677FF] text-[11px] font-black uppercase tracking-widest shadow-xs">
+                <ShieldCheck className="w-4 h-4 text-[#1677FF]" />
+                <span>SECURE HEALTHCARE PLATFORM</span>
               </div>
 
               {/* Large Heading */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0B1736] tracking-tight leading-[1.08]">
                 Your Care.<br />
-                Your Appointments.<br />
-                <span className="text-[#0B63F6] relative inline-block">
-                  Protected.
+                <span className="text-[#1677FF] relative inline-block">
+                  Guarded.
                   <svg className="absolute -bottom-2 left-0 w-full h-3 text-cyan-400/50" viewBox="0 0 100 12" preserveAspectRatio="none" fill="currentColor">
                     <path d="M0,8 Q50,0 100,8 L100,12 Q50,4 0,12 Z" />
                   </svg>
                 </span>
               </h1>
 
-              {/* Primary USP & Supporting Text (Exact Specification) */}
+              {/* Supporting Text */}
               <div className="space-y-2">
-                <div className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold tracking-wide border border-slate-200">
-                  Secure Clinic & Appointment Management
-                </div>
-                <p className="text-sm sm:text-base text-slate-800 max-w-xl mx-auto lg:mx-0 leading-relaxed font-bold">
-                  CareGuard doesn't just manage patient appointments — it controls who can access patient information, what they can access, and records important access activity.
-                </p>
-                <p className="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                  A privacy-first clinic management platform designed around secure, role-based and patient-specific access.
+                <p className="text-sm sm:text-base text-slate-700 max-w-xl mx-auto lg:mx-0 leading-relaxed font-semibold">
+                  Manage appointments, connect with doctors and protect relevant healthcare information — all in one secure clinic workspace.
                 </p>
                 <div className="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                  <span className="text-[11px] font-mono font-bold text-[#0B63F6] uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-xl border border-blue-200/60 inline-block">
-                    Manage care. Guard information.
+                  <span className="text-[11px] font-mono font-bold text-[#1677FF] uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-xl border border-blue-200/60 inline-block">
+                    Your Care. Your Appointments. Protected.
                   </span>
                   <span className="text-[11px] font-mono font-bold text-emerald-700 uppercase tracking-wider bg-emerald-50 px-3 py-1 rounded-xl border border-emerald-200/60 inline-flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 security-dot-active" />
-                    Security Active
+                    ● Security Active
                   </span>
                 </div>
               </div>
@@ -246,7 +239,7 @@ export const Landing = () => {
                   onClick={() => {
                     document.getElementById('roles')?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-[#0B63F6] hover:bg-blue-600 text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all duration-200 flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-[#1677FF] hover:bg-blue-600 text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all duration-200 flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <span>Enter CareGuard →</span>
                 </button>
@@ -456,24 +449,25 @@ export const Landing = () => {
             onClick={() => handleRoleCardClick('patient')}
             className={`p-6 sm:p-7 rounded-3xl bg-white border cursor-pointer transition-all duration-300 flex flex-col justify-between group ${
               selectedRole === 'patient' && showRoleLogin
-                ? 'border-primary ring-2 ring-primary/20 shadow-xl -translate-y-1'
-                : 'border-slate-200/80 hover:border-primary hover:-translate-y-1 hover:shadow-xl'
+                ? 'border-[#1677FF] ring-2 ring-[#1677FF]/20 shadow-xl -translate-y-1'
+                : 'border-slate-200/80 hover:border-[#1677FF] hover:-translate-y-1 hover:shadow-xl'
             }`}
           >
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                <UserCheck className="w-6 h-6 stroke-[2.2]" />
+              <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#1677FF] flex items-center justify-center relative group-hover:scale-110 group-hover:bg-[#1677FF] group-hover:text-white transition-all duration-300">
+                <User className="w-6 h-6 stroke-[2.2]" />
+                <Heart className="w-3.5 h-3.5 absolute -bottom-1 -right-1 text-rose-500 fill-rose-500 bg-white rounded-full p-0.5 shadow-xs" />
               </div>
-              <h3 className="text-xl font-black text-slate-900 mt-4 group-hover:text-primary transition-colors">
-                Patient
+              <h3 className="text-xl font-black text-slate-900 mt-4 group-hover:text-[#1677FF] transition-colors">
+                Patient Portal
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
                 Book appointments and manage your healthcare information.
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-primary">
-              <span>Open Patient Portal</span>
+            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#1677FF]">
+              <span>Enter Patient Portal →</span>
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform" />
             </div>
           </div>
@@ -483,24 +477,25 @@ export const Landing = () => {
             onClick={() => handleRoleCardClick('doctor')}
             className={`p-6 sm:p-7 rounded-3xl bg-white border cursor-pointer transition-all duration-300 flex flex-col justify-between group ${
               selectedRole === 'doctor' && showRoleLogin
-                ? 'border-primary ring-2 ring-primary/20 shadow-xl -translate-y-1'
-                : 'border-slate-200/80 hover:border-primary hover:-translate-y-1 hover:shadow-xl'
+                ? 'border-[#1677FF] ring-2 ring-[#1677FF]/20 shadow-xl -translate-y-1'
+                : 'border-slate-200/80 hover:border-[#1677FF] hover:-translate-y-1 hover:shadow-xl'
             }`}
           >
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-blue-50 text-primary flex items-center justify-center group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+              <div className="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center relative group-hover:scale-110 group-hover:bg-[#1677FF] group-hover:text-white transition-all duration-300">
                 <Stethoscope className="w-6 h-6 stroke-[2.2]" />
+                <Shield className="w-3.5 h-3.5 absolute -bottom-1 -right-1 text-primary fill-primary/20 bg-white rounded-full p-0.5 shadow-xs" />
               </div>
-              <h3 className="text-xl font-black text-slate-900 mt-4 group-hover:text-primary transition-colors">
-                Doctor
+              <h3 className="text-xl font-black text-slate-900 mt-4 group-hover:text-[#1677FF] transition-colors">
+                Doctor Portal
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
                 Manage appointments and access authorized patient information.
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-primary">
-              <span>Open Doctor Portal</span>
+            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#1677FF]">
+              <span>Enter Doctor Portal →</span>
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform" />
             </div>
           </div>
@@ -510,24 +505,25 @@ export const Landing = () => {
             onClick={() => handleRoleCardClick('admin')}
             className={`p-6 sm:p-7 rounded-3xl bg-white border cursor-pointer transition-all duration-300 flex flex-col justify-between group ${
               selectedRole === 'admin' && showRoleLogin
-                ? 'border-primary ring-2 ring-primary/20 shadow-xl -translate-y-1'
-                : 'border-slate-200/80 hover:border-primary hover:-translate-y-1 hover:shadow-xl'
+                ? 'border-[#1677FF] ring-2 ring-[#1677FF]/20 shadow-xl -translate-y-1'
+                : 'border-slate-200/80 hover:border-[#1677FF] hover:-translate-y-1 hover:shadow-xl'
             }`}
           >
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
-                <ShieldAlert className="w-6 h-6 stroke-[2.2]" />
+              <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center relative group-hover:scale-110 group-hover:bg-[#1677FF] group-hover:text-white transition-all duration-300">
+                <Shield className="w-6 h-6 stroke-[2.2]" />
+                <Settings className="w-3.5 h-3.5 absolute -bottom-1 -right-1 text-slate-700 bg-white rounded-full p-0.5 shadow-xs" />
               </div>
-              <h3 className="text-xl font-black text-slate-900 mt-4 group-hover:text-primary transition-colors">
-                Admin
+              <h3 className="text-xl font-black text-slate-900 mt-4 group-hover:text-[#1677FF] transition-colors">
+                Admin Portal
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
-                Manage clinic operations, users and appointments.
+                Manage clinic operations, users and security activity.
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-primary">
-              <span>Open Admin Portal</span>
+            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#1677FF]">
+              <span>Enter Admin Portal →</span>
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform" />
             </div>
           </div>

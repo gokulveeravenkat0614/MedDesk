@@ -9,9 +9,9 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#0B63F6',
-          hover: '#0951cb',
-          light: '#EBF3FE',
+          DEFAULT: '#1677FF',
+          hover: '#0958d9',
+          light: '#EAF4FF',
           dark: '#083da1',
         },
         secondary: {
@@ -21,8 +21,8 @@ export default {
         },
         navy: {
           950: '#070E22',
-          900: '#0B1736', // Dark Navy
-          800: '#102A56', // Deep Cyber Blue
+          900: '#0B1736', // Deep Navy
+          800: '#102A56', // Dark Blue
           700: '#1E3A8A',
           600: '#334155',
           500: '#64748B',

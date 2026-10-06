@@ -10,47 +10,86 @@ import { SecurityWatchAlert } from '../../components/SecurityWatchAlert';
 
 const INITIAL_AUDIT_LOGS = [
   {
-    id: 'LOG-8941',
-    timestamp: '2026-10-05 11:42:15',
+    id: 'LOG-8945',
+    timestamp: 'Today, 10:42 AM',
     category: 'Record Access',
-    event: 'RECORD_VIEW_AUTHORIZED',
+    event: 'Record Viewed',
     severity: 'success',
-    actor: 'Dr. Arjun Mehta',
+    actor: 'Dr. Sharma',
     role: 'Doctor',
-    target: 'Patient Rahul Kumar (REC-2041)',
-    ip: '192.168.1.42 (Clinic VLAN)',
+    target: 'Patient record PT-1024',
+    ip: '192.168.1.44 (Station A)',
     status: 'Authorized',
-    details: 'Attending physician accessed clinical lab chemistry panel following confirmed consultation booking.'
+    details: 'Dr. Sharma viewed patient record PT-1024 under authorized clinical consultation session.'
+  },
+  {
+    id: 'LOG-8944',
+    timestamp: 'Today, 10:35 AM',
+    category: 'Appointment Management',
+    event: 'Appointment Updated',
+    severity: 'info',
+    actor: 'Patient',
+    role: 'Patient',
+    target: 'Appointment CG-APT-1001',
+    ip: '10.20.4.15 (Mobile Portal)',
+    status: 'Updated',
+    details: 'Patient updated appointment CG-APT-1001 consultation schedule and notes.'
+  },
+  {
+    id: 'LOG-8943',
+    timestamp: 'Today, 10:21 AM',
+    category: 'RBAC Enforcement',
+    event: 'Doctor Verified',
+    severity: 'success',
+    actor: 'Admin',
+    role: 'Admin',
+    target: 'Dr. Arjun Mehta (DOC-04)',
+    ip: '192.168.1.10 (Admin Node)',
+    status: 'Verified',
+    details: 'Admin verified doctor account credentials and approved clinical prescription privileges.'
+  },
+  {
+    id: 'LOG-8942',
+    timestamp: 'Today, 09:55 AM',
+    category: 'Record Access',
+    event: 'Record Updated',
+    severity: 'info',
+    actor: 'Doctor',
+    role: 'Doctor',
+    target: 'Consultation note PT-1024',
+    ip: '192.168.1.44 (Station A)',
+    status: 'Authorized',
+    details: 'Doctor updated consultation note with diagnostic follow-up recommendations and prescription.'
+  },
+  {
+    id: 'LOG-8941',
+    timestamp: 'Today, 09:42 AM',
+    category: 'Authentication',
+    event: 'Login',
+    severity: 'success',
+    actor: 'Patient',
+    role: 'Patient',
+    target: 'CareGuard Patient Gateway',
+    ip: '10.20.4.15 (Mobile Portal)',
+    status: 'Authorized',
+    details: 'Patient logged into CareGuard with secure session token and sanitized client environment.'
   },
   {
     id: 'LOG-8940',
-    timestamp: '2026-10-05 11:30:02',
+    timestamp: 'Today, 09:30 AM',
     category: 'RBAC Enforcement',
     event: 'CROSS_PATIENT_ACCESS_BLOCKED',
     severity: 'danger',
     actor: 'Dr. Priya Sharma',
     role: 'Doctor',
-    target: 'Patient Aditya Rao (REC-1092)',
+    target: 'Patient Aditya Rao (PT-1092)',
     ip: '192.168.1.88 (Station B)',
     status: 'Blocked',
     details: 'RBAC policy denied access: Physician does not have an active consultation assignment or referral authorization for target patient.'
   },
   {
-    id: 'LOG-8939',
-    timestamp: '2026-10-05 11:15:44',
-    category: 'Appointment Management',
-    event: 'APPOINTMENT_SCHEDULED',
-    severity: 'info',
-    actor: 'Rahul Kumar',
-    role: 'Patient',
-    target: 'Appointment MD-2026-00124',
-    ip: '10.20.4.15 (Mobile Portal)',
-    status: 'Verified',
-    details: 'Patient self-scheduled 5-step consultation with Dr. Arjun Mehta for General Medicine evaluation.'
-  },
-  {
     id: 'LOG-8938',
-    timestamp: '2026-10-05 10:55:18',
+    timestamp: 'Today, 08:55 AM',
     category: 'Authentication',
     event: 'SESSION_MFA_AUTHENTICATED',
     severity: 'success',
@@ -62,34 +101,8 @@ const INITIAL_AUDIT_LOGS = [
     details: 'Administrator session initiated with simulated biometric FIDO2 credential validation.'
   },
   {
-    id: 'LOG-8937',
-    timestamp: '2026-10-05 10:32:09',
-    category: 'Record Access',
-    event: 'PRESCRIPTION_DISPENSED',
-    severity: 'info',
-    actor: 'Dr. Arjun Mehta',
-    role: 'Doctor',
-    target: 'Patient Priya Sharma (RX-884)',
-    ip: '192.168.1.42 (Clinic VLAN)',
-    status: 'Authorized',
-    details: 'Generated digital pharmaceutical electronic prescription for Amoxicillin 500mg with digital physician signature.'
-  },
-  {
-    id: 'LOG-8936',
-    timestamp: '2026-10-05 09:48:33',
-    category: 'Appointment Management',
-    event: 'APPOINTMENT_RESCHEDULED',
-    severity: 'warning',
-    actor: 'Aditya Rao',
-    role: 'Patient',
-    target: 'Appointment MD-2026-00118',
-    ip: '10.20.4.82 (Web Portal)',
-    status: 'Updated',
-    details: 'Routine checkup moved from 10:00 AM to 02:30 PM due to patient schedule conflict.'
-  },
-  {
     id: 'LOG-8935',
-    timestamp: '2026-10-05 09:12:00',
+    timestamp: 'Today, 08:12 AM',
     category: 'System Config',
     event: 'SYNTHETIC_DATA_ENCLAVE_MOUNT',
     severity: 'info',
@@ -99,19 +112,6 @@ const INITIAL_AUDIT_LOGS = [
     ip: '127.0.0.1 (Local Runtime)',
     status: 'Enforced',
     details: 'Synthetic sandbox environment isolated. Zero Protected Health Information (PHI) egress detected.'
-  },
-  {
-    id: 'LOG-8934',
-    timestamp: '2026-10-05 08:30:19',
-    category: 'Authentication',
-    event: 'SESSION_LOGIN_PATIENT',
-    severity: 'success',
-    actor: 'Rahul Kumar',
-    role: 'Patient',
-    target: 'Patient Health Gateway',
-    ip: '10.20.4.15 (Mobile Portal)',
-    status: 'Authorized',
-    details: 'User authenticated via demo credentials into Patient Health Portal.'
   }
 ];
 

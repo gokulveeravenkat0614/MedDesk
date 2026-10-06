@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   Brain, Heart, Activity, ShieldCheck, Stethoscope,
-  Maximize2, X, ChevronRight, AlertCircle, RefreshCw
+  Maximize2, X, ChevronRight, AlertCircle, RefreshCw, Lock
 } from 'lucide-react';
 import { ANATOMY_SYSTEMS } from '../data/anatomySystems';
 
@@ -64,6 +64,22 @@ export const AnatomyViewer = () => {
           <RefreshCw className={`w-3.5 h-3.5 text-primary ${isScanning ? 'animate-spin' : ''}`} />
           <span className="hidden sm:inline">Refresh Scan</span>
         </button>
+      </div>
+
+      {/* Subtle Security Indicators Strip */}
+      <div className="relative z-10 flex flex-wrap items-center justify-center gap-2 pt-1 pb-1">
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-50 text-[#1677FF] border border-blue-200/60 text-[10px] font-bold">
+          <ShieldCheck className="w-3 h-3 text-[#1677FF]" />
+          Secure Health Data
+        </span>
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/60 text-[10px] font-bold">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 security-dot-active" />
+          Authorized Access
+        </span>
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200/60 text-[10px] font-bold">
+          <Lock className="w-3 h-3 text-cyan-600" />
+          Protected
+        </span>
       </div>
 
       {/* Central Visual Stage */}

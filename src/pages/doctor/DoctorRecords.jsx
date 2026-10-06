@@ -9,7 +9,7 @@ import { Modal } from '../../components/Modal';
 import { EmptyState } from '../../components/EmptyState';
 
 export const DoctorRecords = () => {
-  const { medicalRecords, addMedicalRecord, patients, currentUser } = useApp();
+  const { medicalRecords, addMedicalRecord, patients, currentUser, showToast } = useApp();
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
   const [showAddModal, setShowAddModal] = useState(false);
@@ -17,14 +17,15 @@ export const DoctorRecords = () => {
   const [form, setForm] = useState({
     patientId: 'pat-1',
     recordType: 'Consultation Notes',
-    title: 'Post-consultation Diagnostic Follow-up',
-    diagnosis: 'Normal pulmonary and cardiovascular findings',
-    symptoms: 'Follow-up consultation after therapy',
-    medicine: 'Multivitamin Complex',
-    dosage: '1 tab daily',
-    duration: '30 days',
-    recommendedTests: 'Routine Follow-up in 3 months',
-    followUpDate: '2026-12-05'
+    title: 'Routine Clinical Follow-up',
+    symptoms: 'Mild fatigue, intermittent headaches',
+    consultationNotes: 'Patient reports mild tension headache exacerbated by work screen time. Normal neurological exam, vitals stable.',
+    diagnosis: 'Tension-type headache; mild dehydration',
+    medicine: 'Hydration therapy + Paracetamol 500mg',
+    dosage: '1 tablet SOS after meals',
+    duration: '5 days',
+    recommendedTests: 'Basic Metabolic Panel (if symptoms persist)',
+    followUpDate: '2026-10-20'
   });
 
   const categories = ['All', 'Consultation Notes', 'Lab Report', 'Prescription', 'Diagnosis'];
@@ -48,10 +49,11 @@ export const DoctorRecords = () => {
       patientId: patient.id,
       patientName: patient.name,
       recordType: form.recordType,
-      title: form.title,
-      summary: `${form.recordType}: ${form.title}. Diagnosis: ${form.diagnosis}`,
+      title: form.title || `Consultation: ${form.diagnosis}`,
+      summary: `Consultation Notes: ${form.consultationNotes} | Diagnosis: ${form.diagnosis}`,
       diagnosis: form.diagnosis,
       symptoms: form.symptoms,
+      notes: form.consultationNotes,
       prescription: [
         { medicine: form.medicine, dosage: form.dosage, duration: form.duration }
       ],
@@ -60,6 +62,9 @@ export const DoctorRecords = () => {
     });
 
     setShowAddModal(false);
+    if (showToast) {
+      showToast('✓ Consultation saved successfully');
+    }
   };
 
   return (
@@ -69,16 +74,16 @@ export const DoctorRecords = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-primary border border-blue-200/60 uppercase tracking-wider flex items-center gap-1">
-              <ShieldCheck className="w-3 h-3 text-primary" />
-              Simulated HIPAA/GDPR Access Layer
+            <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-primary border border-blue-200/60 uppercase tracking-wider flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-primary" />
+              <span>Privacy-Focused Clinical Environment • Role-Based Access Enabled</span>
             </span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
             Clinical Medical Records
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Encrypted diagnostic archives, laboratory reports, prescriptions, and consult notes.
+            Encrypted diagnostic archives, laboratory reports, prescriptions, and authorized consultation notes.
           </p>
         </div>
 
@@ -87,7 +92,7 @@ export const DoctorRecords = () => {
           className="px-4 py-2.5 rounded-2xl bg-primary hover:bg-primary-hover text-white text-xs font-bold shadow-md shadow-blue-500/25 transition-all flex items-center gap-1.5 self-start sm:self-auto"
         >
           <Plus className="w-4 h-4" />
-          <span>Add Medical Record</span>
+          <span>New Consultation</span>
         </button>
       </div>
 
@@ -135,17 +140,17 @@ export const DoctorRecords = () => {
         )}
       </div>
 
-      {/* Add Record Modal */}
+      {/* Add Consultation Modal */}
       {showAddModal && (
         <Modal
           isOpen={showAddModal}
           onClose={() => setShowAddModal(false)}
-          title="Create New Clinical Medical Record"
-          subtitle="Record laboratory analysis, diagnosis, or prescription under strict RBAC"
+          title="New Patient Consultation"
+          subtitle="Record clinical consultation notes, diagnosis, and prescription under role authorization"
           maxWidth="max-w-2xl"
         >
-          <form onSubmit={handleSubmit} className="space-y-3 text-xs">
-            <div className="grid grid-cols-2 gap-3">
+          <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                   Select Patient
@@ -156,7 +161,7 @@ export const DoctorRecords = () => {
                   className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white outline-none focus:border-primary"
                 >
                   {patients.map(p => (
-                    <option key={p.id} value={p.id}>{p.name} ({p.bloodGroup})</option>
+                    <option key={p.id} value={p.id}>{p.name} ({p.bloodGroup || 'Blood: O+'})</option>
                   ))}
                 </select>
               </div>
@@ -180,53 +185,105 @@ export const DoctorRecords = () => {
 
             <div>
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                Title / Investigation Name
+                Symptoms
               </label>
               <input
                 type="text"
                 required
-                value={form.title}
-                onChange={(e) => setForm({ ...form, title: e.target.value })}
+                value={form.symptoms}
+                onChange={(e) => setForm({ ...form, symptoms: e.target.value })}
+                placeholder="e.g. Mild fatigue, recurring headaches for 4 days"
                 className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs outline-none focus:border-primary"
               />
             </div>
 
             <div>
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                Diagnosis & Clinical Evaluation
+                Consultation Notes
               </label>
               <textarea
-                rows={2}
+                rows={3}
                 required
-                value={form.diagnosis}
-                onChange={(e) => setForm({ ...form, diagnosis: e.target.value })}
+                value={form.consultationNotes}
+                onChange={(e) => setForm({ ...form, consultationNotes: e.target.value })}
+                placeholder="Detailed clinical observation, examination findings, and patient history..."
                 className="w-full p-2.5 rounded-xl border border-slate-200 text-xs outline-none focus:border-primary"
               />
             </div>
 
-            <div className="p-3 rounded-2xl bg-blue-50/60 border border-blue-100 space-y-2">
-              <span className="font-bold text-slate-800 block text-xs">Prescription Item</span>
+            <div>
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                Basic Diagnosis
+              </label>
+              <input
+                type="text"
+                required
+                value={form.diagnosis}
+                onChange={(e) => setForm({ ...form, diagnosis: e.target.value })}
+                placeholder="e.g. Tension-type headache; mild seasonal exhaustion"
+                className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs outline-none focus:border-primary"
+              />
+            </div>
+
+            <div className="p-3.5 rounded-2xl bg-blue-50/60 border border-blue-100 space-y-2">
+              <span className="font-bold text-slate-800 block text-xs">Prescription</span>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div>
+                  <label className="block text-[10px] text-slate-500 font-bold mb-0.5">Medicine Name</label>
+                  <input
+                    type="text"
+                    placeholder="Medicine (e.g. Paracetamol 500mg)"
+                    value={form.medicine}
+                    onChange={(e) => setForm({ ...form, medicine: e.target.value })}
+                    className="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-xs outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] text-slate-500 font-bold mb-0.5">Dosage</label>
+                  <input
+                    type="text"
+                    placeholder="Dosage (e.g. 1 tab SOS)"
+                    value={form.dosage}
+                    onChange={(e) => setForm({ ...form, dosage: e.target.value })}
+                    className="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-xs outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] text-slate-500 font-bold mb-0.5">Duration</label>
+                  <input
+                    type="text"
+                    placeholder="Duration (e.g. 5 days)"
+                    value={form.duration}
+                    onChange={(e) => setForm({ ...form, duration: e.target.value })}
+                    className="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-xs outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  Recommended Tests
+                </label>
                 <input
                   type="text"
-                  placeholder="Medicine Name"
-                  value={form.medicine}
-                  onChange={(e) => setForm({ ...form, medicine: e.target.value })}
-                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-xs outline-none"
+                  value={form.recommendedTests}
+                  onChange={(e) => setForm({ ...form, recommendedTests: e.target.value })}
+                  placeholder="e.g. Basic Metabolic Panel (BMP), CBC"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs outline-none focus:border-primary"
                 />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  Follow-up Date
+                </label>
                 <input
-                  type="text"
-                  placeholder="Dosage (e.g. 1 tab daily)"
-                  value={form.dosage}
-                  onChange={(e) => setForm({ ...form, dosage: e.target.value })}
-                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-xs outline-none"
-                />
-                <input
-                  type="text"
-                  placeholder="Duration (e.g. 14 days)"
-                  value={form.duration}
-                  onChange={(e) => setForm({ ...form, duration: e.target.value })}
-                  className="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white text-xs outline-none"
+                  type="date"
+                  value={form.followUpDate}
+                  onChange={(e) => setForm({ ...form, followUpDate: e.target.value })}
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs outline-none focus:border-primary"
                 />
               </div>
             </div>
@@ -243,7 +300,7 @@ export const DoctorRecords = () => {
                 type="submit"
                 className="px-5 py-2 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold shadow-md shadow-blue-500/25 transition-all"
               >
-                Save Record
+                Save Consultation
               </button>
             </div>
           </form>

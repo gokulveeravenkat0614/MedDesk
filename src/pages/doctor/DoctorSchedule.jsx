@@ -9,64 +9,70 @@ import { Modal } from '../../components/Modal';
 
 const INITIAL_SCHEDULE = {
   Monday: [
-    { id: 'm-1', time: '09:00 AM - 10:00 AM', status: 'Booked', patient: 'Rahul Kumar', type: 'General Consultation', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'm-2', time: '10:00 AM - 11:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'm-3', time: '11:00 AM - 12:00 PM', status: 'Booked', patient: 'Priya Sharma', type: 'Follow-up Visit', mode: 'Telehealth', suite: 'Virtual 1' },
-    { id: 'm-4', time: '12:00 PM - 01:00 PM', status: 'Blocked', patient: null, type: 'Lunch & Charting', mode: 'Internal', suite: 'Office' },
-    { id: 'm-5', time: '01:00 PM - 02:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'm-6', time: '02:00 PM - 03:00 PM', status: 'Booked', patient: 'Aditya Rao', type: 'Routine Checkup', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'm-7', time: '03:00 PM - 04:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'm-8', time: '04:00 PM - 05:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'Telehealth', suite: 'Virtual 2' },
+    { id: 'm-1', time: '09:00 AM', status: 'Booked', patient: 'Rahul Kumar', type: 'General Consultation', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'm-2', time: '09:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'm-3', time: '10:00 AM', status: 'Booked', patient: 'Priya Sharma', type: 'Follow-up Visit', mode: 'Telehealth', suite: 'Virtual 1' },
+    { id: 'm-4', time: '10:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'm-5', time: '11:00 AM', status: 'Booked', patient: 'Aditya Rao', type: 'Routine Checkup', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'm-6', time: '11:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'm-7', time: '04:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'Telehealth', suite: 'Virtual 2' },
+    { id: 'm-8', time: '04:30 PM', status: 'Unavailable', patient: null, type: 'Clinical Recess', mode: 'Internal', suite: 'Office' },
+    { id: 'm-9', time: '05:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
   ],
   Tuesday: [
-    { id: 't-1', time: '09:00 AM - 10:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 't-2', time: '10:00 AM - 11:00 AM', status: 'Booked', patient: 'Ananya Reddy', type: 'Dermatology Review', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 't-3', time: '11:00 AM - 12:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 't-4', time: '12:00 PM - 01:00 PM', status: 'Blocked', patient: null, type: 'Lunch & Rounds', mode: 'Internal', suite: 'Office' },
-    { id: 't-5', time: '01:00 PM - 02:00 PM', status: 'Booked', patient: 'Vikram Joshi', type: 'Cardio Check', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 't-6', time: '02:00 PM - 03:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 't-7', time: '03:00 PM - 04:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'Telehealth', suite: 'Virtual 1' },
-    { id: 't-8', time: '04:00 PM - 05:00 PM', status: 'Blocked', patient: null, type: 'Academic Conference', mode: 'Internal', suite: 'Auditorium' },
+    { id: 't-1', time: '09:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 't-2', time: '09:30 AM', status: 'Booked', patient: 'Ananya Reddy', type: 'Dermatology Review', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 't-3', time: '10:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 't-4', time: '10:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'Telehealth', suite: 'Virtual 1' },
+    { id: 't-5', time: '11:00 AM', status: 'Booked', patient: 'Vikram Joshi', type: 'Cardio Check', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 't-6', time: '11:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 't-7', time: '04:00 PM', status: 'Unavailable', patient: null, type: 'Academic Rounds', mode: 'Internal', suite: 'Auditorium' },
+    { id: 't-8', time: '04:30 PM', status: 'Booked', patient: 'Sneha Deshmukh', type: 'Annual Checkup', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 't-9', time: '05:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
   ],
   Wednesday: [
-    { id: 'w-1', time: '09:00 AM - 10:00 AM', status: 'Booked', patient: 'Deepa Nair', type: 'Diabetes Management', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'w-2', time: '10:00 AM - 11:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'w-3', time: '11:00 AM - 12:00 PM', status: 'Booked', patient: 'Kavita Patel', type: 'Hypertension Screening', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'w-4', time: '12:00 PM - 01:00 PM', status: 'Blocked', patient: null, type: 'Clinical Staff Meeting', mode: 'Internal', suite: 'Room B' },
-    { id: 'w-5', time: '01:00 PM - 02:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'w-6', time: '02:00 PM - 03:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'w-7', time: '03:00 PM - 04:00 PM', status: 'Booked', patient: 'Rohan Mehta', type: 'Pediatric Follow-up', mode: 'Telehealth', suite: 'Virtual 2' },
-    { id: 'w-8', time: '04:00 PM - 05:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'w-1', time: '09:00 AM', status: 'Booked', patient: 'Deepa Nair', type: 'Diabetes Management', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'w-2', time: '09:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'w-3', time: '10:00 AM', status: 'Booked', patient: 'Kavita Patel', type: 'Hypertension Screening', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'w-4', time: '10:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'Telehealth', suite: 'Virtual 2' },
+    { id: 'w-5', time: '11:00 AM', status: 'Unavailable', patient: null, type: 'Staff Briefing', mode: 'Internal', suite: 'Room B' },
+    { id: 'w-6', time: '11:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'w-7', time: '04:00 PM', status: 'Booked', patient: 'Rohan Mehta', type: 'Pediatric Follow-up', mode: 'Telehealth', suite: 'Virtual 2' },
+    { id: 'w-8', time: '04:30 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'w-9', time: '05:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
   ],
   Thursday: [
-    { id: 'th-1', time: '09:00 AM - 10:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'th-2', time: '10:00 AM - 11:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'th-3', time: '11:00 AM - 12:00 PM', status: 'Booked', patient: 'Siddharth Roy', type: 'Orthopedic Consult', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'th-4', time: '12:00 PM - 01:00 PM', status: 'Blocked', patient: null, type: 'Lunch & Break', mode: 'Internal', suite: 'Office' },
-    { id: 'th-5', time: '01:00 PM - 02:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'th-6', time: '02:00 PM - 03:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'th-7', time: '03:00 PM - 04:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'Telehealth', suite: 'Virtual 1' },
-    { id: 'th-8', time: '04:00 PM - 05:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'th-1', time: '09:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'th-2', time: '09:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'th-3', time: '10:00 AM', status: 'Booked', patient: 'Siddharth Roy', type: 'Orthopedic Consult', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'th-4', time: '10:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'Telehealth', suite: 'Virtual 1' },
+    { id: 'th-5', time: '11:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'th-6', time: '11:30 AM', status: 'Unavailable', patient: null, type: 'Administrative Review', mode: 'Internal', suite: 'Office' },
+    { id: 'th-7', time: '04:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'th-8', time: '04:30 PM', status: 'Booked', patient: 'Gaurav Sen', type: 'Executive Health Screening', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'th-9', time: '05:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
   ],
   Friday: [
-    { id: 'f-1', time: '09:00 AM - 10:00 AM', status: 'Booked', patient: 'Meera Iyer', type: 'Allergy Evaluation', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'f-2', time: '10:00 AM - 11:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'f-3', time: '11:00 AM - 12:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'f-4', time: '12:00 PM - 01:00 PM', status: 'Blocked', patient: null, type: 'Grand Rounds Review', mode: 'Internal', suite: 'Auditorium' },
-    { id: 'f-5', time: '01:00 PM - 02:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'f-6', time: '02:00 PM - 03:00 PM', status: 'Booked', patient: 'Sneha Deshmukh', type: 'Annual Checkup', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 'f-7', time: '03:00 PM - 04:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'Telehealth', suite: 'Virtual 2' },
-    { id: 'f-8', time: '04:00 PM - 05:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'f-1', time: '09:00 AM', status: 'Booked', patient: 'Meera Iyer', type: 'Allergy Evaluation', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'f-2', time: '09:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'f-3', time: '10:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'f-4', time: '10:30 AM', status: 'Booked', patient: 'Rajesh Khanna', type: 'Follow-up Consultation', mode: 'Telehealth', suite: 'Virtual 1' },
+    { id: 'f-5', time: '11:00 AM', status: 'Unavailable', patient: null, type: 'Grand Rounds Review', mode: 'Internal', suite: 'Auditorium' },
+    { id: 'f-6', time: '11:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'f-7', time: '04:00 PM', status: 'Booked', patient: 'Sneha Deshmukh', type: 'Routine Checkup', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 'f-8', time: '04:30 PM', status: 'Available', patient: null, type: 'Open', mode: 'Telehealth', suite: 'Virtual 2' },
+    { id: 'f-9', time: '05:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
   ],
   Saturday: [
-    { id: 's-1', time: '09:00 AM - 10:00 AM', status: 'Booked', patient: 'Gaurav Sen', type: 'Executive Health Screening', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 's-2', time: '10:00 AM - 11:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 's-3', time: '11:00 AM - 12:00 PM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
-    { id: 's-4', time: '12:00 PM - 01:00 PM', status: 'Blocked', patient: null, type: 'Weekend Handover', mode: 'Internal', suite: 'Office' },
-    { id: 's-5', time: '01:00 PM - 02:00 PM', status: 'Blocked', patient: null, type: 'Clinic Closed', mode: 'Internal', suite: 'None' },
-    { id: 's-6', time: '02:00 PM - 03:00 PM', status: 'Blocked', patient: null, type: 'Clinic Closed', mode: 'Internal', suite: 'None' },
-    { id: 's-7', time: '03:00 PM - 04:00 PM', status: 'Blocked', patient: null, type: 'Clinic Closed', mode: 'Internal', suite: 'None' },
-    { id: 's-8', time: '04:00 PM - 05:00 PM', status: 'Blocked', patient: null, type: 'Clinic Closed', mode: 'Internal', suite: 'None' },
+    { id: 's-1', time: '09:00 AM', status: 'Booked', patient: 'Gaurav Sen', type: 'Executive Health Screening', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 's-2', time: '09:30 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 's-3', time: '10:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 's-4', time: '10:30 AM', status: 'Booked', patient: 'Tanvi Shah', type: 'Wellness Check', mode: 'Telehealth', suite: 'Virtual 1' },
+    { id: 's-5', time: '11:00 AM', status: 'Available', patient: null, type: 'Open', mode: 'In-Person', suite: 'Suite 302' },
+    { id: 's-6', time: '11:30 AM', status: 'Unavailable', patient: null, type: 'Weekend Handover', mode: 'Internal', suite: 'Office' },
+    { id: 's-7', time: '04:00 PM', status: 'Unavailable', patient: null, type: 'Clinic Closed', mode: 'Internal', suite: 'None' },
+    { id: 's-8', time: '04:30 PM', status: 'Unavailable', patient: null, type: 'Clinic Closed', mode: 'Internal', suite: 'None' },
+    { id: 's-9', time: '05:00 PM', status: 'Unavailable', patient: null, type: 'Clinic Closed', mode: 'Internal', suite: 'None' },
   ]
 };
 
@@ -76,7 +82,7 @@ export const DoctorSchedule = () => {
   const { currentUser, showToast } = useApp();
   const [selectedDay, setSelectedDay] = useState('Monday');
   const [scheduleData, setScheduleData] = useState(() => {
-    const saved = localStorage.getItem('careguard_doctor_schedule');
+    const saved = localStorage.getItem('careguard_doctor_schedule_v2');
     if (saved) {
       try { return JSON.parse(saved); } catch (e) { console.error(e); }
     }
@@ -85,24 +91,24 @@ export const DoctorSchedule = () => {
 
   const [activeSlot, setActiveSlot] = useState(null);
   const [showSlotModal, setShowSlotModal] = useState(false);
-  const [filterMode, setFilterMode] = useState('all'); // all, available, booked, blocked
+  const [filterMode, setFilterMode] = useState('all'); // all, available, booked, unavailable
 
   useEffect(() => {
-    localStorage.setItem('careguard_doctor_schedule', JSON.stringify(scheduleData));
+    localStorage.setItem('careguard_doctor_schedule_v2', JSON.stringify(scheduleData));
   }, [scheduleData]);
 
   // Compute metrics
   let totalSlots = 0;
   let availableSlots = 0;
   let bookedSlots = 0;
-  let blockedSlots = 0;
+  let unavailableSlots = 0;
 
   Object.values(scheduleData).forEach((daySlots) => {
     daySlots.forEach((slot) => {
       totalSlots++;
       if (slot.status === 'Available') availableSlots++;
       else if (slot.status === 'Booked') bookedSlots++;
-      else blockedSlots++;
+      else unavailableSlots++;
     });
   });
 
@@ -111,8 +117,8 @@ export const DoctorSchedule = () => {
       const daySlots = prev[day].map((s) => {
         if (s.id === slotId) {
           if (s.status === 'Available') {
-            return { ...s, status: 'Blocked', type: 'Blocked by Doctor', patient: null };
-          } else if (s.status === 'Blocked') {
+            return { ...s, status: 'Unavailable', type: 'Unavailable', patient: null };
+          } else if (s.status === 'Unavailable') {
             return { ...s, status: 'Available', type: 'Open', patient: null };
           }
           return s; // Booked slots shouldn't toggle directly without modal
@@ -154,7 +160,7 @@ export const DoctorSchedule = () => {
       const updated = { ...prev };
       DAYS.forEach((d) => {
         updated[d] = updated[d].map((s) => {
-          if (s.status === 'Blocked' && !s.type.includes('Lunch')) {
+          if (s.status === 'Unavailable' && !s.type.includes('Lunch') && !s.type.includes('Closed')) {
             return { ...s, status: 'Available', type: 'Open' };
           }
           return s;
@@ -273,13 +279,13 @@ export const DoctorSchedule = () => {
         <div className="glass-panel rounded-3xl p-5 border border-white/90 shadow-glass flex items-center justify-between">
           <div>
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
-              Blocked / Break
+              Unavailable / Reserved
             </span>
             <span className="text-2xl font-black text-slate-700 mt-1 block">
-              {blockedSlots}
+              {unavailableSlots}
             </span>
             <span className="text-[11px] text-slate-500 mt-0.5 block">
-              Lunch & internal recess
+              Recess & off-duty slots
             </span>
           </div>
           <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-600 flex items-center justify-center">
@@ -330,10 +336,10 @@ export const DoctorSchedule = () => {
               onChange={(e) => setFilterMode(e.target.value)}
               className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-semibold bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/20"
             >
-              <option value="all">All Slots (8)</option>
+              <option value="all">All Slots (9)</option>
               <option value="available">Available Only</option>
               <option value="booked">Booked Only</option>
-              <option value="blocked">Blocked Only</option>
+              <option value="unavailable">Unavailable Only</option>
             </select>
           </div>
 
@@ -344,7 +350,7 @@ export const DoctorSchedule = () => {
           {currentDaySlots.map((slot) => {
             const isBooked = slot.status === 'Booked';
             const isAvailable = slot.status === 'Available';
-            const isBlocked = slot.status === 'Blocked';
+            const isUnavailable = slot.status === 'Unavailable';
 
             return (
               <div
@@ -441,7 +447,7 @@ export const DoctorSchedule = () => {
                               : 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
                           }`}
                         >
-                          {isAvailable ? 'Block Slot' : 'Set Available'}
+                          {isAvailable ? 'Mark Unavailable' : 'Set Available'}
                         </button>
                         <button
                           onClick={() => {
@@ -502,7 +508,7 @@ export const DoctorSchedule = () => {
               >
                 <option value="Available">Available (Open for Patient Booking)</option>
                 <option value="Booked">Booked (Assigned Patient)</option>
-                <option value="Blocked">Blocked (Recess, Lunch, or Unavailable)</option>
+                <option value="Unavailable">Unavailable (Recess, Lunch, or Off-duty)</option>
               </select>
             </div>
 

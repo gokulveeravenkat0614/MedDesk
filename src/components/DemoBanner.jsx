@@ -10,30 +10,27 @@ export const DemoBanner = () => {
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
         {/* Left: Security Status Badge & Synthetic Data Disclosure */}
         <div className="flex items-center gap-2.5">
-          <div className="flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400 font-semibold px-2.5 py-0.5 rounded-full border border-emerald-500/25 tracking-wider uppercase text-[10px]">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 security-dot-active" />
-            <span>Security Active</span>
+          <div className="flex items-center gap-1.5 text-white font-bold text-xs tracking-wide">
+            <Lock className="w-3.5 h-3.5 text-[#06B6D4]" />
+            <span>Privacy-Focused Clinical Environment</span>
           </div>
-          <div className="flex items-center gap-1.5 text-blue-200 text-[11px] font-medium">
-            <Lock className="w-3.5 h-3.5 text-cyan-400" />
-            <span className="text-white font-semibold">Protected Records:</span>
-            <span className="text-slate-300 hidden md:inline">
-              Simulated HIPAA/GDPR clinical environment with strict role-based access control. Synthetic demo data only.
-            </span>
-          </div>
+          <span className="text-slate-400 text-xs">•</span>
+          <span className="text-slate-300 text-[11px] font-medium hidden sm:inline">
+            Role-Based Access Enabled • Synthetic Demo Data Only
+          </span>
         </div>
 
         {/* Right: Fast Persona Switcher */}
         <div className="flex items-center gap-2">
-          <span className="text-slate-400 hidden lg:inline text-[11px] font-semibold uppercase tracking-wider">
-            Identity Switcher:
+          <span className="text-slate-300 text-xs font-semibold">
+            Identity
           </span>
-          <div className="flex items-center gap-1.5 bg-[#102A56]/60 p-1 rounded-xl border border-slate-700/60">
+          <div className="flex items-center gap-1 bg-[#102A56] p-0.5 rounded-lg border border-slate-700/60">
             <button
               onClick={() => switchRole('patient')}
-              className={`px-3 py-1 rounded-lg text-[11px] font-bold transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded-md text-[11px] font-bold transition-all flex items-center gap-1.5 ${
                 currentUser?.role === 'patient'
-                  ? 'bg-[#0B63F6] text-white shadow-xs'
+                  ? 'bg-[#1677FF] text-white shadow-xs'
                   : 'text-slate-300 hover:text-white hover:bg-white/10'
               }`}
             >
@@ -42,9 +39,9 @@ export const DemoBanner = () => {
             </button>
             <button
               onClick={() => switchRole('doctor')}
-              className={`px-3 py-1 rounded-lg text-[11px] font-bold transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded-md text-[11px] font-bold transition-all flex items-center gap-1.5 ${
                 currentUser?.role === 'doctor'
-                  ? 'bg-[#0B63F6] text-white shadow-xs'
+                  ? 'bg-[#1677FF] text-white shadow-xs'
                   : 'text-slate-300 hover:text-white hover:bg-white/10'
               }`}
             >
@@ -53,9 +50,9 @@ export const DemoBanner = () => {
             </button>
             <button
               onClick={() => switchRole('admin')}
-              className={`px-3 py-1 rounded-lg text-[11px] font-bold transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded-md text-[11px] font-bold transition-all flex items-center gap-1.5 ${
                 currentUser?.role === 'admin'
-                  ? 'bg-[#0B63F6] text-white shadow-xs'
+                  ? 'bg-[#1677FF] text-white shadow-xs'
                   : 'text-slate-300 hover:text-white hover:bg-white/10'
               }`}
             >
