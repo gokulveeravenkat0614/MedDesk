@@ -7834,3 +7834,114 @@ Actions Taken:
 * Updated commit_sha in metadata/submission.yaml
 * Appended turn record to docs/logs.txt
 * Committed changes and pushed to GitHub
+
+================================================================================
+[2026-10-06T12:01:45+05:30] Remove Demo Access Shortcut Section from Login Page
+================================================================================
+User Prompt (verbatim):
+# CAREGUARD — REMOVE DEMO ACCESS FROM LOGIN PAGE
+
+Update the existing CareGuard login page and completely remove the "CareGuard Demo Access" section shown below the login form.
+
+## REMOVE THESE ELEMENTS
+
+Remove the entire section containing:
+
+- "CAREGUARD DEMO ACCESS"
+- "IMMEDIATE HACKATHON DEMO"
+- "Continue as Patient"
+- "Continue as Doctor"
+- "Continue as Admin"
+
+Also remove the divider line associated with this section if it is only used for the Demo Access area.
+
+## DO NOT REMOVE
+
+Keep all normal login functionality:
+
+- Email field
+- Password field
+- Show/hide password button
+- Forgot password
+- Remember me
+- "Continue Securely" button
+- Patient Portal heading
+- Patient Access badge
+- Lock/security icon
+- Existing authentication logic
+- Existing validation
+- Existing backend API integration
+
+## LOGIN CARD REDESIGN AFTER REMOVAL
+
+After removing Demo Access, the login card should end naturally after the main "Continue Securely" button.
+
+The structure should become:
+
+Patient Access
+
+Patient Portal
+
+Secure access to your CareGuard account.
+
+--------------------------------
+
+EMAIL
+[email field]
+
+PASSWORD                         Forgot password
+[password field]
+
+☑ Remember me
+
+[ Continue Securely → ]
+
+--------------------------------
+
+Do NOT leave a large empty space where the Demo Access section was.
+
+Adjust the card height, padding and spacing automatically so the login form remains visually balanced.
+
+Agent Response:
+Completely removed the "CareGuard Demo Access" area and all associated role shortcut buttons ("Continue as Patient / Doctor / Admin") from the CareGuard login page. Redesigned the authentication card to follow a clean, professional healthcare portal layout:
+
+1. **Header Section**:
+   - Patient Access pill badge with Lock icon.
+   - Prominent "Patient Portal" heading.
+   - Clean subtitle: "Secure access to your CareGuard account."
+   - Subtle horizontal divider separating header from credentials form.
+
+2. **Form Layout & Natural Card Ending**:
+   - EMAIL field with Mail icon and placeholder.
+   - PASSWORD field with Lock icon, "Forgot password?" button, and show/hide password toggle.
+   - "Remember me" checkbox.
+   - Full-width primary CTA button: "Continue Securely →" with loading feedback.
+   - The card ends naturally right after the submit button with no trailing empty whitespace or awkward stretching.
+
+3. **Authentication Integrity**:
+   - Preserved all underlying validation and dual-layer authentication logic: queries Express Gateway API (`authAPI.login`) with seamless fallback to `loginWithCredentials`.
+   - Handles Patient, Doctor, and Admin logins dynamically based on user credentials.
+
+4. **Production Build & Verification**:
+   - Ran `npm run build`: transformed 2,590 modules with 0 errors in 8.30s.
+
+Agent Response Summary:
+Removed the visible "CareGuard Demo Access" and shortcut buttons from the login page and rebalanced the card layout to end naturally after the "Continue Securely →" button. Maintained full email/password authentication, validation, and backend API integration.
+
+Commit SHA:
+8bb4b06
+
+Files Modified / Created:
+* src/pages/Login.jsx (Modified)
+* docs/APPROACH.md (Modified)
+* metadata/submission.yaml (Modified)
+* docs/logs.txt (Modified)
+
+Actions Taken:
+* Stripped demo access section and role buttons from src/pages/Login.jsx
+* Rebalanced card padding, header typography, and button placement
+* Documented Entry 14 in docs/APPROACH.md
+* Ran npm run build verifying 0 errors across 2,590 modules
+* Updated commit_sha in metadata/submission.yaml
+* Appended turn record to docs/logs.txt
+* Committed changes and pushed to GitHub
