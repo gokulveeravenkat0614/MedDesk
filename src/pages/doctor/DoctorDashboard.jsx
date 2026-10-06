@@ -155,97 +155,101 @@ export const DoctorDashboard = () => {
         ]}
       />
 
-      {/* 3-COLUMN MASTER DASHBOARD GRID (Section 3, 44 & 55) */}
+      {/* Top 4 Vitals Bar (Section 11) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Vital Card 1: Blood Pressure */}
+        <VitalCard
+          title="Blood Pressure"
+          value="120/80"
+          unit="mmHg"
+          status="Normal"
+          statusColor="text-emerald-700 bg-emerald-50 border-emerald-200"
+          data={bpTrendData}
+          dataKey="bp"
+          strokeColor="#1677FF"
+          icon={Activity}
+          iconBg="bg-blue-50 text-primary"
+          trend="+1.2% steady"
+          subtitle="Resting arterial pressure"
+        />
+
+        {/* Vital Card 2: Heart Rate */}
+        <VitalCard
+          title="Heart Rate"
+          value="72"
+          unit="bpm"
+          status="Normal"
+          statusColor="text-emerald-700 bg-emerald-50 border-emerald-200"
+          data={hrTrendData}
+          dataKey="hr"
+          strokeColor="#EF4444"
+          icon={Heart}
+          iconBg="bg-rose-50 text-rose-500"
+          trend="-0.8% regular"
+          subtitle="Sinus rhythm telemetry"
+        />
+
+        {/* Vital Card 3: Oxygen Level */}
+        <VitalCard
+          title="Oxygen Level"
+          value="98"
+          unit="%"
+          status="Optimal"
+          statusColor="text-emerald-700 bg-emerald-50 border-emerald-200"
+          data={oxygenTrendData}
+          dataKey="spo2"
+          strokeColor="#06B6D4"
+          icon={Wind}
+          iconBg="bg-cyan-50 text-cyan-600"
+          trend="+0.5% steady"
+          subtitle="Pulse oximetry (SpO2)"
+        />
+
+        {/* Vital Card 4: Body Temperature */}
+        <VitalCard
+          title="Body Temperature"
+          value="98.4"
+          unit="°F"
+          status="Normal"
+          statusColor="text-emerald-700 bg-emerald-50 border-emerald-200"
+          data={tempTrendData}
+          dataKey="temp"
+          strokeColor="#F59E0B"
+          icon={Thermometer}
+          iconBg="bg-amber-50 text-amber-600"
+          trend="±0.1°F stable"
+          subtitle="Core oral telemetry"
+        />
+      </div>
+
+      {/* MAIN DASHBOARD 3-COLUMN RESPONSIVE GRID (Sections 1 & 6) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
         {/* ============================================================== */}
-        {/* LEFT COLUMN: Vitals & Today's Appointments (3.5 / 12 cols)     */}
+        {/* LEFT / MAIN COLUMN: Today's Appointments (5 of 12 cols)        */}
         {/* ============================================================== */}
-        <div className="lg:col-span-3 space-y-5">
-          
-          {/* Vital Card 1: Blood Pressure (Section 11) */}
-          <VitalCard
-            title="Blood Pressure"
-            value="120/80"
-            unit="mmHg"
-            status="Normal"
-            statusColor="text-emerald-700 bg-emerald-50 border-emerald-200"
-            data={bpTrendData}
-            dataKey="bp"
-            strokeColor="#1677FF"
-            icon={Activity}
-            iconBg="bg-blue-50 text-primary"
-            trend="+1.2% steady"
-            subtitle="Resting arterial pressure"
-          />
-
-          {/* Vital Card 2: Heart Rate (Section 11) */}
-          <VitalCard
-            title="Heart Rate"
-            value="72"
-            unit="bpm"
-            status="Normal"
-            statusColor="text-emerald-700 bg-emerald-50 border-emerald-200"
-            data={hrTrendData}
-            dataKey="hr"
-            strokeColor="#EF4444"
-            icon={Heart}
-            iconBg="bg-rose-50 text-rose-500"
-            trend="-0.8% regular"
-            subtitle="Sinus rhythm telemetry"
-          />
-
-          {/* Vital Card 3: Oxygen Level */}
-          <VitalCard
-            title="Oxygen Level"
-            value="98"
-            unit="%"
-            status="Optimal"
-            statusColor="text-emerald-700 bg-emerald-50 border-emerald-200"
-            data={oxygenTrendData}
-            dataKey="spo2"
-            strokeColor="#06B6D4"
-            icon={Wind}
-            iconBg="bg-cyan-50 text-cyan-600"
-            trend="+0.5% steady"
-            subtitle="Pulse oximetry (SpO2)"
-          />
-
-          {/* Vital Card 4: Body Temperature */}
-          <VitalCard
-            title="Body Temperature"
-            value="98.4"
-            unit="°F"
-            status="Normal"
-            statusColor="text-emerald-700 bg-emerald-50 border-emerald-200"
-            data={tempTrendData}
-            dataKey="temp"
-            strokeColor="#F59E0B"
-            icon={Thermometer}
-            iconBg="bg-amber-50 text-amber-600"
-            trend="±0.1°F stable"
-            subtitle="Core oral telemetry"
-          />
-
-          {/* Today's Appointments Card (Section 12) */}
-          <div className="glass-panel rounded-3xl p-5 border border-white/90 shadow-glass">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-primary" />
-                <h3 className="text-sm font-bold text-slate-800">
+        <div className="lg:col-span-5 space-y-5 min-w-0">
+          <div className="glass-panel rounded-3xl p-5 sm:p-6 border border-white/90 shadow-glass min-w-0">
+            <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 min-w-0">
+              <div className="flex items-center gap-2 min-w-0">
+                <Calendar className="w-4 h-4 text-primary shrink-0" />
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 truncate">
                   Today's Appointments
                 </h3>
+                <span className="text-[10px] font-bold text-primary bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200/60 shrink-0">
+                  3 Scheduled
+                </span>
               </div>
               <button
                 onClick={() => navigate('/doctor/appointments')}
-                className="text-xs font-bold text-primary hover:underline"
+                className="text-xs font-bold text-primary hover:underline shrink-0"
               >
                 View All
               </button>
             </div>
 
             {/* List of appointments */}
-            <div className="space-y-3 mt-3">
+            <div className="space-y-3.5 mt-4 min-w-0">
               {todaysAppointments.map((appt) => (
                 <AppointmentCard
                   key={appt.id}
@@ -262,7 +266,7 @@ export const DoctorDashboard = () => {
             </div>
 
             {/* Bottom Large Primary CTA (Section 12 specification) */}
-            <div className="mt-4 pt-3 border-t border-slate-100">
+            <div className="mt-5 pt-3.5 border-t border-slate-100">
               <button
                 onClick={() => setShowBookingModal(true)}
                 className="w-full py-3 rounded-2xl bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-indigo-600 text-white font-bold text-xs shadow-md shadow-blue-500/20 transition-all flex items-center justify-center gap-2"
@@ -272,23 +276,24 @@ export const DoctorDashboard = () => {
               </button>
             </div>
           </div>
-
         </div>
 
         {/* ============================================================== */}
-        {/* CENTER COLUMN: Interactive Anatomical Illustration (5.5 / 12)  */}
+        {/* CENTER / MAIN CONTENT: Patient Record & Anatomy (4 of 12 cols)  */}
         {/* ============================================================== */}
-        <div className="lg:col-span-5 h-full">
-          <AnatomyViewer />
+        <div className="lg:col-span-4 min-w-0 flex flex-col gap-5">
+          <div className="rounded-3xl border border-white/90 shadow-glass overflow-hidden min-w-0">
+            <AnatomyViewer />
+          </div>
         </div>
 
         {/* ============================================================== */}
-        {/* RIGHT COLUMN: Statistics, Vitals Overview, Records (3 / 12)    */}
+        {/* RIGHT COLUMN: Statistics & Medical Records (3 of 12 cols)       */}
         {/* ============================================================== */}
-        <div className="lg:col-span-4 space-y-5">
+        <div className="lg:col-span-3 space-y-5 min-w-0">
           
-          {/* Top 3 Statistics Cards (Section 13) */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {/* Top 3 Statistics Cards (Stacked cleanly) */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3">
             <StatCard
               title="Patients Today"
               value="18"
@@ -315,30 +320,29 @@ export const DoctorDashboard = () => {
             />
           </div>
 
-          {/* Patient Vitals Overview (Section 14) */}
-          <PatientVitalsOverview />
+          {/* Appointment Summary Donut Chart */}
+          <div className="min-w-0">
+            <AppointmentSummaryDonut appointments={appointments} />
+          </div>
 
-          {/* Appointment Summary Donut Chart (Section 15) */}
-          <AppointmentSummaryDonut appointments={appointments} />
-
-          {/* Recent Medical Records (Section 16) */}
-          <div className="glass-panel rounded-3xl p-5 border border-white/90 shadow-glass">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <div className="flex items-center gap-2">
-                <FileText className="w-4 h-4 text-primary" />
-                <h3 className="text-sm font-bold text-slate-800">
+          {/* Recent Medical Records */}
+          <div className="glass-panel rounded-3xl p-5 border border-white/90 shadow-glass min-w-0">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 min-w-0">
+              <div className="flex items-center gap-2 min-w-0">
+                <FileText className="w-4 h-4 text-primary shrink-0" />
+                <h3 className="text-sm font-bold text-slate-800 truncate">
                   Recent Medical Records
                 </h3>
               </div>
               <button
                 onClick={() => navigate('/doctor/records')}
-                className="text-xs font-bold text-primary hover:underline"
+                className="text-xs font-bold text-primary hover:underline shrink-0"
               >
                 View All
               </button>
             </div>
 
-            <div className="space-y-2.5 mt-3">
+            <div className="space-y-2.5 mt-3 min-w-0">
               {recentRecords.map((rec) => (
                 <MedicalRecordCard
                   key={rec.id}
@@ -351,7 +355,7 @@ export const DoctorDashboard = () => {
               ))}
             </div>
 
-            {/* Bottom Synthetic Data Label (Section 16 specification) */}
+            {/* Bottom Synthetic Data Label */}
             <div className="mt-4 pt-3 border-t border-slate-100 text-center">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100/90 text-slate-600 text-[10px] font-semibold">
                 <ShieldCheck className="w-3.5 h-3.5 text-primary" />

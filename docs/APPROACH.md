@@ -231,6 +231,22 @@ CareGuard is engineered using a modular, decoupled Single Page Application (SPA)
      - Embedded in `src/pages/SecurityCenter.jsx` and accessible via `HackathonDemoGuide.jsx`.
 - **Resolution:** Full Vite production build verified (`✓ 2590 modules transformed, 0 errors, built in 8.39s`). Backend live test confirmed Layer 5 threat interception and Layer 4 IDOR blocking.
 
+### [2026-10-06 11:50 IST] Entry 13: Clinical Dashboard Layout Restructuring & Appointment Card Overlap Resolution
+- **Focus:** Resolved overlapping cards, horizontal clipping, and button collisions across the Doctor Dashboard:
+  1. **Main Dashboard 3-Column Responsive Grid (`DoctorDashboard.jsx`):**
+     - Shifted 4 vital cards (Blood Pressure, Heart Rate, Oxygen Level, Body Temperature) into a spacious 4-column top telemetry bar.
+     - Structured the main dashboard into three distinctly separated, non-overlapping columns:
+       * Left / Main Column (`lg:col-span-5`): Dedicated to "Today's Appointments" with spacious width and `min-w-0` to eliminate cramped horizontal bounds.
+       * Center Column (`lg:col-span-4`): Dedicated to Patient Record / Anatomical Medical Information (`AnatomyViewer`) with clean containment.
+       * Right Column (`lg:col-span-3`): Dedicated to Clinic Statistics, Appointment Summary Donut, and Recent Medical Records.
+  2. **Self-Contained Appointment Card Architecture (`AppointmentCard.jsx`):**
+     - Redesigned into three robust vertical tiers: (1) Top header row with Time badge and Status badge, (2) Middle section with Patient Name, Type, monospace ID, and Clinical Reason in a distinct tinted card block with `line-clamp-2 break-words`, (3) Bottom action row with Complete, View Record, and ⋮ options staying strictly inside card bounds using natural flex flow.
+     - Eliminated horizontal button-text collisions on narrower viewport widths.
+  3. **Anatomy Hotspot Boundary Containment (`AnatomyViewer.jsx`):**
+     - Removed negative offsets (`-left-8`, `-right-8`) that previously pushed the Cardiovascular and Respiratory callouts into neighboring columns.
+     - Locked all hotspot badges and overlay information cards strictly within container boundaries.
+- **Resolution:** Full production build verified (`npm run build`: 2,590 modules transformed, 0 errors, built in 8.56s).
+
 ---
 
 ## 6. Testing, Security Verification & Deployment Record

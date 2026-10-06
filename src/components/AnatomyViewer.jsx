@@ -180,18 +180,18 @@ export const AnatomyViewer = () => {
             </defs>
           </svg>
 
-          {/* Interactive Floating Hotspot Callouts */}
+          {/* Interactive Floating Hotspot Callouts (Positioned strictly inside container bounds) */}
           {/* 1. Brain & Nervous System */}
           <div
             onClick={() => setSelectedSystem(ANATOMY_SYSTEMS[0])}
-            className={`absolute top-[4%] -left-3 sm:-left-6 cursor-pointer group transition-all duration-200 z-20 ${
+            className={`absolute top-[3%] left-1 sm:left-2 cursor-pointer group transition-all duration-200 z-20 ${
               selectedSystem.id === 'brain' ? 'scale-105' : 'hover:scale-102'
             }`}
           >
             <div className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border backdrop-blur-md shadow-xs ${
               selectedSystem.id === 'brain'
                 ? 'bg-purple-600 text-white border-purple-500 shadow-md shadow-purple-500/30'
-                : 'bg-white/90 text-slate-700 border-slate-200 hover:border-purple-300'
+                : 'bg-white/95 text-slate-700 border-slate-200 hover:border-purple-300'
             }`}>
               <Brain className="w-3.5 h-3.5 shrink-0" />
               <div className="text-left">
@@ -208,14 +208,14 @@ export const AnatomyViewer = () => {
           {/* 2. Cardiovascular System */}
           <div
             onClick={() => setSelectedSystem(ANATOMY_SYSTEMS[2])}
-            className={`absolute top-[28%] -left-4 sm:-left-8 cursor-pointer group transition-all duration-200 z-20 ${
+            className={`absolute top-[26%] left-0.5 sm:left-2 cursor-pointer group transition-all duration-200 z-20 ${
               selectedSystem.id === 'cardiovascular' ? 'scale-105' : 'hover:scale-102'
             }`}
           >
             <div className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border backdrop-blur-md shadow-xs ${
               selectedSystem.id === 'cardiovascular'
                 ? 'bg-rose-500 text-white border-rose-400 shadow-md shadow-rose-500/30'
-                : 'bg-white/90 text-slate-700 border-slate-200 hover:border-rose-300'
+                : 'bg-white/95 text-slate-700 border-slate-200 hover:border-rose-300'
             }`}>
               <Heart className="w-3.5 h-3.5 shrink-0 animate-pulse" />
               <div className="text-left">
@@ -232,14 +232,14 @@ export const AnatomyViewer = () => {
           {/* 3. Respiratory System */}
           <div
             onClick={() => setSelectedSystem(ANATOMY_SYSTEMS[1])}
-            className={`absolute top-[24%] -right-4 sm:-right-8 cursor-pointer group transition-all duration-200 z-20 ${
+            className={`absolute top-[22%] right-0.5 sm:right-2 cursor-pointer group transition-all duration-200 z-20 ${
               selectedSystem.id === 'respiratory' ? 'scale-105' : 'hover:scale-102'
             }`}
           >
             <div className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border backdrop-blur-md shadow-xs ${
               selectedSystem.id === 'respiratory'
                 ? 'bg-cyan-600 text-white border-cyan-500 shadow-md shadow-cyan-500/30'
-                : 'bg-white/90 text-slate-700 border-slate-200 hover:border-cyan-300'
+                : 'bg-white/95 text-slate-700 border-slate-200 hover:border-cyan-300'
             }`}>
               <Activity className="w-3.5 h-3.5 shrink-0" />
               <div className="text-left">
@@ -256,14 +256,14 @@ export const AnatomyViewer = () => {
           {/* 4. Digestive System */}
           <div
             onClick={() => setSelectedSystem(ANATOMY_SYSTEMS[3])}
-            className={`absolute top-[48%] -right-3 sm:-right-6 cursor-pointer group transition-all duration-200 z-20 ${
+            className={`absolute top-[48%] right-0.5 sm:right-2 cursor-pointer group transition-all duration-200 z-20 ${
               selectedSystem.id === 'digestive' ? 'scale-105' : 'hover:scale-102'
             }`}
           >
             <div className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border backdrop-blur-md shadow-xs ${
               selectedSystem.id === 'digestive'
                 ? 'bg-amber-500 text-white border-amber-400 shadow-md shadow-amber-500/30'
-                : 'bg-white/90 text-slate-700 border-slate-200 hover:border-amber-300'
+                : 'bg-white/95 text-slate-700 border-slate-200 hover:border-amber-300'
             }`}>
               <Activity className="w-3.5 h-3.5 shrink-0" />
               <div className="text-left">
@@ -280,14 +280,14 @@ export const AnatomyViewer = () => {
           {/* 5. Musculoskeletal System */}
           <div
             onClick={() => setSelectedSystem(ANATOMY_SYSTEMS[4])}
-            className={`absolute bottom-[10%] -left-3 sm:-left-6 cursor-pointer group transition-all duration-200 z-20 ${
+            className={`absolute bottom-[8%] left-1 sm:left-2 cursor-pointer group transition-all duration-200 z-20 ${
               selectedSystem.id === 'musculoskeletal' ? 'scale-105' : 'hover:scale-102'
             }`}
           >
             <div className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border backdrop-blur-md shadow-xs ${
               selectedSystem.id === 'musculoskeletal'
                 ? 'bg-emerald-600 text-white border-emerald-500 shadow-md shadow-emerald-500/30'
-                : 'bg-white/90 text-slate-700 border-slate-200 hover:border-emerald-300'
+                : 'bg-white/95 text-slate-700 border-slate-200 hover:border-emerald-300'
             }`}>
               <Stethoscope className="w-3.5 h-3.5 shrink-0" />
               <div className="text-left">
