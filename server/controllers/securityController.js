@@ -1,4 +1,5 @@
 import { db } from '../data/store.js';
+import { simulateFirewallPipeline } from '../middleware/firewall.js';
 
 export const getSecurityOverview = (req, res) => {
   const totalLogs = db.auditLogs.length;
@@ -109,3 +110,37 @@ export const terminateAllSessions = (req, res) => {
     message: 'All other active sessions have been terminated.'
   });
 };
+
+export const simulateFirewallRequest = (req, res) => {
+  const result = simulateFirewallPipeline(req.body || {});
+
+  // If blocked, record audit log entry
+  if (result.status === 'BLOCKED') {
+    db.addAuditLog({
+      category: 'RBAC Enforcement',
+      event: 'FIREWALL_BLOCKED_REQUEST',
+      severity: 'danger',
+      actor: req.body?.userEmail || req.user?.email || 'Demo Client',
+      role: req.body?.userRole || req.user?.role || 'Guest',
+      target: req.body?.action || 'PROTECTED_RESOURCE',
+      ip: req.ip || '127.0.0.1',
+      status: 'Blocked',
+      details: `Firewall Layer ${result.layerFailed} violation: ${result.reason}`
+    });
+  } else {
+    db.addAuditLog({
+      category: 'Record Access',
+      event: 'FIREWALL_ALLOWED_REQUEST',
+      severity: 'success',
+      actor: req.body?.userEmail || req.user?.email || 'Demo Client',
+      role: req.body?.userRole || req.user?.role || 'Guest',
+      target: req.body?.action || 'PROTECTED_RESOURCE',
+      ip: req.ip || '127.0.0.1',
+      status: 'Authorized',
+      details: `Firewall pipeline passed all 8 layers. Access granted.`
+    });
+  }
+
+  return res.status(200).json(result);
+};
+

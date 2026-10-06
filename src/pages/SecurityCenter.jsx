@@ -7,6 +7,7 @@ import {
 import { useApp } from '../context/AppContext';
 import { securityAPI, authAPI, patientsAPI } from '../services/api';
 import { Modal } from '../components/Modal';
+import { SecurityFirewallInspector } from '../components/SecurityFirewallInspector';
 
 export const SecurityCenter = () => {
   const { currentUser, showToast } = useApp();
@@ -204,6 +205,9 @@ export const SecurityCenter = () => {
           </div>
         </div>
       </div>
+
+      {/* Interactive Zero-Trust Multi-Layer Security Firewall Inspector */}
+      <SecurityFirewallInspector />
 
       {/* Account Security & Active Sessions Section (Section 28) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">

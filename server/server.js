@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import { SECURITY_CONFIG } from './config/security.js';
 import { apiRateLimiter } from './middleware/rateLimiter.js';
+import { careGuardFirewall } from './middleware/firewall.js';
 
 // Route handlers
 import authRoutes from './routes/authRoutes.js';
@@ -27,7 +28,10 @@ app.use(cookieParser());
 app.use(express.json({ limit: '100kb' }));
 app.use(express.urlencoded({ extended: true, limit: '100kb' }));
 
-// 5. Global API Rate Limiting
+// 5. CareGuard Multi-Layer Security Firewall (Security headers & Injection threat inspection)
+app.use(careGuardFirewall);
+
+// 6. Global API Rate Limiting
 app.use('/api', apiRateLimiter);
 
 // 6. Root Health & Security Gateway Check

@@ -218,5 +218,14 @@ export const securityAPI = {
       headers: getAuthHeaders()
     });
     return await handleResponse(res);
+  },
+
+  simulateFirewallRequest: async (scenario) => {
+    const res = await fetch(`${API_BASE}/security/firewall/simulate-request`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(scenario)
+    });
+    return await handleResponse(res);
   }
 };

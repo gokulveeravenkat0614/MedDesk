@@ -8,6 +8,7 @@ import { Footer } from './components/Footer';
 import { AIChat } from './components/AIChat';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { HackathonDemoGuide } from './components/HackathonDemoGuide';
+import { RoleGuard } from './components/RoleGuard';
 
 // Pages
 import { Landing } from './pages/Landing';
@@ -110,34 +111,34 @@ export default function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/dashboard" element={<DashboardRedirect />} />
 
-          {/* Doctor Routes */}
-          <Route path="/doctor/dashboard" element={<MainLayout><DoctorDashboard /></MainLayout>} />
-          <Route path="/doctor/appointments" element={<MainLayout><DoctorAppointments /></MainLayout>} />
-          <Route path="/doctor/schedule" element={<MainLayout><DoctorSchedule /></MainLayout>} />
-          <Route path="/doctor/patients" element={<MainLayout><Patients /></MainLayout>} />
-          <Route path="/doctor/records" element={<MainLayout><DoctorRecords /></MainLayout>} />
+          {/* Doctor Routes (Enforce doctor / admin role) */}
+          <Route path="/doctor/dashboard" element={<RoleGuard allowedRoles={['doctor', 'admin']}><MainLayout><DoctorDashboard /></MainLayout></RoleGuard>} />
+          <Route path="/doctor/appointments" element={<RoleGuard allowedRoles={['doctor', 'admin']}><MainLayout><DoctorAppointments /></MainLayout></RoleGuard>} />
+          <Route path="/doctor/schedule" element={<RoleGuard allowedRoles={['doctor', 'admin']}><MainLayout><DoctorSchedule /></MainLayout></RoleGuard>} />
+          <Route path="/doctor/patients" element={<RoleGuard allowedRoles={['doctor', 'admin']}><MainLayout><Patients /></MainLayout></RoleGuard>} />
+          <Route path="/doctor/records" element={<RoleGuard allowedRoles={['doctor', 'admin']}><MainLayout><DoctorRecords /></MainLayout></RoleGuard>} />
 
-          {/* Patient Routes */}
-          <Route path="/patient/dashboard" element={<MainLayout><PatientDashboard /></MainLayout>} />
-          <Route path="/patient/profile" element={<MainLayout><PatientProfile /></MainLayout>} />
-          <Route path="/patient/doctors" element={<MainLayout><Doctors /></MainLayout>} />
-          <Route path="/patient/doctors/:id" element={<MainLayout><DoctorProfile /></MainLayout>} />
-          <Route path="/patient/doctor/:id" element={<MainLayout><DoctorProfile /></MainLayout>} />
-          <Route path="/patient/appointments" element={<MainLayout><PatientAppointments /></MainLayout>} />
-          <Route path="/patient/records" element={<MainLayout><PatientRecords /></MainLayout>} />
+          {/* Patient Routes (Enforce patient / admin role) */}
+          <Route path="/patient/dashboard" element={<RoleGuard allowedRoles={['patient', 'admin']}><MainLayout><PatientDashboard /></MainLayout></RoleGuard>} />
+          <Route path="/patient/profile" element={<RoleGuard allowedRoles={['patient', 'admin']}><MainLayout><PatientProfile /></MainLayout></RoleGuard>} />
+          <Route path="/patient/doctors" element={<RoleGuard allowedRoles={['patient', 'admin']}><MainLayout><Doctors /></MainLayout></RoleGuard>} />
+          <Route path="/patient/doctors/:id" element={<RoleGuard allowedRoles={['patient', 'admin']}><MainLayout><DoctorProfile /></MainLayout></RoleGuard>} />
+          <Route path="/patient/doctor/:id" element={<RoleGuard allowedRoles={['patient', 'admin']}><MainLayout><DoctorProfile /></MainLayout></RoleGuard>} />
+          <Route path="/patient/appointments" element={<RoleGuard allowedRoles={['patient', 'admin']}><MainLayout><PatientAppointments /></MainLayout></RoleGuard>} />
+          <Route path="/patient/records" element={<RoleGuard allowedRoles={['patient', 'admin']}><MainLayout><PatientRecords /></MainLayout></RoleGuard>} />
 
-          {/* Admin Routes */}
-          <Route path="/admin/dashboard" element={<MainLayout><AdminDashboard /></MainLayout>} />
-          <Route path="/admin/patients" element={<MainLayout><AdminPatients /></MainLayout>} />
-          <Route path="/admin/doctors" element={<MainLayout><AdminDoctors /></MainLayout>} />
-          <Route path="/admin/appointments" element={<MainLayout><AdminAppointments /></MainLayout>} />
-          <Route path="/admin/audit-logs" element={<MainLayout><AuditLogs /></MainLayout>} />
+          {/* Admin Routes (Strictly admin role only) */}
+          <Route path="/admin/dashboard" element={<RoleGuard allowedRoles={['admin']}><MainLayout><AdminDashboard /></MainLayout></RoleGuard>} />
+          <Route path="/admin/patients" element={<RoleGuard allowedRoles={['admin']}><MainLayout><AdminPatients /></MainLayout></RoleGuard>} />
+          <Route path="/admin/doctors" element={<RoleGuard allowedRoles={['admin']}><MainLayout><AdminDoctors /></MainLayout></RoleGuard>} />
+          <Route path="/admin/appointments" element={<RoleGuard allowedRoles={['admin']}><MainLayout><AdminAppointments /></MainLayout></RoleGuard>} />
+          <Route path="/admin/audit-logs" element={<RoleGuard allowedRoles={['admin']}><MainLayout><AuditLogs /></MainLayout></RoleGuard>} />
 
-          {/* Security Center Route */}
-          <Route path="/security-center" element={<MainLayout><SecurityCenter /></MainLayout>} />
+          {/* Security Center Route (Authenticated users) */}
+          <Route path="/security-center" element={<RoleGuard allowedRoles={['patient', 'doctor', 'admin']}><MainLayout><SecurityCenter /></MainLayout></RoleGuard>} />
 
-          {/* Settings Route */}
-          <Route path="/settings" element={<MainLayout><Settings /></MainLayout>} />
+          {/* Settings Route (Authenticated users) */}
+          <Route path="/settings" element={<RoleGuard allowedRoles={['patient', 'doctor', 'admin']}><MainLayout><Settings /></MainLayout></RoleGuard>} />
 
           {/* Catch-all */}
           <Route path="*" element={<Navigate to="/" replace />} />
