@@ -4,7 +4,7 @@ import {
   ShieldCheck, Activity, Calendar, Lock, UserCheck, Stethoscope,
   ShieldAlert, ArrowRight, CheckCircle2, ChevronRight, Sparkles,
   Heart, Clock, Star, Users, FileText, Check, Shield, Eye, EyeOff,
-  User, Mail, ArrowUpRight, Cpu, AlertCircle
+  User, Mail, ArrowUpRight, Cpu, AlertCircle, Settings
 } from 'lucide-react';
 import { CareGuardLogo } from '../components/CareGuardLogo';
 import { useApp } from '../context/AppContext';
@@ -220,7 +220,7 @@ export const Landing = () => {
               {/* Supporting Text */}
               <div className="space-y-2">
                 <p className="text-sm sm:text-base text-slate-700 max-w-xl mx-auto lg:mx-0 leading-relaxed font-semibold">
-                  Manage appointments, connect with doctors and protect relevant healthcare information — all in one secure clinic workspace.
+                  Manage appointments, connect with doctors and protect relevant healthcare information in one secure clinic platform.
                 </p>
                 <div className="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-2">
                   <span className="text-[11px] font-mono font-bold text-[#1677FF] uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-xl border border-blue-200/60 inline-block">
@@ -241,7 +241,7 @@ export const Landing = () => {
                   }}
                   className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-[#1677FF] hover:bg-blue-600 text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all duration-200 flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <span>Enter CareGuard →</span>
+                  <span>Get Started →</span>
                 </button>
 
                 <a
@@ -249,7 +249,7 @@ export const Landing = () => {
                   className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm border border-slate-200/80 shadow-xs hover:border-blue-200 transition-all duration-200 flex items-center justify-center gap-2"
                 >
                   <Shield className="w-4 h-4 text-primary" />
-                  <span>Explore Platform</span>
+                  <span>Explore CareGuard</span>
                 </a>
               </div>
 
@@ -358,7 +358,7 @@ export const Landing = () => {
                   </div>
                 </div>
 
-                {/* Floating Card 3: Doctor Access — Authorized (Exact Specification) */}
+                {/* Floating Card 3: Doctor Access — ✓ Authorized */}
                 <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-white/90 shadow-xl flex items-center gap-3 hover:scale-105 transition-transform">
                   <div className="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center border border-cyan-200">
                     <Stethoscope className="w-4 h-4" />
@@ -366,12 +366,12 @@ export const Landing = () => {
                   <div>
                     <h4 className="text-xs font-black text-slate-800 leading-tight">Doctor Access</h4>
                     <p className="text-[10px] text-cyan-700 font-bold mt-0.5">
-                      Authorized
+                      ✓ Authorized
                     </p>
                   </div>
                 </div>
 
-                {/* Floating Card 4: Patient Records — Protected (Exact Specification) */}
+                {/* Floating Card 4: Patient Records — 🔒 Protected */}
                 <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-white/90 shadow-xl flex items-center gap-3 hover:scale-105 transition-transform">
                   <div className="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-200">
                     <Lock className="w-4 h-4" />
@@ -379,15 +379,16 @@ export const Landing = () => {
                   <div>
                     <h4 className="text-xs font-black text-slate-800 leading-tight">Patient Records</h4>
                     <p className="text-[10px] text-indigo-600 font-bold mt-0.5">
-                      Protected
+                      🔒 Protected
                     </p>
                   </div>
                 </div>
 
-                {/* Floating Card 5 (Center-top/floating): Clinic Status — All Systems Secure */}
-                <div className="hidden sm:flex absolute bottom-20 z-20 p-2.5 rounded-xl bg-slate-900/90 text-white shadow-xl items-center gap-2 text-[10px] font-bold border border-slate-700">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                  <span>Clinic Status — All Systems Secure</span>
+                {/* Floating Card 5: Clinic Status — ● All Systems Secure */}
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 z-20 px-3.5 py-1.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-xl flex items-center gap-2 hover:scale-105 transition-transform">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                  <span className="text-xs font-black text-slate-800">Clinic Status</span>
+                  <span className="text-[10px] text-emerald-600 font-bold">● All Systems Secure</span>
                 </div>
 
               </div>
@@ -426,7 +427,7 @@ export const Landing = () => {
         </div>
       </div>
 
-      {/* SECTION: "How are you using CareGuard?" (Exact Specification) */}
+      {/* SECTION: "Choose Your CareGuard Workspace" (Exact Specification) */}
       <section id="roles" ref={roleSectionRef} className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         <div className="text-center max-w-xl mx-auto space-y-2">
@@ -434,7 +435,7 @@ export const Landing = () => {
             Interactive Entrance Selection
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            How are you using CareGuard?
+            Choose Your CareGuard Workspace
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
             Select your clinical role to open your dedicated, authenticated gateway.

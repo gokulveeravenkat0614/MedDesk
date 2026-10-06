@@ -241,23 +241,23 @@ export const Login = () => {
         </div>
 
         {/* Login Security Panel (Exact Prompt Specification) */}
-        <div className="p-3.5 rounded-2xl bg-[#F4F8FC] border border-blue-100 space-y-2">
-          <div className="flex items-center gap-1.5 text-xs font-bold text-[#0B1736]">
+        <div className="p-3 rounded-2xl bg-[#F4F8FC] border border-blue-100 space-y-2">
+          <div className="flex items-center gap-1.5 text-xs font-black text-[#0B1736]">
             <Shield className="w-4 h-4 text-[#1677FF]" />
-            <span>Security Status</span>
+            <span>🛡 Secure Session</span>
           </div>
-          <div className="grid grid-cols-1 gap-1.5 text-[11px] font-medium text-slate-600">
+          <div className="grid grid-cols-1 gap-1 text-[11px] font-semibold text-slate-600">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-              <span>Secure Session</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Lock className="w-3.5 h-3.5 text-[#1677FF] shrink-0" />
               <span>Role-Based Access Enabled</span>
             </div>
             <div className="flex items-center gap-2">
+              <Lock className="w-3.5 h-3.5 text-[#1677FF] shrink-0" />
+              <span>Protected Environment</span>
+            </div>
+            <div className="flex items-center gap-2">
               <ShieldCheck className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
-              <span>Synthetic Demo Environment</span>
+              <span>Synthetic Demo Data</span>
             </div>
           </div>
         </div>

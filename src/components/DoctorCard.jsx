@@ -74,7 +74,7 @@ export const DoctorCard = ({ doctor, onBook, onViewProfile }) => {
           onClick={() => onBook(doctor)}
           className="px-3 py-2 rounded-xl text-xs font-bold text-white bg-primary hover:bg-primary-hover shadow-sm shadow-blue-500/25 transition-all text-center flex items-center justify-center gap-1"
         >
-          <span>Book Now</span>
+          <span>Book Appointment</span>
           <ChevronRight className="w-3.5 h-3.5" />
         </button>
       </div>

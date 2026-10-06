@@ -47,7 +47,7 @@ export const Doctors = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2">
         <div>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Find a Doctor
+            Find Your Doctor
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
             Book consultations with verified clinical specialists and general physicians.
@@ -61,7 +61,7 @@ export const Doctors = () => {
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search by physician name or specialty..."
+            placeholder="Search doctors, specializations..."
             className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-slate-200 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
           />
         </div>

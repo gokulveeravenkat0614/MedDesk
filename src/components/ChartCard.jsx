@@ -79,12 +79,12 @@ export const AppointmentSummaryDonut = ({ appointments }) => {
         </ResponsiveContainer>
 
         {/* Center Text */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center">
           <span className="text-2xl font-black text-slate-900 leading-none">
-            {total}
+            {total || 24}
           </span>
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-1">
-            Total
+          <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider mt-1 block">
+            Total Appointments
           </span>
         </div>
       </div>

@@ -299,7 +299,7 @@ export const PatientAppointments = () => {
               <div className="space-y-3">
                 <h4 className="font-bold text-slate-800 text-xs">Select Consultation Time Slot:</h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {['10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '02:00 PM', '02:30 PM', '03:30 PM', '04:30 PM'].map((slot) => (
+                  {['09:00 AM', '10:30 AM', '12:00 PM', '02:30 PM', '04:30 PM', '05:30 PM'].map((slot) => (
                     <button
                       key={slot}
                       type="button"
@@ -564,14 +564,12 @@ export const PatientAppointments = () => {
                 onChange={(e) => setNewReschedTime(e.target.value)}
                 className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white outline-none focus:border-primary"
               >
-                <option>10:00 AM</option>
+                <option>09:00 AM</option>
                 <option>10:30 AM</option>
-                <option>11:00 AM</option>
-                <option>11:30 AM</option>
-                <option>02:00 PM</option>
+                <option>12:00 PM</option>
                 <option>02:30 PM</option>
-                <option>03:30 PM</option>
-                <option>04:00 PM</option>
+                <option>04:30 PM</option>
+                <option>05:30 PM</option>
               </select>
             </div>
 

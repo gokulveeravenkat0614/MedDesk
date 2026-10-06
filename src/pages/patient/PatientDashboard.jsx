@@ -258,7 +258,7 @@ export const PatientDashboard = () => {
                 </div>
                 <div>
                   <span className="text-xs font-bold text-slate-800 block">Oxygen Level</span>
-                  <span className="text-[10px] text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.2 rounded-md">Optimal</span>
+                  <span className="text-[10px] text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.2 rounded-md">Normal</span>
                 </div>
               </div>
               <Sparkline points="M 2 14 Q 15 10, 30 12 T 45 8 T 58 10" color="#10B981" />
@@ -302,75 +302,77 @@ export const PatientDashboard = () => {
         {/* Left Section: Active Visit & Doctor Recommendations (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           
-          {/* Upcoming Appointment Showcase */}
-          <div className="glass-panel rounded-3xl p-6 border border-white/90 shadow-glass">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+          {/* Large Premium Blue Appointment Card (Inspired by reference) */}
+          <div className="rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-[#1677FF] via-[#0958d9] to-[#0B1736] text-white shadow-xl shadow-blue-500/20 relative overflow-hidden">
+            <div className="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-cyan-400/15 blur-2xl pointer-events-none" />
+            <div className="absolute right-12 -bottom-12 w-40 h-40 rounded-full bg-blue-400/20 blur-xl pointer-events-none" />
+
+            <div className="relative z-10 flex items-center justify-between pb-3 border-b border-white/15 mb-4">
               <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-primary" />
-                <h3 className="text-sm font-bold text-slate-800">
-                  Upcoming Appointment
-                </h3>
+                <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-wider border border-white/30">
+                  NEXT APPOINTMENT
+                </span>
               </div>
-              <Link to="/patient/appointments" className="text-xs font-bold text-primary hover:underline">
-                View All Appointments
+              <Link to="/patient/appointments" className="text-xs font-bold text-cyan-200 hover:text-white transition-colors">
+                View All Appointments →
               </Link>
             </div>
 
             {nextAppointment ? (
-              <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50/90 to-sky-50/70 border border-blue-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex items-center gap-3.5">
-                  <div className="w-12 h-12 rounded-2xl bg-[#1677FF] text-white flex flex-col items-center justify-center font-bold shadow-sm">
-                    <span className="text-[10px] leading-none uppercase">OCT</span>
-                    <span className="text-base leading-tight font-black">06</span>
+              <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-md text-white flex flex-col items-center justify-center font-bold border border-white/25 shrink-0">
+                    <span className="text-[10px] leading-none uppercase tracking-wider text-cyan-200">OCT</span>
+                    <span className="text-lg leading-tight font-black">06</span>
                   </div>
                   <div>
-                    <h4 className="text-sm font-black text-slate-900">
+                    <h4 className="text-lg font-black text-white leading-tight">
                       Dr. Arjun Mehta
                     </h4>
-                    <p className="text-xs text-slate-600 font-medium">
-                      General Physician • 10:30 AM • 06 Oct 2026
+                    <p className="text-xs text-blue-100 font-medium mt-0.5">
+                      General Physician • Today • 10:30 AM
                     </p>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span className="inline-block text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                        Status: Confirmed
+                    <div className="flex items-center gap-2 mt-2">
+                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-300 bg-emerald-500/20 px-2.5 py-0.5 rounded-full border border-emerald-400/30">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        ✓ Confirmed
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2 pt-2 sm:pt-0">
                   <button
                     onClick={() => navigate('/patient/appointments')}
-                    className="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold border border-slate-200 shadow-xs transition-colors"
+                    className="px-3.5 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-white text-xs font-bold border border-white/25 transition-colors"
                   >
                     Manage
                   </button>
                   <button
                     onClick={() => navigate('/patient/appointments?book=true')}
-                    className="px-3 py-1.5 rounded-xl bg-[#1677FF] hover:bg-blue-600 text-white text-xs font-bold shadow-xs transition-colors"
+                    className="px-3.5 py-2 rounded-xl bg-white text-[#1677FF] hover:bg-blue-50 text-xs font-bold shadow-md transition-colors"
                   >
                     Reschedule
                   </button>
                   <button
                     onClick={() => {
                       if (window.confirm('Are you sure you want to cancel this appointment?')) {
-                        // cancellation callback
                         navigate('/patient/appointments');
                       }
                     }}
-                    className="px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-bold border border-rose-200 transition-colors"
+                    className="px-3.5 py-2 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-200 text-xs font-bold border border-rose-400/30 transition-colors"
                   >
                     Cancel
                   </button>
                 </div>
               </div>
             ) : (
-              <div className="text-center py-8">
-                <p className="text-xs text-slate-500">No upcoming appointments</p>
-                <p className="text-[11px] text-slate-400 mt-0.5">Book an appointment to get started.</p>
+              <div className="relative z-10 text-center py-8">
+                <p className="text-xs text-blue-100 font-bold">No upcoming appointments</p>
+                <p className="text-[11px] text-blue-200 mt-0.5">Book an appointment to get started.</p>
                 <button
                   onClick={() => navigate('/patient/appointments?book=true')}
-                  className="mt-3 px-4 py-2 rounded-xl bg-[#1677FF] text-white text-xs font-bold shadow-sm"
+                  className="mt-3 px-4 py-2 rounded-xl bg-white text-[#1677FF] text-xs font-bold shadow-sm"
                 >
                   Book an Appointment
                 </button>

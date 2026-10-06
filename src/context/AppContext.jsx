@@ -52,7 +52,7 @@ export const AppProvider = ({ children }) => {
 
   // Appointments actions
   const bookAppointment = (data) => {
-    const newId = `MD-2026-${Math.floor(10000 + Math.random() * 90000)}`;
+    const newId = `CG-APT-${Math.floor(1000 + Math.random() * 9000)}`;
     const newAppt = {
       id: newId,
       patientId: currentUser?.role === 'patient' ? currentUser.id : data.patientId || 'pat-1',

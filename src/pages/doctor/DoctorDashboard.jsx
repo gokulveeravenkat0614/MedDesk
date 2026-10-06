@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   Heart, Activity, Calendar, Users, Stethoscope,
   Plus, ChevronRight, ShieldCheck, Clock, FileText,
-  TrendingUp, Sparkles, Filter, CheckCircle2
+  TrendingUp, Sparkles, Filter, CheckCircle2, Wind, Thermometer
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { AnatomyViewer } from '../../components/AnatomyViewer';
@@ -67,6 +67,26 @@ export const DoctorDashboard = () => {
     { day: 'Sun', hr: 72 },
   ];
 
+  const oxygenTrendData = [
+    { day: 'Mon', spo2: 98 },
+    { day: 'Tue', spo2: 99 },
+    { day: 'Wed', spo2: 97 },
+    { day: 'Thu', spo2: 98 },
+    { day: 'Fri', spo2: 98 },
+    { day: 'Sat', spo2: 99 },
+    { day: 'Sun', spo2: 98 },
+  ];
+
+  const tempTrendData = [
+    { day: 'Mon', temp: 98.4 },
+    { day: 'Tue', temp: 98.6 },
+    { day: 'Wed', temp: 98.4 },
+    { day: 'Thu', temp: 98.3 },
+    { day: 'Fri', temp: 98.5 },
+    { day: 'Sat', temp: 98.4 },
+    { day: 'Sun', temp: 98.4 },
+  ];
+
   // Filter Today's Appointments (Section 12)
   const todaysAppointments = appointments.slice(0, 3);
   const recentRecords = medicalRecords.slice(0, 3);
@@ -110,7 +130,7 @@ export const DoctorDashboard = () => {
           </h1>
 
           <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl">
-            Manage appointments, patients and medical information securely — all in one place.
+            Manage appointments, patients and authorized healthcare information securely — all in one place.
           </p>
         </div>
 
@@ -173,6 +193,38 @@ export const DoctorDashboard = () => {
             iconBg="bg-rose-50 text-rose-500"
             trend="-0.8% regular"
             subtitle="Sinus rhythm telemetry"
+          />
+
+          {/* Vital Card 3: Oxygen Level */}
+          <VitalCard
+            title="Oxygen Level"
+            value="98"
+            unit="%"
+            status="Optimal"
+            statusColor="text-emerald-700 bg-emerald-50 border-emerald-200"
+            data={oxygenTrendData}
+            dataKey="spo2"
+            strokeColor="#06B6D4"
+            icon={Wind}
+            iconBg="bg-cyan-50 text-cyan-600"
+            trend="+0.5% steady"
+            subtitle="Pulse oximetry (SpO2)"
+          />
+
+          {/* Vital Card 4: Body Temperature */}
+          <VitalCard
+            title="Body Temperature"
+            value="98.4"
+            unit="°F"
+            status="Normal"
+            statusColor="text-emerald-700 bg-emerald-50 border-emerald-200"
+            data={tempTrendData}
+            dataKey="temp"
+            strokeColor="#F59E0B"
+            icon={Thermometer}
+            iconBg="bg-amber-50 text-amber-600"
+            trend="±0.1°F stable"
+            subtitle="Core oral telemetry"
           />
 
           {/* Today's Appointments Card (Section 12) */}
