@@ -1,5 +1,18 @@
 [
   {
+    "id": "LOG-243349",
+    "timestamp": "2026-10-06 06:47:23",
+    "category": "Authentication",
+    "event": "AUTH_LOGIN_SUCCESS",
+    "severity": "success",
+    "actor": "doctor@careguard.demo",
+    "role": "doctor",
+    "target": "CareGuard Security Gateway",
+    "ip": "::1",
+    "status": "Authorized",
+    "details": "User authenticated successfully with cryptographic JWT token. Role: doctor."
+  },
+  {
     "id": "LOG-726286",
     "timestamp": "2026-10-06 05:48:46",
     "category": "Input Validation",
