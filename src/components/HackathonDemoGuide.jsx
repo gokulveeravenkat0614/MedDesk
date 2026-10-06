@@ -188,6 +188,17 @@ export const HackathonDemoGuide = () => {
 
             </div>
 
+            <button
+              onClick={() => {
+                navigate('/security-center');
+                setIsOpen(false);
+              }}
+              className="w-full py-2 px-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-bold shadow-md flex items-center justify-center gap-2 transition-all"
+            >
+              <ShieldCheck className="w-4 h-4 text-cyan-300" />
+              <span>Launch Multi-Layer Firewall Inspector</span>
+            </button>
+
             <div className="p-2 rounded-xl bg-slate-100 text-[10px] text-slate-500 text-center">
               "Never trust the request. Always verify authorization before data access."
             </div>

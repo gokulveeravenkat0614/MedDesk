@@ -1,5 +1,57 @@
 [
   {
+    "id": "LOG-726286",
+    "timestamp": "2026-10-06 05:48:46",
+    "category": "Input Validation",
+    "event": "INJECTION_ATTACK_INTERCEPTED",
+    "severity": "danger",
+    "actor": "Anonymous Client",
+    "role": "Guest",
+    "target": "POST /api/security/firewall/simulate-request",
+    "ip": "::1",
+    "status": "Blocked",
+    "details": "Firewall blocked malicious payload matching pattern: /<script\\b[^<]*(?:(?!<\\/script>)<[^<]*)*<\\/script>/gi"
+  },
+  {
+    "id": "LOG-726268",
+    "timestamp": "2026-10-06 05:48:46",
+    "category": "Authentication",
+    "event": "AUTH_LOGIN_SUCCESS",
+    "severity": "success",
+    "actor": "admin@careguard.demo",
+    "role": "admin",
+    "target": "CareGuard Security Gateway",
+    "ip": "::1",
+    "status": "Authorized",
+    "details": "User authenticated successfully with cryptographic JWT token. Role: admin."
+  },
+  {
+    "id": "LOG-694834",
+    "timestamp": "2026-10-06 05:48:14",
+    "category": "Record Access",
+    "event": "FIREWALL_ALLOWED_REQUEST",
+    "severity": "success",
+    "actor": "admin@careguard.demo",
+    "role": "doctor",
+    "target": "READ_PATIENT_RECORDS",
+    "ip": "::1",
+    "status": "Authorized",
+    "details": "Firewall pipeline passed all 8 layers. Access granted."
+  },
+  {
+    "id": "LOG-694809",
+    "timestamp": "2026-10-06 05:48:14",
+    "category": "Authentication",
+    "event": "AUTH_LOGIN_SUCCESS",
+    "severity": "success",
+    "actor": "admin@careguard.demo",
+    "role": "admin",
+    "target": "CareGuard Security Gateway",
+    "ip": "::1",
+    "status": "Authorized",
+    "details": "User authenticated successfully with cryptographic JWT token. Role: admin."
+  },
+  {
     "id": "LOG-913825",
     "timestamp": "2026-10-05 15:25:13",
     "category": "Authentication",

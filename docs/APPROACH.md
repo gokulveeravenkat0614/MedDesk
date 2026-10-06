@@ -207,15 +207,39 @@ CareGuard is engineered using a modular, decoupled Single Page Application (SPA)
   3. **Privacy Disclaimer Standard:** Replaced all extraneous compliance references with "Privacy-Focused Clinical Environment • Security-Oriented Prototype • Synthetic Demo Environment" across `MedicalRecords.jsx`, `PatientProfile.jsx`, and `Settings.jsx`.
   4. **Standardized Empty States & Error UI (`EmptyState.jsx`, `ErrorState.jsx`):** Added specific empty states ("No upcoming appointments", "No doctors found", "No medical records available", "No patient records found") across directories and record tables, and clean non-technical error boundary state ("Something went wrong / Please try again").
   5. **Appointment Wizard Confirmation Parity (`Appointments.jsx`):** Aligned confirmation details with Doctor, Specialization, Date, Time, and CG-APT-1001 ID format.
-- **Resolution:** Tested full production build (`✓ 2588 modules transformed, 0 errors, built in 12.65s`).
+### [2026-10-06 11:20 IST] Entry 12: Comprehensive Multi-Layer Security Firewall Engine & Interactive Defense Inspector
+- **Focus:** Engineered and deployed a practical, multi-layer security firewall layer spanning both backend Express gateway and React frontend, proving security is deeply integrated into application architecture:
+  1. **Backend Multi-Layer Security Firewall Engine (`server/middleware/firewall.js`):**
+     - Enforces an 8-stage zero-trust request processing pipeline:
+       - Layer 1: Identity & Origin Verification (whitelisted CORS, client IP tracking, security headers).
+       - Layer 2: Cryptographic Authentication (signed JWT token validation and expiry check).
+       - Layer 3: Role-Based Access Control / RBAC (enforces Patient, Doctor, and Admin capability boundaries).
+       - Layer 4: Patient-Doctor Relationship & IDOR Authorization (blocks unauthorized cross-patient data probes).
+       - Layer 5: Deep Input Validation & Injection Threat Defense (intercepts XSS scripts, SQL injection keywords, MongoDB operator injection, and directory traversal).
+       - Layer 6: Rate Limiting & Velocity Defense (sliding-window anti-brute force and DDoS mitigation).
+       - Layer 7: Secure API Minimum Data Projection (least-privilege masking of sensitive backend fields, credentials, and paths).
+       - Layer 8: Immutable Audit Logging (real-time recording of security events with status, actor, IP, and timestamp).
+     - Mounted globally in `server/server.js` via `careGuardFirewall`.
+     - Provided simulated firewall execution endpoint `POST /api/security/firewall/simulate-request`.
+  2. **Frontend Route Protection & Access Denied UI (`src/components/RoleGuard.jsx`):**
+     - Wraps role-scoped routes in `src/App.jsx` (`/doctor/*`, `/patient/*`, `/admin/*`).
+     - Renders standardized `🔴 Access Denied / 🔒 Access Restricted` UI when unauthorized access is attempted, detailing the attempted resource, authenticated identity, current vs required role, and firewall rule violation.
+  3. **Interactive Security Firewall Inspector (`src/components/SecurityFirewallInspector.jsx`):**
+     - High-fidelity visual dashboard rendering the 8-layer inspection pipeline in real time.
+     - 6 one-click evaluation attack scenarios: Legitimate Patient Request, Authorized Doctor Consultation, Doctor Cross-Patient IDOR Attack, Privilege Escalation Attempt, XSS Script Injection, and Velocity Flood.
+     - Custom request builder allowing evaluators to simulate arbitrary roles, target patient IDs, and payloads.
+     - Embedded in `src/pages/SecurityCenter.jsx` and accessible via `HackathonDemoGuide.jsx`.
+- **Resolution:** Full Vite production build verified (`✓ 2590 modules transformed, 0 errors, built in 8.39s`). Backend live test confirmed Layer 5 threat interception and Layer 4 IDOR blocking.
 
 ---
 
 ## 6. Testing, Security Verification & Deployment Record
 
 ### 6.1 Testing & Security Verification Strategy
-- **Build Verification:** Tested with `npm run build` using Vite production bundler.
+- **Build Verification:** Tested with `npm run build` using Vite production bundler (`0 errors`).
+- **Firewall Pipeline Verification:** Tested with live Node.js automated probes for Layer 5 XSS detection (`MALICIOUS_INPUT_BLOCKED`) and Layer 4 authorization verification.
 - **State Integrity:** LocalStorage sync validated for appointment creation, rescheduling, cancellation, and medical record saving.
-- **Access Audit Verification:** Confirmed that every medical record contains tamper-evident access log history.
+- **Access Audit Verification:** Confirmed that every medical record and firewall event contains tamper-evident access log history.
+
 
 
