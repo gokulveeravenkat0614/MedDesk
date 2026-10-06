@@ -55,9 +55,9 @@ export const PatientProfile = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-primary border border-blue-200/60 uppercase tracking-wider flex items-center gap-1">
+            <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-primary border border-blue-200/60 uppercase tracking-wider flex items-center gap-1">
               <ShieldCheck className="w-3 h-3 text-primary" />
-              Simulated HIPAA/GDPR Segregated Profile
+              Privacy-Focused Clinical Environment • Protected Profile
             </span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">

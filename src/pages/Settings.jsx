@@ -152,9 +152,9 @@ export const Settings = () => {
               <div className="p-3.5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start gap-3">
                 <ShieldCheck className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <div className="text-xs">
-                  <h4 className="font-bold text-slate-800">Simulated HIPAA / GDPR Architecture</h4>
+                  <h4 className="font-bold text-slate-800">Privacy-Focused Clinical Environment</h4>
                   <p className="text-slate-600 mt-1 leading-relaxed">
-                    CareGuard isolates patient record visibility exclusively to authorized attending physicians and designated system auditors. All interactions append to immutable audit trails.
+                    CareGuard isolates patient record visibility exclusively to authorized attending physicians and designated clinic administrators. All interactions append to verifiable audit trails in a secure synthetic demonstration environment.
                   </p>
                 </div>
               </div>

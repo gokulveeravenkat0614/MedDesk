@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { Modal } from '../../components/Modal';
+import { EmptyState } from '../../components/EmptyState';
 
 export const Patients = () => {
   const { patients, medicalRecords, addMedicalRecord, currentUser, showToast } = useApp();
@@ -114,9 +115,18 @@ export const Patients = () => {
         </span>
       </div>
 
-      {/* Patient Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {filteredPatients.map((patient) => {
+      {/* Patient Cards Grid or Empty State (Prompt Specification) */}
+      {filteredPatients.length === 0 ? (
+        <EmptyState
+          icon={Users}
+          title="No patient records found"
+          description="No authorized patient records matching your search criteria."
+          actionText="Clear Search"
+          onAction={() => setSearchTerm('')}
+        />
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {filteredPatients.map((patient) => {
           const patientRecords = medicalRecords.filter(r => r.patientId === patient.id);
 
           return (
@@ -194,7 +204,8 @@ export const Patients = () => {
             </div>
           );
         })}
-      </div>
+        </div>
+      )}
 
       {/* Patient Detail Modal */}
       {showPatientDetailModal && selectedPatient && (

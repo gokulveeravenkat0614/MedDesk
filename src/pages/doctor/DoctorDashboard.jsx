@@ -151,7 +151,7 @@ export const DoctorDashboard = () => {
         recentActivity={[
           { time: '10:32 AM', event: 'Dr. Arjun Mehta clinical session authenticated', status: 'Verified' },
           { time: '10:35 AM', event: 'Authorized patient Rahul Kumar record accessed', status: 'Authorized' },
-          { time: '10:40 AM', event: 'Consultation appointment #MD-2026-00124 updated', status: 'Enforced' }
+          { time: '10:40 AM', event: 'Consultation appointment #CG-APT-1001 updated', status: 'Enforced' }
         ]}
       />
 

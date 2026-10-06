@@ -11,20 +11,20 @@ const PREDEFINED_QA = [
     answer: "To book an appointment: Navigate to 'Find Doctors' or click 'Book Appointment' from your dashboard. Select your physician, choose an available date and time slot, choose your consultation type, and confirm!"
   },
   {
+    trigger: "Where can I see my records?",
+    answer: "Visit the 'Medical Records' tab from the navigation sidebar. You can inspect your consultation notes, diagnostic findings, and prescriptions under verified access controls."
+  },
+  {
     trigger: "How do I reschedule?",
     answer: "Go to 'Appointments' from your sidebar or dashboard, locate the scheduled visit, click 'Reschedule', pick a new available clinical slot from the calendar, and save your update."
   },
   {
-    trigger: "Where can I find my medical records?",
-    answer: "Visit the 'Medical Records' tab from the navigation sidebar. You can inspect your consultation notes, diagnostic findings, and prescriptions under verified access controls."
+    trigger: "How do I cancel?",
+    answer: "Go to 'Appointments', locate the upcoming appointment, and click 'Cancel'. You will receive immediate confirmation and the clinic schedule will be updated automatically."
   },
   {
     trigger: "How do I find a doctor?",
     answer: "Open 'Find Doctors' from the sidebar to browse available clinicians by medical specialty (General Medicine, Cardiology, Dermatology, Pediatrics, etc.) and inspect their real-time availability."
-  },
-  {
-    trigger: "How do I cancel an appointment?",
-    answer: "Go to 'Appointments', locate the upcoming appointment, and click 'Cancel'. You will receive immediate confirmation and the clinic schedule will be updated automatically."
   }
 ];
 
@@ -134,10 +134,10 @@ export const AIChat = () => {
           </div>
 
           {/* Medical Disclaimer Banner */}
-          <div className="px-3.5 py-2.5 bg-amber-50 border-b border-amber-200/60 flex items-center gap-2 text-[10px] text-amber-800 font-medium">
-            <ShieldAlert className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+          <div className="px-3.5 py-2.5 bg-blue-50 border-b border-blue-200/60 flex items-center gap-2 text-[10px] text-blue-900 font-medium">
+            <ShieldAlert className="w-3.5 h-3.5 text-primary shrink-0" />
             <span>
-              CareGuard AI provides general application assistance and is not a medical diagnosis tool.
+              CareGuard AI provides application assistance and general information only.
             </span>
           </div>
 

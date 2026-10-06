@@ -456,18 +456,26 @@ export const PatientAppointments = () => {
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 max-w-sm mx-auto text-left space-y-1.5 text-xs">
-              <div className="flex justify-between">
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 max-w-sm mx-auto text-left space-y-2 text-xs">
+              <div className="flex justify-between items-center pb-2 border-b border-slate-200/60">
                 <span className="text-slate-400">Appointment ID:</span>
                 <span className="font-mono font-bold text-primary">{confirmedAppt.id}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">Physician:</span>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-400">Doctor:</span>
                 <span className="font-bold text-slate-800">{confirmedAppt.doctorName}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">Date & Time:</span>
-                <span className="font-bold text-slate-800">{confirmedAppt.date} at {confirmedAppt.time}</span>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-400">Specialization:</span>
+                <span className="font-semibold text-primary">{confirmedAppt.doctorSpecialty || 'General Physician'}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-400">Date:</span>
+                <span className="font-bold text-slate-800">{confirmedAppt.date}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-400">Time:</span>
+                <span className="font-bold text-slate-800">{confirmedAppt.time}</span>
               </div>
             </div>
 

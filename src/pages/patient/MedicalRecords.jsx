@@ -69,8 +69,8 @@ export const PatientRecords = () => {
             <strong>🔒 Secure Access:</strong> Your clinical records are protected and only accessible to authorized clinic physicians.
           </span>
         </div>
-        <span className="hidden sm:inline text-[11px] text-slate-400 font-medium">
-          Simulated HIPAA Privacy Envelope
+        <span className="hidden sm:inline text-[11px] text-slate-500 font-semibold bg-white/80 px-2.5 py-0.5 rounded-full border border-slate-200/60">
+          Privacy-Focused Clinical Environment
         </span>
       </div>
 
@@ -95,8 +95,8 @@ export const PatientRecords = () => {
       <div className="space-y-3">
         {filteredRecords.length === 0 ? (
           <EmptyState
-            title={`No ${activeTab.toLowerCase()} records`}
-            description="You do not have any clinical files in this category yet."
+            title="No medical records available"
+            description="No clinical records found matching your selection criteria."
           />
         ) : (
           filteredRecords.map((record) => (

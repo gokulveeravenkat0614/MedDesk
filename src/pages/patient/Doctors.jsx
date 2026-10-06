@@ -7,6 +7,7 @@ import {
 import { useApp } from '../../context/AppContext';
 import { DoctorCard } from '../../components/DoctorCard';
 import { Modal } from '../../components/Modal';
+import { EmptyState } from '../../components/EmptyState';
 
 export const Doctors = () => {
   const { doctors } = useApp();
@@ -100,17 +101,31 @@ export const Doctors = () => {
         </div>
       </div>
 
-      {/* Doctor Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {filteredDoctors.map((doc) => (
-          <DoctorCard
-            key={doc.id}
-            doctor={doc}
-            onBook={handleBook}
-            onViewProfile={handleViewProfile}
-          />
-        ))}
-      </div>
+      {/* Doctor Cards Grid or Empty State (Prompt Specification) */}
+      {filteredDoctors.length === 0 ? (
+        <EmptyState
+          icon={Stethoscope}
+          title="No doctors found"
+          description="Try another search."
+          actionText="Clear Filters"
+          onAction={() => {
+            setSearchTerm('');
+            setSelectedSpecialty('All');
+            setSelectedAvailability('All');
+          }}
+        />
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {filteredDoctors.map((doc) => (
+            <DoctorCard
+              key={doc.id}
+              doctor={doc}
+              onBook={handleBook}
+              onViewProfile={handleViewProfile}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Doctor Profile Modal (Section 20 specification) */}
       {showDetailModal && selectedDoctor && (

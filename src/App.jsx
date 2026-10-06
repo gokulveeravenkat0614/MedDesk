@@ -6,6 +6,7 @@ import { Navbar } from './components/Navbar';
 import { Sidebar } from './components/Sidebar';
 import { Footer } from './components/Footer';
 import { AIChat } from './components/AIChat';
+import { MobileBottomNav } from './components/MobileBottomNav';
 import { HackathonDemoGuide } from './components/HackathonDemoGuide';
 
 // Pages
@@ -77,6 +78,9 @@ const MainLayout = ({ children }) => {
 
       {/* Floating AI Assistant (Section 32) */}
       <AIChat />
+
+      {/* Mobile Bottom Navigation for Patients (Prompt Specification) */}
+      <MobileBottomNav />
 
       {/* Global Footer */}
       <Footer />
